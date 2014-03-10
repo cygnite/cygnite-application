@@ -1,0 +1,12 @@
+<html>
+    <head><title>My first Twig template!</title></head>
+    <body>
+        My name is {{ name }}.
+        My friends are:
+        <ul>
+        {% for person in friends %}
+            <li>{{ person.firstname}} {{ person.lastname }}</li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
