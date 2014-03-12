@@ -83,6 +83,9 @@ ii. Clearly describe the issue you find to fix shortly.
 
 iii. Create a branch where you would like to place your changes and send the patches to us.
 
-iv. Fork Cygnite Repository on GitHub.
+iv.  Fork cygnite/framework repository on GitHub.
 
 v. Please follow the coding standard as followed (Resembles PSR) on the project or please request for coding standard to follow.
+
+For core code https://github.com/cygnite/framework
+
