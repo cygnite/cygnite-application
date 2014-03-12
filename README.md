@@ -32,7 +32,7 @@ Replace -
        }
     }
     
-    With - 
+With - 
            
     "require": {
          "php": ">=5.3.3",
