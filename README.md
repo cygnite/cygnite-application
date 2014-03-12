@@ -11,7 +11,7 @@ The best way to install Cygnite Framework is to download composer.phar from http
 YOu may install Cygnite Framework either simply downloading skeleton application from here or you may install via composer. Composer installation is more convinient.
 
 
-Composer: Create You Project
+Composer: Create Project
 ============================
 Create your project from terminal simply entering below command -
 
