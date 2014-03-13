@@ -27,8 +27,8 @@ if (!defined('CF_SYSTEM')) {
  * @Since	              :  Version 1.0
  * @FileSource            :  http://www.cygniteframework.com
  * @warning               :  Any changes in this library can cause abnormal behaviour of the framework
- *@todo                   :  Multiple routiing configurations have to implemented and have to simplify
- *                                           core code for routing feature, have to add more filter validation.
+ * @todo                  :  Multiple routing configurations have to implemented and have to simplify
+ *                           core code for routing feature, have to add more filter validation.
  *
  */
 return array(

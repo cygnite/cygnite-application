@@ -28,7 +28,7 @@ if (!defined('CF_SYSTEM')) {
 * @Link	              :  http://www.cygniteframework.com
 * @Since	          :  Version 1.0
 * @FileSource
-* @todo               :  Multiple routiing configurations have to implemented and have to simplify
+* @todo               :  Multiple routing configurations have to implemented and have to simplify
 *                        core code for routing feature, have to add more filter validation.
 *
 */
@@ -39,7 +39,7 @@ $router->before(
     'GET',
     '/.*',
     function () {
-        //echo "The Framework is under development";
+        //echo "The Framework is under active development";
     }
 );
 

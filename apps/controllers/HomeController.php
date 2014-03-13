@@ -1,8 +1,9 @@
 <?php
 namespace Apps\Controllers;
 
-use Cygnite\AbstractBaseController;
 use Cygnite\Application;
+use Cygnite\AbstractBaseController;
+
 
 class HomeController extends AbstractBaseController
 {
@@ -10,12 +11,12 @@ class HomeController extends AbstractBaseController
     * --------------------------------------------------------------------------
     * The Default Controller
     *--------------------------------------------------------------------------
-    *  This controller respond to uri beginning with welcomeuser and also
+    *  This controller respond to uri beginning with home and also
     *  respond to root url like "home/index"
     *
-    * Your GET request of "home/form" will respond like below -
+    * Your GET request of "home/index" will respond like below -
     *
-    *      public function formAction()
+    *      public function indexAction()
     *     {
     *            echo "Cygnite : Hellow ! World ";
     *     }

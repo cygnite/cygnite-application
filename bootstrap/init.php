@@ -27,6 +27,10 @@ if (version_compare(PHP_VERSION, '5.3', '<') === true) {
     );
 }
 
+if (!extension_loaded('mcrypt')) {
+	die("Cygnite Framework require mcrypt extension to run.");
+}
+
 require __DIR__ . "/../vendor/autoload.php";
 
 function show($resultArray = array(), $hasExit = "")
@@ -77,6 +81,6 @@ $response = Application::load(
 //Return Response to browser
 $response->run();
 
-if (Config::getConfig('global_config', 'enable_profiling') == true) {
+if (Config::get('global_config', 'enable_profiling') == true) {
    Profiler::end();
 }
