@@ -47,7 +47,7 @@ if (!defined('CF_SYSTEM')) {
  * <code>
  * 'db'  => 'mysql://root:@localhost/cygnite?charset=utf8',
  * 'db1' => 'mysql://root:admin@localhost/social_network?charset=utf8',
- * 'db2' => 'mysql://root:root@localhost/mis?charset=utf8',
+ * 'db2' => 'mysql://root:password@localhost/jobstreet?charset=utf8',
  *
  * </code>
  *
@@ -59,7 +59,7 @@ Configurations::initialize(
         $config->setConfig(
             array(
              'db'  => 'mysql://root:@localhost/cygnite?charset=utf8',
-             'db1' => 'mysql://root:@localhost/directory?charset=utf8',
+             'db1' => 'mysql://root:@localhost/search_engine?charset=utf8',
             )
         );
     }
