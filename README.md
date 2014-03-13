@@ -15,9 +15,9 @@ Composer: Create Project
 ============================
 Create your project from terminal simply entering below command -
 
-    composer create-project cygnite/application cygnite
+    composer create-project cygnite/cygnite-application
     or
-    composer.phar create-project cygnite/application cygnite
+    composer.phar create-project cygnite/cygnite-application
    
 after executing above command you will find cygnite folder inside your project directory. Now change cygnite/composer.json as below to download your dependencies. 
 
