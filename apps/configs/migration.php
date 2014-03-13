@@ -3,7 +3,7 @@ namespace Cygnite\Database;
 
 /**
  *  Cygnite Framework
- *  Database Configuration Settings
+ *  Database Migration Configuration Settings
  *
  *  An open source application development framework for PHP 5.3x or newer
  *
@@ -11,14 +11,14 @@ namespace Cygnite\Database;
  *
  *   This source file is subject to the MIT license that is bundled
  *   with this package in the file LICENSE.txt.
- *   http://www.appsntech.com/license.txt
+ *   http://www.cygniteframework.com/license.txt
  *   If you did not receive a copy of the license and are unable to
  *   obtain it through the world-wide-web, please send an email
  *   to sanjoy@hotmail.com so I can send you a copy immediately.
  *
  *@package               : Apps
- *@subpackages           : Database Configurations
- *@filename              : database.php
+ *@subpackages           : Database Migration Configurations
+ *@filename              : migration.php
  *@description           : You can set your session configurations here.
  *@author                : Sanjoy Dey
  *@copyright             : Copyright (c) 2013 - 2014,

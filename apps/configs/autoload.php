@@ -6,7 +6,7 @@ if (!defined('CF_SYSTEM')) {
 }
 /**
  *  Cygnite Framework
- *  Autoloader Configuration Settings
+ *  Auto loader Configuration Settings
  *
  *  An open source application development framework for PHP 5.3x or newer
  *
@@ -35,51 +35,16 @@ if (!defined('CF_SYSTEM')) {
  *
  */
 return array(
-
-   /*---------------------------------------------------------------------------
-    * Auto load Libraries
+    /*---------------------------------------------------------------------------
+    * Register all your directories to auto load your files.
     *---------------------------------------------------------------------------
-    * You can specify multiple numbers of libraries here to register on
+    * You can specify multiple numbers of directories here to register on
     * Cygnite Engine during runtime. Don't worry about the application
     * performance because all libraries are lazy loaded. But filename,
-    * Class Name should be  same and start with CF prefix. When you
-    * are requesting the class it will create singleton and return
-    *  you the object.
+    * class name and file should be same, StudlyCaps.
     *
-    *  Specify your class name and path here. You can register core
-    *  as well as user defined libraries here. That's all. Cygnite will
+    *  Specify your directory path here. That's all. Cygnite will
     *  take care of rest.
-    */
-    // Application::load()->registerClasses(
-        // array(
-            // 'Cache'     => '\\Cygnite\\Libraries\\Cache\\Handler\\Cache',
-            // 'Mailer'     => '\\Cygnite\\Libraries\\Mailer',
-            // 'Authx'     => '\\Apps\\Components\\Authx\\Authentication',
-            // 'Userdetails'  => '\\Apps\\Components\\Authx\\Userdetails',
-            // 'Image'  => '\\Apps\\Components\\Thumbnail\\Image',
-			// 'Ctool'  => '\\Apps\\Generator\\Crud\\Ctool',
-        // )
-    // ),
-  /*
-    *---------------------------------------------------------------------------
-    * Autoload Helpers
-    *---------------------------------------------------------------------------
-    * Load your helpers when cygnite initialize. Which will be available
-    * globally on your application. But we prefer import your helpers
-    * when needed else it may cause of slow application.
-    * This feature is inprogress.
-    */
-     'helpers' => array(''),
-
-  /*
-    *---------------------------------------------------------------------------
-    * Auto load Models
-    *---------------------------------------------------------------------------
-    * Autoload your models when cygnite boot up. All models will be dynamically
-    * loaded when you try to access model functions. Please register your
-    * all models here so that you can directly access. Don't worry about
-    * application performance since cygnite follows dynamic autoload. You
-    * can register n numbers of models in cygnite robot loader.
     */
     Application::load()->registerDirectories(
         array(
