@@ -40,11 +40,14 @@ return array (
     * The base URL used to import your application assets in your webpage.
     * Based on base url we will perform page redirect and other internal
     * functionalities.
+    * 
+    * No matter if you leave base path empty here, Cygnite will guess your base path 
+    * of your application.
     *
     */
     'base_path' => '',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Your Application Default Controller
     *--------------------------------------------------------------------------
@@ -53,7 +56,7 @@ return array (
     */
     'default_controller' => 'Home',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Your Application Default Method
     *--------------------------------------------------------------------------
@@ -64,7 +67,7 @@ return array (
     */
     'default_method' => 'index',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Your Application Character Encoding
     *--------------------------------------------------------------------------
@@ -75,7 +78,7 @@ return array (
     */
     'encoding' => 'UTF-8',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Your Application Language
     *--------------------------------------------------------------------------
@@ -84,7 +87,7 @@ return array (
     */
     'language' => 'en',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Application Timezone
     *--------------------------------------------------------------------------
@@ -94,7 +97,7 @@ return array (
     */
     'timezone' => 'UTC',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     *  Application Encryption key
     *--------------------------------------------------------------------------
@@ -105,7 +108,7 @@ return array (
     */
     'cf_encryption_key'           => 'cygnite-shaXatBNHQ4',
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * Benchmark Your Application
     *--------------------------------------------------------------------------
@@ -114,7 +117,7 @@ return array (
     */
     'enable_profiling'            => false,
 
-    /*
+    /**
     *--------------------------------------------------------------------------
     * ************Your Application Cache Config*************
     *--------------------------------------------------------------------------
@@ -124,7 +127,7 @@ return array (
     */
     'enable_cache'                => true,
 
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Cache Name
     *---------------------------------------------------------------------------
@@ -133,7 +136,7 @@ return array (
     */
     'cache_name'                  => 'cf_cache',
 
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Cache Extension
     *---------------------------------------------------------------------------
@@ -143,7 +146,7 @@ return array (
     */
     'cache_extension'             => '.cache',
 
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Cache Type
     *---------------------------------------------------------------------------
@@ -152,7 +155,7 @@ return array (
     */
     'cache_type'                  => 'filecache',
 
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Cache Storage Location
     *---------------------------------------------------------------------------
@@ -162,7 +165,7 @@ return array (
     */
     'cache_directory'              => 'temp/cache', //Default value is none
 
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Set Application Environment
     *---------------------------------------------------------------------------
@@ -192,7 +195,7 @@ return array (
 
     //You can set value  1- Display error, 2 - Generate and write into log file
     'log_trace_type'               => 2,  // Will be available on next version.
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Logs File Name
     *---------------------------------------------------------------------------
@@ -201,7 +204,7 @@ return array (
     *
     */
     'log_file_name'                => 'application_logs' ,
-    /*
+    /**
     *---------------------------------------------------------------------------
     * Logs Storage Location
     *---------------------------------------------------------------------------
@@ -211,13 +214,18 @@ return array (
     */
     'log_path'                     => 'temp/logs',
 
-    /*
+    /**
      * Email Configurations
-     *
+     * @swift_mailer_path - change path below if swift_required.php file is in different directory
+     * @protocol  your email protocol
+     * @smtp provide smtp details 
+     * @sendmail path of your sendmail 
+     * 
      *
      */
+    'emailConfiguration' => array(
 
-    'email_configurations' => array(
+                'swift_mailer_path' => 'swiftmailer.swiftmailer.lib.swift_required',
 
                 'protocol' => 'smtp',
 
@@ -225,9 +233,9 @@ return array (
 
                     'host'                   => 'smtp.gmail.com',
 
-                    'username'               => 'your gmail id',
+                    'username'               => 'your-gmail-username',
 
-                    'password'               => 'your password',
+                    'password'               => 'your-email-password',
 
                     'port'                   => '465',
 
