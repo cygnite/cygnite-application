@@ -3,68 +3,31 @@ Skeleton Application Using Cygnite Framework
 
 Sample skeleton application using the Cygnite MVC layer - http://www.cygniteframework.com
 
+>  Note: This repository contains the skeleton application of the Cygnite Framework. If you would like to contribute 
+on Cygnite Framework, please visit the core [repository](https://github.com/cygnite/framework).
 
 Installation
 =============
 The best way to install Cygnite Framework is to download composer.phar from http://getcomposer.org/ to your local directory or to use globally on your system move it to usr/local/bin. For windows users please download and install composer setup. 
 
-YOu may install Cygnite Framework either simply downloading skeleton application from here or you may install via composer. Composer installation is more convinient.
+You may install Cygnite Framework either simply downloading skeleton application from here or you may install via composer. Composer installation is more convinient.
 
 
 Composer: Create Project
 ============================
-Create your project from terminal simply entering below command -
+Create your project from terminal by simply entering below command.
 
-    composer create-project cygnite/cygnite-application
-    or
-    composer.phar create-project cygnite/cygnite-application
+    composer create-project cygnite/cygnite-application cygnite --prefer-dist
+                                        or
+    composer.phar create-project cygnite/cygnite-application cygnite --prefer-dist
    
-after executing above command you will find cygnite folder inside your project directory. Now change cygnite/composer.json as below to download your dependencies. 
+That's all you are ready to build your awesome application. 
 
-Replace -
-                  
-    "require": {
-        "php": ">=5.3.3"
-    },
-    "autoload": {
-       "psr-0" : {
-           "Cygnite\\" : "src/"
-       }
-    }
-    
-With - 
-           
-    "require": {
-         "php": ">=5.3.3",
-         "cygnite/framework": "1.0.6",
-         "filp/whoops": "1.0.10",
-         "twig/twig": "1.*",
-         "symfony/console": "2.3.*"
-     },
-     "autoload": {
-         "classmap": [
-              "apps/controllers",
-              "apps/models",
-              "apps/components"	
-         ],
-         "psr-0" : {
-          "Cygnite\\" : "src/"
-         }
-     }
-
-##Composer: Install Dependencies
-===============================
-
-Enter below command in your terminal to simply update your dependencies.
-
-    composer update
-
-That's all you are ready to go.
 
 ##Contribute -
 =============
 
--> Are you an experienced PHP professional and have good knowledge of Object Oriented Programming concepts?
+-> Are you an experienced PHP professional and having knowledge of Object Oriented Programming concepts?
 
 -> Getting bored with the same kind of development ?
 
@@ -72,7 +35,8 @@ That's all you are ready to go.
 
 You are at the right place. We welcome you to participate on Cygnite Framework development or its documentation.
 
-Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback, send your wishlist for new features, write and send us patches for Cygnite Framework.
+Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback, send your wishlist for new features, write and send us patches for 
+Cygnite Framework.
 
 
 ##Getting Started with Cygnite -
@@ -86,6 +50,3 @@ iii. Create a branch where you would like to place your changes and send the pat
 iv.  Fork cygnite/framework repository on GitHub.
 
 v. Please follow the coding standard as followed (Resembles PSR) on the project or please request for coding standard to follow.
-
-For core code https://github.com/cygnite/framework
-
