@@ -47,6 +47,8 @@ class HomeController extends AbstractBaseController
    // protected $templateExtension = '.html.twig';
 
    protected $autoReload = true;
+   
+   public $service;
 
      /*
      * Your constructor.
