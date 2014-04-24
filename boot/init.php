@@ -21,7 +21,7 @@ defined('CF_VERSION') or define('CF_VERSION', '(v1.0.8 beta)');
 */
 if (version_compare(PHP_VERSION, '5.3', '<') === true) {
     @set_magic_quotes_runtime(0); // Kill magic quotes
-    throw new \ErrorException(
+    die(
         'Sorry Cygnite Framework will
         run on PHP version  5.3 or greater! \n'
     );
@@ -43,43 +43,35 @@ function show($resultArray = array(), $hasExit = "")
     }
 }
 
-global $events;
+global $event;
 
 //create Event handler to attach all events
-$events = new Cygnite\Base\Event();
+$event = new Cygnite\Base\Event();
 
-$events->attach("exception", '\\Cygnite\\onExceptions');
+$event->attach("exception", '\\Cygnite\\Exception\\Handler@handleException');
 
 $config = array();
 //Get the configuration variables.
-$config = Config::load();
-
-$app = array(
-    'config' => $config,
-    'event' => $events
+$config = array(
+    'app' => Config::load(),
+    'event' => $event
 );
-unset($config);
+//unset($config);
 //Load application and Get application instance to boot up
-$response = Application::load(
-    function($instance) use($app){
+$application = Application::instance(
+    function($app) use($config) {
 
-        $response = null;
         /**
-         *---------------------------------------------------
-         * Set Configurations and Events for boot-up process
-         * --------------------------------------------------
-         */
-        $response = $instance->setConfig($app['config'])
-                             ->setEventInstance($app['event'])
-                             ->initialize(new Strapper)
-                             ->send(new Cygnite\Base\Router);
-
-        return $response;
+        *---------------------------------------------------
+        * Set Configurations and Events for boot-up process
+        * --------------------------------------------------
+        */
+        return $app->setConfiguration($config)
+                   ->boot();
     }
 );
-
-//Return Response to browser
-$response->run();
+//Response to browser
+$application->run();
 
 if (Config::get('global_config', 'enable_profiling') == true) {
    Profiler::end();

@@ -54,9 +54,11 @@ class HelloUserController extends AbstractBaseController
      * @access public
      *
      */
-    public function __construct()
+    public function __construct(\Apps\Extensions\GeneralInterface $general)
     {
         parent::__construct();
+
+        show($general);
     }
 
     /**

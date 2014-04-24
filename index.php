@@ -47,7 +47,7 @@ defined('EXT') or define('EXT', '.php');
 */
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'packages');
 
-defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
+defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'boot');
 
 /* --------------------------------------------------------------
 * Define application folder name

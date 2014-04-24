@@ -47,7 +47,7 @@ $router->before(
 $router->get(
     '/hello/(\w+)',
     function ($name) {
-        Router::call('Home.testing', array($name,'Cygnite PHP Framework'));
+        Router::call('Home.testing', array($name,' PHP Framework'));
         Router::end();
     }
 );
@@ -56,9 +56,9 @@ $router->get(
 $router->post(
     '/categories/post/',
     function () {
-        $client_data = file_get_contents("php://input");
-        $client_data = json_decode($client_data);
-        show($client_data->USER_ID);
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        show($data->USER_ID);
         Router::end();
     }
 );
