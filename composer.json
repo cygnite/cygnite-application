@@ -10,10 +10,9 @@
             "email": "sanjoy09@hotmail.com"
         }
     ],
-	"require": {
+    "require": {
      "php": ">=5.3.3",
      "cygnite/framework": "1.0.7",
-     "tracy/tracy": "dev-master",
      "twig/twig": "1.*",
      "symfony/console": "2.3.*"
    },
