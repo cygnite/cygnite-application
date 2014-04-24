@@ -40,8 +40,6 @@ class HomeController extends AbstractBaseController
 
     private $author = 'Sanjoy Dey';
 
-    private $country = 'India';
-
     //protected $layout = 'layout.users';
 
     protected $templateEngine = false;
@@ -73,7 +71,6 @@ class HomeController extends AbstractBaseController
                 'author' => $this->author,
                 'email' => 'sanjoy09@hotmail.com',
                 'messege' => 'Welcome to Cygnite Framework',
-                'country' => $this->country
             )
         );
    }

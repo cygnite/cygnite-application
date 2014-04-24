@@ -46,9 +46,11 @@ return array(
     *  Specify your directory path here. That's all. Cygnite will
     *  take care of rest.
     */
-    Application::load()->registerDirectories(
+    Application::instance()->registerDirectories(
         array(
             'apps.controllers',
+            'apps.modules',
+            'apps.configs.definitions',
             'apps.models',
             'apps.components.authx',
             'apps.components.thumbnail',

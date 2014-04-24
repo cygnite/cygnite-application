@@ -19,7 +19,7 @@ use Cygnite\Helpers\Assets;
   <div class="header">
      <div style="color: #ECECEC; padding: 31px; ">
          <div align="center" style="font-size: 28px; ">  Welcome To Cygnite Framework </div>
-         <div align="center" style=" margin-top: 3px;"><span style="font-size: 16px;">Framework For Web Artists</span></div>
+         <div align="center" style=" margin-top: 3px;"><span style="font-size: 16px;">Framework For Web Developers</span></div>
          <div align="center" style=" margin-top: 16px;"><span style="font-size: 16px;">"Discover Cygnite to make your life simple and better."</span> </div>
      </div>
   </div>
@@ -31,7 +31,7 @@ use Cygnite\Helpers\Assets;
 
     <div class="container">
                 <div class="block features">
-                  <h2 class="title-divider"><span><span class="title-em">Core Features OF Cygnite Framework  <?php echo CF_VERSION; ?></span></span>
+                  <h2 class="title-divider"><span><span class="title-em">Core Features OF Cygnite Framework </span></span>
                       <small>Core libraries are rapidly customized and upgrading with new features to full-fill all your needs.</small></h2>
 
                   <ul class="thumbnails">
@@ -42,7 +42,8 @@ use Cygnite\Helpers\Assets;
                              <h3 class="title"><a href="http://www.cygniteframework.com/p/documentation.html">Better <span class="title-em">Performance</span></a></h3>
 
                              </div>
-                              <p> With better performance and caching mechanism which makes your application applications faster then you are expected.
+                              <p>
+                                  Cygnite uses lazy loading extensively which give you better performance than you expected.
                               </p>
                             </div>
                     </li>
@@ -55,7 +56,8 @@ use Cygnite\Helpers\Assets;
                             </h3>
 
                          </div>
-                      <p>You may be starter or experienced professional you will find very easy to work with Cygnite Framework. Which boosts your productivity, simplify and minimise your code.
+                      <p>You may be starter or experienced professional you will find very easy to work with Cygnite Framework.
+                         It boost your productivity, simplify and minimise your code.
                      </p>
                         </div>
                     </li>
@@ -67,7 +69,9 @@ use Cygnite\Helpers\Assets;
                                  <h3 class="title"><a href="http://www.cygniteframework.com/2013/08/form-builder.html">Inbuilt <span class="title-em">Packages</span></a></h3>
                             </div>
 
-                      <p> Use inbuilt libraries based on your needs - Authx, Thumbnail Components,Secure Session,Validation, Assets, Forms,Input classes etc. which will make your task much easier.
+                      <p>
+                          Cygnite Framework makes your job much easier with it's core classes such as Form Builder,
+                          Active Record, Migration, Schema, Crud generator, Validator, Pretty Exception Handler etc.
                      </p>
                            </div>
                     </li>
@@ -80,7 +84,10 @@ use Cygnite\Helpers\Assets;
 
 
                         </div>
-                      <p>Connect multiple databases, generate queries using cygnite query builder.Proven secure database abstraction PDO class has been used for building database queries.
+                      <p>
+                          Connect multiple databases on the fly, generate queries using cygnite ActiveRecord.
+                          Your all queries are prepared by proven database abstraction PDO class which prevent
+                          sql injection.
                       </p>
                         </div>
                     </li>
@@ -89,7 +96,9 @@ use Cygnite\Helpers\Assets;
                         <div class="features-head">
                                <h3 class="title"><a href="http://www.cygniteframework.com/2013/08/routing.html">Dynamic <span class="title-em">Routing</span></a></h3>
                         </div>
-                        <p> Cygnite framework has powerful routing features which allow you to have various routing patterns.</p>
+                        <p> Cygnite framework has powerful routing features which loads you create powerful REST Api also with
+                            controller support.
+                        </p>
                       </div>
                     </li>
 
@@ -103,7 +112,8 @@ use Cygnite\Helpers\Assets;
                                    </h3>
 
                                </div>
-                                  <p> Security is main concern of any applications. Cygnite make your session and input strings more secure with built in mechanism.</p>
+                                  <p> Security is the main concern of any application.
+                                      Cygnite keep your session and input string secure with built in mechanism.</p>
                             </div>
                     </li>
 
