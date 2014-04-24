@@ -7,8 +7,7 @@
     "authors": [
         {
             "name": "Sanjoy Dey",
-            "email": "sanjoy09@hotmail.com",
-			"homepage": "http://www.appsntech.com",
+            "email": "sanjoy09@hotmail.com"
         }
     ],
 	"require": {
