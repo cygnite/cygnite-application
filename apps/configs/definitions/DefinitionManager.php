@@ -40,27 +40,37 @@ if (!defined('CF_SYSTEM')) {
       * Cygnite will inject all your dependencies at runtime
       *
       * @return array
+      *  <code>
+      *   return
+      *     array(
+      *          'HomeController' => array(
+      *              'service' => new \Apps\Extensions\General
+      *           ),
+      *          'ProductsController' => array(
+      *             'social' => new \Apps\Extensions\SocialShare,
+      *          ),
+      *      );
+      *  </code>
       *
       */
      public function getPropertyDependencies()
      {
-        return
-            array(
-                 'HomeController' => array(
-                    'service' => new \Apps\Extensions\General
-                 ),
-                 'ProductsController' => array(
-                    'general' => new \Apps\Extensions\General,
-                 ),
-            );
+        return array();
      }
 
+     /**
+      *
+      * @return type
+       *  <code>
+      *   return
+      *     array(
+      *          'GeneralInterface' => '\\Apps\\Extensions\\General',
+      *          'ORM' => '\\Cygnite\\Database\\ActiveRecord',
+      *      );
+      *  </code>
+      */
      public function registerAlias()
      {
-         return array(
-             'GeneralInterface' => '\\Apps\\Extensions\\General',
-             'ORM' => '\\Cygnite\\Database\\ActiveRecord',
-         );
-
+         return array();
      }
  }
