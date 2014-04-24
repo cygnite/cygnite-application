@@ -14,7 +14,8 @@
      "php": ">=5.3.3",
      "cygnite/framework": "1.0.7",
      "twig/twig": "1.*",
-     "symfony/console": "2.3.*"
+     "symfony/console": "2.3.*",
+     "tracy/tracy": "v2.2-rc1"
    },
   "autoload": {
      "classmap": [
