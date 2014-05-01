@@ -1,16 +1,17 @@
 Skeleton Application Using Cygnite Framework
-============================================
+======================================
 
 Sample skeleton application using the Cygnite MVC layer - http://www.cygniteframework.com
 
->  Note: This repository contains the skeleton application of the Cygnite Framework. If you would like to contribute 
+>  Note: This repository contains the skeleton application of the Cygnite Framework. If you would like to contribute
 on Cygnite Framework, please visit the core [repository](https://github.com/cygnite/framework).
 
 Installation
-=============
-The best way to install Cygnite Framework is to download composer.phar from http://getcomposer.org/ to your local directory or to use globally on your system move it to usr/local/bin. For windows users please download and install composer setup. 
+=========
+The best way to install Cygnite Framework is to download composer.phar from http://getcomposer.org/ to your local directory or to use globally on your system move it to
+usr/local/bin. For windows users please download and install composer setup.
 
-You may install Cygnite Framework either simply downloading skeleton application from here or you may install via composer. Composer installation is more convinient.
+You may install Cygnite Framework either simply downloading skeleton application from github repository or install via composer. Composer installation is more convenient.
 
 
 Composer: Create Project
@@ -20,23 +21,24 @@ Create your project from terminal by simply entering below command.
     composer create-project cygnite/cygnite-application cygnite --prefer-dist
                                         or
     composer.phar create-project cygnite/cygnite-application cygnite --prefer-dist
-   
-That's all you are ready to build your awesome application. 
+
+That's all you are ready to build your awesome application.
 
 
 ##Contribute -
-=============
+===========
+-> Getting bored with the same kind of development ?
+
+-> How long want to be user of some software ? Would like be creator as well ?
 
 -> Are you an experienced PHP professional and having knowledge of Object Oriented Programming concepts?
 
--> Getting bored with the same kind of development ?
-
--> Do you want to learn something interesting also showcase your skills to entire world?
+-> Do you want to learn something interesting and also showcase your skills to become well known by communities?
 
 You are at the right place. We welcome you to participate on Cygnite Framework development or its documentation.
 
-Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback, send your wishlist for new features, write and send us patches for 
-Cygnite Framework.
+Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback,
+send your wishlist for new features, write and send us patches for Cygnite Framework.
 
 
 ##Getting Started with Cygnite -
