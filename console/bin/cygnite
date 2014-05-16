@@ -7,7 +7,7 @@ set_time_limit(0);
 
 (@include_once __DIR__ . '/../../vendor/autoload.php') || @include_once __DIR__ . '/../../autoload.php';
 
-defined('APP_PATH') or define('BASE_PATH', dirname(dirname(dirname(__FILE__))));
+defined('BASE_PATH') or define('BASE_PATH', dirname(dirname(__DIR__)));
 
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'packages');
 
@@ -18,8 +18,7 @@ defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 // Change your time zone accordingly
 define('SET_TIME_ZONE', 'Asia/Kolkata');
 
-define('VERSION', 'Cygnite CLI v1.0.6');
-
+define('VERSION', 'Cygnite CLI v1.0.9');
 
 use Cygnite\Console\CygniteApplication;
 
