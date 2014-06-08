@@ -1,11 +1,11 @@
 <?php
-namespace Cygnite;
+namespace Cygnite\Foundation;
 
 if (!defined('CF_SYSTEM')) {
     exit('External script access not allowed');
 }
 /**
- *  Cygnite Framework
+ *  Cygnite framework
  *  Auto loader Configuration Settings
  *
  *  An open source application development framework for PHP 5.3x or newer
@@ -54,7 +54,9 @@ return array(
             'apps.models',
             'apps.components.authx',
             'apps.components.thumbnail',
-            'apps.extensions'
+            'apps.components.form',
+            'apps.extensions',
+            'apps.modules.admin',
         )
     )
 );

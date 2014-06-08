@@ -1,8 +1,8 @@
 <?php
 namespace Apps\Controllers;
 
-use Cygnite\Application;
-use Cygnite\AbstractBaseController;
+use Cygnite\Foundation\Application;
+use Cygnite\Mvc\Controller\AbstractBaseController;
 
 
 class HomeController extends AbstractBaseController
@@ -47,7 +47,7 @@ class HomeController extends AbstractBaseController
    // protected $templateExtension = '.html.twig';
 
    protected $autoReload = true;
-   
+
    public $service;
 
      /*
