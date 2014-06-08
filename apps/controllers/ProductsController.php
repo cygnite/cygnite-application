@@ -48,9 +48,9 @@ class ProductsController extends AbstractBaseController
         );
 
         $this->render('index', array(
-                                                'products' => $products,
-                                                'links' => ShoppingProducts::createLinks(),
-                                                'title' => 'Cygnite Framework - Crud Application'
+            'products' => $products,
+            'links' => ShoppingProducts::createLinks(),
+            'title' => 'Cygnite Framework - Crud Application'
         ));
 
     }
@@ -131,9 +131,9 @@ class ProductsController extends AbstractBaseController
         // Since our all all logic is in controller
         // We can also use same view page for create and update
         $this->render('create', array(
-                                                'form' => $form->buildForm()->render(),
-                                                'validation_errors' => $form->errors,
-                                               'title' => 'Add a new Product'
+            'form' => $form->buildForm()->render(),
+            'validation_errors' => $form->errors,
+            'title' => 'Add a new Product'
         ));
     }
 
@@ -147,9 +147,9 @@ class ProductsController extends AbstractBaseController
         // Since our all all logic is in controller
         // You can also use same view page for create and update
         $this->render('create', array(
-                                                'form' => $form->buildForm()->render(),
-                                                'validation_errors' => $form->errors,
-                                               'title' => 'Update the Product'
+            'form' => $form->buildForm()->render(),
+            'validation_errors' => $form->errors,
+            'title' => 'Update the Product'
         ));
     }
 
@@ -162,8 +162,8 @@ class ProductsController extends AbstractBaseController
         $product = ShoppingProducts::find($id);
 
         $this->render('view', array(
-                                                'product' => $product,
-                                                'title' => 'Show the Product'
+            'product' => $product,
+            'title' => 'Show the Product'
         ));
     }
 

@@ -1,7 +1,6 @@
 <?php
-
 use Cygnite\Strapper;
-use Cygnite\Application;
+use Cygnite\Foundation\Application;
 use Cygnite\Base\Event;
 use Cygnite\Helpers\Config;
 use Cygnite\Helpers\Profiler;
@@ -11,7 +10,7 @@ use Cygnite\Helpers\Profiler;
 * Define the Cygnite Framework  Version
 * ------------------------------------------------------
 */
-defined('CF_VERSION') or define('CF_VERSION', '(v1.0.8 )');
+defined('CF_VERSION') or define('CF_VERSION', '(v1.0.9)');
 
 /*
 * -------------------------------------------------------------
@@ -28,7 +27,7 @@ if (version_compare(PHP_VERSION, '5.3', '<') === true) {
 }
 
 if (!extension_loaded('mcrypt')) {
-	die("Cygnite Framework require mcrypt extension to run.");
+	die("Cygnite require mcrypt extension to run.");
 }
 
 require __DIR__ . "/../vendor/autoload.php";
@@ -46,7 +45,7 @@ function show($resultArray = array(), $hasExit = "")
 global $event;
 
 //create Event handler to attach all events
-$event = new Cygnite\Base\Event();
+$event = new Event();
 
 $event->attach("exception", '\\Cygnite\\Exception\\Handler@handleException');
 
@@ -73,6 +72,6 @@ $application = Application::instance(
 //Response to browser
 $application->run();
 
-if (Config::get('global_config', 'enable_profiling') == true) {
+if (Config::get('global.config', 'enable_profiling') == true) {
    Profiler::end();
 }
