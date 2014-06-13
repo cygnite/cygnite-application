@@ -12,16 +12,16 @@
     ],
     "require": {
      "php": ">=5.3.3",
-     "cygnite/framework": "1.0.8",
+     "cygnite/framework": "dev-master",
      "twig/twig": "1.*",
      "symfony/console": "2.3.*",
-     "tracy/tracy": "v2.2-rc1"
+     "tracy/tracy": "2.2.1"
    },
   "autoload": {
      "classmap": [
           "apps/controllers",
           "apps/models",
-          "apps/components" 
+          "apps/components"
      ],
      "psr-0" : {
       "Cygnite\\" : "src/"
