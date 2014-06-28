@@ -20,8 +20,5 @@
           "apps/components" 
      ]
    },
-   "config": {
-		"preferred-install": "dist"
-	},
 	"minimum-stability": "dev"
 }
