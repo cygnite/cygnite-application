@@ -14,7 +14,7 @@ if (!defined('CF_SYSTEM')) {
  *
  *   This source file is subject to the MIT license that is bundled
  *   with this package in the file LICENSE.txt.
- *   http://www.appsntech.com/license.txt
+ *   http://www.cygniteframework.com/license.txt
  *   If you did not receive a copy of the license and are unable to
  *   obtain it through the world-wide-web, please send an email
  *   to sanjoy@hotmail.com so I can send you a copy immediately.
@@ -35,7 +35,7 @@ if (!defined('CF_SYSTEM')) {
  class DefinitionManager
  {
 
-     /**
+   /**
       * Set controller property dependencies here.
       * Cygnite will inject all your dependencies at runtime
       *
@@ -44,10 +44,11 @@ if (!defined('CF_SYSTEM')) {
       *   return
       *     array(
       *          'HomeController' => array(
-      *              'service' => new \Apps\Extensions\General
+      *              'service' => 'apps.extensions.general',
+      *              'api' => 'apps.extensions.api'
       *           ),
       *          'ProductsController' => array(
-      *             'social' => new \Apps\Extensions\SocialShare,
+      *             'social' => 'apps.extensions.social-share',
       *          ),
       *      );
       *  </code>

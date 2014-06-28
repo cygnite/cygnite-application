@@ -4,7 +4,6 @@ namespace Apps\Controllers;
 use Cygnite\Foundation\Application;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 
-
 class HomeController extends AbstractBaseController
 {
     /**
@@ -37,9 +36,7 @@ class HomeController extends AbstractBaseController
     * That's it you are ready to start your awesome application with Cygnite Framework.
     *
     */
-
-    private $author = 'Sanjoy Dey';
-
+	
     //protected $layout = 'layout.users';
 
     protected $templateEngine = false;
@@ -47,9 +44,6 @@ class HomeController extends AbstractBaseController
    // protected $templateExtension = '.html.twig';
 
    protected $autoReload = true;
-
-   public $service;
-
      /*
      * Your constructor.
      * @access public
@@ -75,6 +69,17 @@ class HomeController extends AbstractBaseController
                 'messege' => 'Welcome to Cygnite Framework',
             )
         );
+   }
+   
+   public function hmvcAction($id)
+   {
+        //We are calling HMVC widget and return response
+		$widgetResponse = $this->call('modules.admin.controllers.user@index', array('id' => $id));
+		
+       $this->render('application', array(
+                'messege' => 'Welcome to Cygnite framework',
+                'userwidget' => $widgetResponse
+        ));  
    }
 
 }//End of your home controller

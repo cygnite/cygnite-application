@@ -2,19 +2,19 @@
 
 namespace Apps\Models;
 
-use Cygnite\Application;
-use Cygnite\Helpers\Url;
 use Cygnite\Database\Schema;
+use Cygnite\Foundation\Application;
+use Cygnite\Common\UrlManager\Url;
 use Cygnite\Database\ActiveRecord;
 
-class ShoppingProducts extends ActiveRecord
+class ShoppingProduct extends ActiveRecord
 {
 
     //your database connection name
     protected $database = 'cygnite';
 
-    // your table name here
-    //protected $tableName = 'ShoppingProducts';
+    // your table name here (Optional)
+    //protected $tableName = 'shopping_product';
 
     protected $primaryKey = 'id';
 
