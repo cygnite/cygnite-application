@@ -11,14 +11,18 @@
         }
     ],
 	"require": {
-		"cygnite/framework": "dev-master"
+		"cygnite/framework": "1.*"
 	},   
   "autoload": {
      "classmap": [
           "apps/controllers",
           "apps/models",
-          "apps/components" 
+          "apps/components" ,
+		  "apps/extensions" 
      ]
    },
-	"minimum-stability": "dev"
+   "config": {
+		"preferred-install": "dist"
+	},
+	"minimum-stability": "stable"
 }

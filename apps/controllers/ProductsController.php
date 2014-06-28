@@ -115,13 +115,13 @@ class ProductsController extends AbstractBaseController
             $form = new Registration($product, Url::segment(4));
             //$form->errors = $errors;
             $form->validation = $validator;
-            $this->editProduct($id, $form);
+            $this->edit($id, $form);
         } else {
             //Add a new Product
             $form = new Registration();
            // $form->errors = $errors;
             $form->validation = $validator;// set the validator instance
-            $this->addProduct($form);
+            $this->add($form);
         }
     }
 
@@ -130,7 +130,7 @@ class ProductsController extends AbstractBaseController
      * Add a new Product view page
      * @param type $form
      */
-    private function addProduct($form)
+    private function add($form)
     {
         // Since our all all logic is in controller
         // We can also use same view page for create and update
@@ -146,7 +146,7 @@ class ProductsController extends AbstractBaseController
      * @param type $id
      * @param type $form
      */
-    private function editProduct($id, $form)
+    private function edit($id, $form)
     {
         // Since our all all logic is in controller
         // You can also use same view page for create and update

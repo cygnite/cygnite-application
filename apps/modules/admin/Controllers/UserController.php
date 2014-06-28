@@ -27,7 +27,7 @@ class UserController extends AbstractBaseController
    public function indexAction($id)
    {
         $users = array();
-        //$user = User::all();
-        return Widget::make('modules::admin::user', array('msg' => 'Hello! Widget', 'users' => $user));
+        //$users = User::all();
+        return Widget::make('modules::admin::user', array('msg' => 'Hello! Widget', 'users' => $users));
    }
 }//End of your controller

@@ -37,13 +37,13 @@ class HomeController extends AbstractBaseController
     *
     */
 	
-    //protected $layout = 'layout.users';
+    //protected $layout = 'layout.base';
 
     protected $templateEngine = false;
 
    // protected $templateExtension = '.html.twig';
 
-   protected $autoReload = true;
+   //protected $autoReload = true;
      /*
      * Your constructor.
      * @access public
@@ -62,13 +62,7 @@ class HomeController extends AbstractBaseController
      */
    public function indexAction()
    {
-        $this->render('welcome')->with(
-            array(
-                'author' => $this->author,
-                'email' => 'sanjoy09@hotmail.com',
-                'messege' => 'Welcome to Cygnite Framework',
-            )
-        );
+        $this->render('welcome');
    }
    
    public function hmvcAction($id)
@@ -76,6 +70,7 @@ class HomeController extends AbstractBaseController
         //We are calling HMVC widget and return response
 		$widgetResponse = $this->call('modules.admin.controllers.user@index', array('id' => $id));
 		
+		//You should enable layout in order to access variable into view page
        $this->render('application', array(
                 'messege' => 'Welcome to Cygnite framework',
                 'userwidget' => $widgetResponse
