@@ -32,6 +32,6 @@ if (!defined('CF_SYSTEM')) {
  *
  */
 return array(
-    '/sayhello/(\w+)' => 'home.testing',
-    '/blog(/\d{4}(/\d{2}(/\d{2}(/[a-z0-9_-]+)?)?)?)?' => 'home.users'
+    '/sayhello/(\w+)' => 'home.welcome',
+    '/blog(/\d{4}(/\d{2}(/\d{2}(/[a-z0-9_-]+)?)?)?)?' => 'home.category'
 );

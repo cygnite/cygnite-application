@@ -1,5 +1,5 @@
 <?php
-use Cygnite\Application;
+use Cygnite\Foundation\Application;
 use Cygnite\Base\Router;
 
 if (!defined('CF_SYSTEM')) {
@@ -47,12 +47,15 @@ $router->before(
 $router->get(
     '/hello/(\w+)',
     function ($name) {
-        Router::call('Home.testing', array($name,' PHP Framework'));
+        Router::call('Home.welcome', array($name,' PHP Framework'));
         Router::end();
     }
 );
 
-
+/**
+ * Json Request Format {"USER_ID": "32"}
+ * type : POST
+*/
 $router->post(
     '/categories/post/',
     function () {
@@ -63,6 +66,10 @@ $router->post(
     }
 );
 
+/**
+ * Json Request Format {"USER_ID": "32"} or Empty
+ * type : GET
+*/
 $router->get(
     '/categories/emplist/',
     function () {

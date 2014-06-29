@@ -19,13 +19,11 @@ use Cygnite\AssetManager\AssetCollection;
 
         <div class="container" >
             <div class="header">
-                <div style="background: #F2F2F2;color: #484848; padding: 5px; ">
-                    <div align="center" > <h3 class="text-center" > <strong style="font-weight: bolder; font-size: 40px;"> Welcome </strong> to Cygnite Framework </h3>
-                        <span style="font-size: 15px;">A modern PHP Framework for Web developers</span>
-
+                <div style="padding: 5px; ">
+                    <div align="center" > <h3 class="text-center"   style="color:#fff !important;">
+							<strong style="font-weight: bolder; font-size: 40px;"> Welcome </strong> to Cygnite Framework </h3>
+                        <span style="font-size: 15px; color: #F6F6F1; ">A modern PHP Framework for Web developers</span>
                     </div>
-
-
                 </div>
             </div>
 
@@ -33,12 +31,12 @@ use Cygnite\AssetManager\AssetCollection;
 
                 <div class="container">
                     <div align="center">
-                        <h2 class="text-center">Why you'll love Cygnite Framework.</h2>
+                        <h2 class="text-center">Why you'll love Cygnite Framework?</h2>
                         <hr class="featurette-divider"></hr>
                     </div>
                     <p class="lead" style="font-family: small-caption;font-size: 25px;padding-left: 11px;">
                         Cygnite packed with various awesome features to make your development very simple and enjoyable.
-                        You may be beginner or advance professional, Cygnite welcome you all way.</p>
+                        You may be beginner or advance professional, Cygnite welcomes you all the way.</p>
 
                     <hr class="featurette-divider"></hr>
 
@@ -50,7 +48,7 @@ use Cygnite\AssetManager\AssetCollection;
                                     <h3 class="title">
                                         <a href="http://www.cygniteframework.com/2013/07/introduction.html">Better <span class="title-em">Performance</span></a></h3>
                                 </div>
-                                <p> With better performance and inbuilt caching library makes your applications faster then you are expecting. </p>
+                                <p> Cygnite gives you exceptional performance because of it's lazy loading mechanisam. </p>
                             </div>
                         </li>
                         <li class="span3">
@@ -59,8 +57,8 @@ use Cygnite\AssetManager\AssetCollection;
                                     <h3 class="title">
                                         <a href="http://www.cygniteframework.com/2013/08/controllers.html">User  <span class="title-em">Friendly</span></a></h3>
                                 </div>
-                                <p> You may be starter or experienced php professional you will find very easy to work with Cygnite framework.
-                                    Its very easy to use, almost zero configuration. </p>
+                                <p> With simple clear syntax and out of box configuration. You'll love it.
+                                 </p>
                             </div>
                         </li>
 
@@ -68,69 +66,55 @@ use Cygnite\AssetManager\AssetCollection;
                             <div class="feature-block">
                                 <div class="features-head">
                                     <h3 class="title">
-                                        <a href="http://www.cygniteframework.com/2013/07/quickstart.html">Composer  <span class="title-em">Powered</span></a></h3>
+                                        <a href="http://www.cygniteframework.com/2013/08/routing.html">RESTful  <span class="title-em">Routing</span></a></h3>
                                 </div>
-                                <p> You may be starter or experienced php professional you will find very easy to work with Cygnite framework.
-                                    Its very easy to use, almost zero configuration. </p>
+                                <p>Use various routing with simple closure or controller support that, leads you to build powerful RESTful API. </p>
+                            </div>
+                        </li>
+						
+						<li class="span3">
+                            <div class="feature-block">
+                                <div class="features-head">
+                                    <h3 class="title">
+                                        <a href="http://www.cygniteframework.com/2014/03/ioc-container.html">IoC  <span class="title-em">Container</span></a></h3>
+                                </div>
+                                <p>Stay flexible and build decoupled software using Cygnite IoC; Inject into the controller without any configuration.</p>
+                            </div>
+                        </li>
+						
+						<li class="span3">
+                            <div class="feature-block">
+                                <div class="features-head">
+                                    <h3 class="title">
+                                        <a href="http://www.cygniteframework.com/2013/08/active-record.html">Active <span class="title-em">Record</span></a></h3>
+                                </div>
+                                <p> Cygnite provide simple and amusing ActiveRecord implementation for working with  database.  Each model interact with database table. </p>
+                            </div>
+                        </li>
+						
+						<li class="span3">
+                            <div class="feature-block">
+                                <div class="features-head">
+                                    <h3 class="title">
+                                        <a href="http://www.cygniteframework.com/2014/03/console-overview.html"> Cygnite <span class="title-em">CLI</span></a></h3>
+                                </div>
+                                <p> Generating code using using crud generator is amusing. Cygnite provide you quick way to manage your schema version using Migration system.   </p>
                             </div>
                         </li>
                     </ul>
 
-
-                    <div class="block features">
-                        <p> <h3 style="color:#0D73AE !important;padding-left: 11px;">Cygnite framework Is Best for You if..</h3> </p>
-                        <div class="feature-block" style="width:38%;">
-                            <ul class="ul-text">
-                                <li> You need an <strong> lightweight</strong> framework</li>
-                                <li> You need exceptional <strong>performance</strong></li>
-                                <li> You want to develop application on <strong>deadline</strong></li>
-                                <li>You like <strong>simple, easy to use,</strong> and <strong>well documented</strong> framework. </li>
-                            </ul>
-                        </div>
-                        <div class="feature-block"  style="padding: 22px;"> </div>
-
-                        <div class="feature-block"  style="width:56%;">
-                            <ul class="ul-text" >
-                                <li> Don't want to spend lot of time on <strong>configuring</strong> things</li>
-                                <li> You need a framework to plugin <strong>third party</strong> libraries.</li>
-                                <li> You don't want to spend lot of time on writing <strong>crud operation</strong></li>
-                                <li>You are not interested on adding <strong>large scale</strong> libraries into your application </li>
-                            </ul>
-                        </div>
-                        <hr class="featurette-divider"></hr>
-
-                    </div>
-
                 </div>
-
-                <style>
-
-                    .feature-block{ float: left;border:0px; font-size: 17px;font-family: small-caption;}
-                    .feature-block:hover{box-shadow:none;}
-                    .ul-text { color:#61A5AA;height: 213px !important;}
-                    .header { height: 131px; padding: 4px 0;}
-                    .features {height: 284px;}
-                </style>
-
-
             </div>
-
-
-
-
-            <hr class="featurette-divider">
-
             <div class="clear"> </div>
             <hr class="featurette-divider">
 
             <div class="footer" >
                 <div class="footer-inner-left"> </div>
                 <div class="footer-inner" align="center">
-                    <div class="footerrow tweets" >
-                        <p style="font-size: 16px;">If you are exploring Cygnite framework for the first time,
-                            you should read the <br><a href="http://www.cygniteframework.com/2013/07/quickstart.html">Quick guide</a> </p>
-
-                        <p style="font-size: 18px;">Hope you will enjoy simplicity of Cygnite framework</p>
+                    <div class="footerrow tweets"  >
+                        <p style="font-size: 16px;">If you are exploring Cygnite Framework for the first time,
+                            you should read the <br><a href="http://www.cygniteframework.com/2013/07/quickstart.html">Quick Guide</a> </p>
+                        <p style="font-size: 18px;">You will love the simplicity of Cygnite Framework</p>
                     </div>
 
                     <div class="footerrow" align="center" style="clear:both;padding-top: 0px;">
@@ -146,5 +130,15 @@ use Cygnite\AssetManager\AssetCollection;
             <!-- ================================================== -->
             <!-- Placed at the end of the document so the pages load faster -->
 <?php echo Asset::script('assets/js/cygnite/jquery.js'); ?>
+
+<style type="text/css">
+
+                    .feature-block{ float: left;border:0px; font-size: 17px;font-family: small-caption;}
+                    .feature-block:hover{box-shadow:none;}
+                    .ul-text { color:#61A5AA;height: 213px !important;}
+                    .header { height: 131px; padding: 4px 0;}
+                    .features {height: 284px;}
+					.title {padding-top: 10px;}
+                </style>
     </body>
 </html>
