@@ -45,21 +45,19 @@ if (!defined('CF_SYSTEM')) {
  * do crude operations.
  *
  * <code>
- * 'db'  => 'mysql://root:@localhost/cygnite?charset=utf8',
+ * 'db'  => 'mysql://your-username:your-password@your-hostname/your-database-name?charset=utf8',
  * 'db1' => 'mysql://root:admin@localhost/social_network?charset=utf8',
  * 'db2' => 'mysql://root:password@localhost/jobstreet?charset=utf8',
  *
  * </code>
  *
  * Please protect this file to have maximum security.
- *
  */
 Configurations::initialize(
     function ($config) {
         $config->setConfig(
             array(
              'db'  => 'mysql://root:@localhost/cygnite?charset=utf8',
-             'db1' => 'mysql://root:cygnite#98723@localhost/shopping_cart?charset=utf8',
             )
         );
     }
