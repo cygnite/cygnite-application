@@ -47,7 +47,7 @@ if (!defined('CF_SYSTEM')) {
  * <code>
  * 'db'  => 'mysql://your-username:your-password@your-hostname/your-database-name?charset=utf8',
  * 'db1' => 'mysql://root:admin@localhost/social_network?charset=utf8',
- * 'db2' => 'mysql://root:password@localhost/jobstreet?charset=utf8',
+ * 'db2' => 'mysql://root:password@localhost/job_street?charset=utf8',
  *
  * </code>
  *
