@@ -27,22 +27,20 @@ That's all you are ready to build your awesome application.
 
 ##Contribute -
 ===========
--> Getting bored with the same kind of development ?
+-> Getting bored with the same kind of development all time?
 
--> How long want to be user of some software ? Would like be creator as well ?
+-> Would you like to be well recognised by professionals ?
 
--> Are you an experienced PHP professional and having knowledge of Object Oriented Programming concepts?
+-> Do you want to learn something interesting and showcase your skills to grab better position ?
 
--> Do you want to learn something interesting and also showcase your skills to become well known by communities?
-
-You are at the right place. We welcome you to participate on Cygnite Framework development or its documentation.
+You are at right place. We welcome you to participate on Cygnite Framework development or its documentation.
 
 Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback,
 send your wishlist for new features, write and send us patches for Cygnite Framework.
 
 
 ##Getting Started with Cygnite -
-===============================
+========================
 i.  Make sure you have GitHub Account.
 
 ii. Clearly describe the issue you find to fix shortly.
@@ -51,4 +49,4 @@ iii. Create a branch where you would like to place your changes and send the pat
 
 iv.  Fork cygnite/framework repository on GitHub.
 
-v. Please follow the coding standard as followed (Resembles PSR) on the project or please request for coding standard to follow.
+v. Please follow the PSR coding standard as followed  while contributing or please request for coding standard to follow.
