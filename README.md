@@ -1,5 +1,7 @@
-Skeleton Application Using Cygnite Framework
-======================================
+Skeleton Application Using Cygnite PHP Framework
+------------------------------------------------------------------
+
+[![Latest Stable Version](https://poser.pugx.org/cygnite/cygnite-application/v/stable.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![Total Downloads](https://poser.pugx.org/cygnite/cygnite-application/downloads.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![Latest Unstable Version](https://poser.pugx.org/cygnite/cygnite-application/v/unstable.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![License](https://poser.pugx.org/cygnite/cygnite-application/license.svg)](https://packagist.org/packages/cygnite/cygnite-application)
 
 Sample skeleton application using the Cygnite MVC layer - http://www.cygniteframework.com
 
