@@ -9,7 +9,7 @@ Sample skeleton application using the Cygnite MVC layer - http://www.cygnitefram
 on Cygnite Framework, please visit the core [repository](https://github.com/cygnite/framework).
 
 Installation
-=========
+--------------
 The best way to install Cygnite Framework is to download composer.phar from http://getcomposer.org/ to your local directory or to use globally on your system move it to
 usr/local/bin. For windows users please download and install composer setup.
 
@@ -17,7 +17,7 @@ You may install Cygnite Framework either simply downloading skeleton application
 
 
 Composer: Create Project
-============================
+--------------------------------
 Create your project from terminal by simply entering below command.
 
     composer create-project cygnite/cygnite-application cygnite --prefer-dist
@@ -28,7 +28,7 @@ That's all you are ready to build your awesome application.
 
 
 ##Contribute -
-===========
+------------------
 -> Getting bored with the same kind of development all time?
 
 -> Would you like to be well recognised by professionals ?
@@ -42,7 +42,7 @@ send your wishlist for new features, write and send us patches for Cygnite Frame
 
 
 ##Getting Started with Cygnite -
-========================
+-----------------------------------------
 i.  Make sure you have GitHub Account.
 
 ii. Clearly describe the issue you find to fix shortly.
