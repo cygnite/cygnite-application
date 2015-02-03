@@ -1,35 +1,13 @@
 <?php
-namespace Cygnite\Database;
-
-/**
- *  Cygnite Framework
- *  Database Configuration Settings
+/*
+ * This file is part of the Cygnite package.
  *
- *  An open source application development framework for PHP 5.3x or newer
+ * (c) Sanjoy Dey <dey.sanjoy0@gmail.com>
  *
- *   License
- *
- *   This source file is subject to the MIT license that is bundled
- *   with this package in the file LICENSE.txt.
- *   http://www.appsntech.com/license.txt
- *   If you did not receive a copy of the license and are unable to
- *   obtain it through the world-wide-web, please send an email
- *   to sanjoy@hotmail.com so I can send you a copy immediately.
- *
- *@package               : Apps
- *@subpackages           : Database Configurations
- *@filename              : database.php
- *@description           : You can set your session configurations here.
- *@author                : Sanjoy Dey
- *@copyright             : Copyright (c) 2013 - 2014,
- *@link	                 : http://www.cygniteframework.com
- *@since	             : Version 1.2
- *@filesource
- *@warning               : If you don't protect this directory from direct web access,
- * anybody will be able to see your database configuration and settings.
- *
- *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
+namespace Cygnite\Database;
 
 if (!defined('CF_SYSTEM')) {
     exit('External script access not allowed');
@@ -44,21 +22,34 @@ if (!defined('CF_SYSTEM')) {
  * Specify your database name and table name in model to
  * do crude operations.
  *
- * <code>
- * 'db'  => 'mysql://your-username:your-password@your-hostname/your-database-name?charset=utf8',
- * 'db1' => 'mysql://root:admin@localhost/social_network?charset=utf8',
- * 'db2' => 'mysql://root:password@localhost/job_street?charset=utf8',
- *
- * </code>
- *
  * Please protect this file to have maximum security.
  */
-Configurations::initialize(
+Configuration::initialize(
     function ($config) {
+        $config->default = 'db';
         $config->setConfig(
             array(
-             'db'  => 'mysql://root:@localhost/cygnite?charset=utf8',
+                'db' => array(
+                    'driver' => 'mysql',
+                    'host' => 'localhost',
+                    'port' => '',
+                    'database' => 'cygnite',
+                    'username' => 'root',
+                    'password' => '',
+                    'charset' => 'utf8'
+                )
+                /*'db1' => array(
+                    'driver' => 'mysql',
+                    'host' => 'localhost',
+                    'port' => '',
+                    'database' => '',
+                    'username' => '',
+                    'password' => '',
+                    'charset' => 'utf8'
+                )*/
             )
         );
     }
 );
+
+
