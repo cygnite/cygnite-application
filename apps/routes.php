@@ -1,54 +1,34 @@
 <?php
-use Cygnite\Foundation\Application;
-use Cygnite\Base\Router;
-
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
 }
-/**
-*  Cygnite Framework
-*
-*  An open source application development framework for PHP 5.3 or newer
-*
-*   License
-*
-*   This source file is subject to the MIT license that is bundled
-*   with this package in the file LICENSE.txt.
-*   http://www.cygniteframework.com/license.txt
-*   If you did not receive a copy of the license and are unable to
-*   obtain it through the world-wide-web, please send an email
-*   to sanjoy@hotmail.com so I can send you a copy immediately.
-*
-* @Package            :  Apps
-* @Sub Packages       :
-* @Filename           :  routes
-* @Description        :  This file is used to set all routing configurations
-* @Author             :  Cygnite dev team
-* @Copyright          :  Copyright (c) 2013 - 2014,
-* @Link	              :  http://www.cygniteframework.com
-* @Since	          :  Version 1.0
-* @FileSource
-* @todo               :  Multiple routing configurations have to implemented and have to simplify
-*                        core code for routing feature, have to add more filter validation.
-*
-*/
-$router = new Router;
+
+use Cygnite\Foundation\Application as App;
+
+$app = App::instance();
 
 // Before Router Middle Ware
-$router->before(
+$app->router->before(
     'GET',
-    '/.*',
+    '/{:all}',
     function () {
-        //echo "The Framework is under active development";
+        //echo "This site is under maintenance.";
     }
 );
 
-// Dynamic route: /hello/name/(\d+)
-$router->get(
-    '/hello/(\w+)',
-    function ($name) {
-        Router::call('Home.welcome', array($name,' PHP Framework'));
-        Router::end();
+// Dynamic route: /hello/cygnite/3222
+$app->router->get(
+    '/hello/{:name}/{:digit}',
+    function ($router, $name, $id) {
+        //Router::call('Home.welcome', array($name, $id));
+    }
+);
+
+$app->router->get(
+    '/category/{:name}/product.json',
+    function ($router, $name) {	// inject first parameter as router instance
+        //show($router);
+        echo "webservice json url request routing $name";
     }
 );
 
@@ -56,26 +36,31 @@ $router->get(
  * Json Request Format {"USER_ID": "32"}
  * type : POST
 */
-$router->post(
+$app->router->post(
     '/categories/post/',
     function () {
         $data = file_get_contents("php://input");
         $data = json_decode($data);
         show($data->USER_ID);
-        Router::end();
     }
 );
+
+/*
+GET       - resource/           user.index
+GET       - resource/new        user.new
+POST      - resource/           user.create
+GET       - resource/{id}       user.show
+GET       - resource/{id}/edit  user.edit
+PUT|PATCH - resource/{id}       user.update
+DELETE    - resource/{id}       user.delete
+*/
+//$app->router->resource('resource', 'user'); // respond to resource routing
 
 /**
- * Json Request Format {"USER_ID": "32"} or Empty
- * type : GET
-*/
-$router->get(
-    '/categories/emplist/',
-    function () {
-        echo "Category List";
-        Router::end();
-    }
-);
+ * After routing callback
+ * Will call after executing all user defined routing.
+ */
+$app->router->run(function()
+{
 
-$router->run();
+});

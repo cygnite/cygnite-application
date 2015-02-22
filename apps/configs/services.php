@@ -8,19 +8,18 @@ if (!defined('CF_SYSTEM')) {
 // Register all service provider
 App::service(function ($app)
 {
-    
     /*$app->registerServiceProvider(
         array(
-            "Application\\Services\\Payment\\ApiService",
+            "Apps\\Services\\Payment\\ApiServiceProvider",
         )
     );
 	
-    // Use Controller as Service 
+    // Use Controller as Service manual configuration
     $app['user.controller'] = function () use($app)
     {
-        return new \Application\Controllers\HelloController(new \Cygnite\Mvc\Controller\ServiceController, $app);
+        return new \Apps\Controllers\HelloController(new \Cygnite\Mvc\Controller\ServiceController, $app);
     }; 
 	// OR 
-	// Controller as Service
+	// Controller as Service automatic configuration
     $app->setServiceController('hello.controller', '\Application\Controllers\HelloController');*/
 });

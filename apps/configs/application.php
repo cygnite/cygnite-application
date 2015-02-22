@@ -17,33 +17,32 @@ if (!defined('CF_SYSTEM')) {
  *   obtain it through the world-wide-web, please send an email
  *   to sanjoy@hotmail.com so I can send you a copy immediately.
  *
- *@package         :  Apps
- *@subpackages     :  Configs
- *@filename        :  application
- *@description     :  You can set your all your global configurations here.
- *@author          :  Sanjoy Dey
- *@copyright       :  Copyright (c) 2013 - 2014,
- *@link	           :  http://www.cygniteframework.com
- *@since	       :  Version 1.0
- *@filesource
- *@warning         :  If you don't protect this directory from direct web access,
- * anybody will be able to see your configuaration and settings.
+ * @package            :  Apps
+ * @subpackages        :  Configs
+ * @filename           :  application
+ * @description        :  You can set your all your global configurations here.
+ * @author             :  Sanjoy Dey
+ * @copyright          :  Copyright (c) 2013 - 2014,
+ * @link               :  http://www.cygniteframework.com
+ * @since              :  Version 1.0
+ * @filesource
+ * @warning            :  If you don't protect this directory from direct web access,
+ *                     anybody will be able to see your configuration and settings.
  *
  *
  */
 
-return array (
-   /**
-    *--------------------------------------------------------------------------
-    * Your Application Base URL
-    *--------------------------------------------------------------------------
-    * The base URL used to import your application assets in your webpage.
-    * Based on base url we will perform page redirect and other internal
-    * functionalities.
-    *
-    */
+return array(
+    /**
+     *--------------------------------------------------------------------------
+     * Your Application Base URL
+     *--------------------------------------------------------------------------
+     * The base URL used to import your application assets in your web page.
+     * Based on base url we will perform page redirect and other internal
+     * functionality.
+     *
+     */
     'base_path' => '',
-
     /*
     *--------------------------------------------------------------------------
     * Your Application Default Controller
@@ -52,7 +51,6 @@ return array (
     * will be called when you try to access cygnite application.
     */
     'default_controller' => 'Home',
-
     /*
     *--------------------------------------------------------------------------
     * Your Application Default Method
@@ -63,7 +61,6 @@ return array (
     *
     */
     'default_method' => 'index',
-
     /*
     *--------------------------------------------------------------------------
     * Your Application Character Encoding
@@ -74,7 +71,6 @@ return array (
     *
     */
     'encoding' => 'UTF-8',
-
     /*
     *--------------------------------------------------------------------------
     * Your Application Language
@@ -83,7 +79,6 @@ return array (
     * will take care rest.
     */
     'language' => 'en',
-
     /*
     *--------------------------------------------------------------------------
     * Application Timezone
@@ -93,7 +88,6 @@ return array (
     *
     */
     'timezone' => 'UTC',
-
     /*
     *--------------------------------------------------------------------------
     *  Application Encryption key
@@ -103,64 +97,7 @@ return array (
     * library for encryption library. So please check whether you have else please activate
     * to work with secure encryption and session library.
     */
-    'cf_encryption_key'           => 'cygnite-shaXatBNHQ4',
-
-    /*
-    *--------------------------------------------------------------------------
-    * Benchmark Your Application
-    *--------------------------------------------------------------------------
-    * Enable profiling as True if you wish to benchmark your application. You can
-    * make it FALSE to deactivate profiling. Cygnite will take care rest.
-    */
-    'enable_profiling'            => false,
-
-    /*
-    *--------------------------------------------------------------------------
-    * ************Your Application Cache Config*************
-    *--------------------------------------------------------------------------
-    * You can enable cache here (example: TRUE/FALSE). Cygnite have
-    * three type of cache driver FileCache, Memcache, APC to boost your
-    * application performace. Follow user guide for usages.
-    */
-    'enable_cache'                => true,
-
-    /*
-    *---------------------------------------------------------------------------
-    * Cache Name
-    *---------------------------------------------------------------------------
-    * Set your cache name here to generate cache file name if you are
-    * using cygnite file caching technique.
-    */
-    'cache_name'                  => 'cf_cache',
-
-    /*
-    *---------------------------------------------------------------------------
-    * Cache Extension
-    *---------------------------------------------------------------------------
-    * Set your cache extension here. Cygnite will take care of rest. Cache will
-    * store with same extension which you will provide here.
-    *
-    */
-    'cache_extension'             => '.cache',
-
-    /*
-    *---------------------------------------------------------------------------
-    * Cache Type
-    *---------------------------------------------------------------------------
-    * Set your cache type here. Cygnite will take care of rest.
-    *
-    */
-    'cache_type'                  => 'filecache',
-
-    /*
-    *---------------------------------------------------------------------------
-    * Cache Storage Location
-    *---------------------------------------------------------------------------
-    * Set your cache file storage location here. By default we are using
-    * temp/cache.
-    *
-    */
-    'cache_directory'              => 'temp/cache', //Default value is none
+    'cf_encryption_key' => 'cygnite-shaXatBHQ4',
 
     /*
     *---------------------------------------------------------------------------
@@ -173,19 +110,70 @@ return array (
     * Example :
     * environment => 'development/production'
     */
-    'environment'                  =>  'development', //Errors are turned on in development environment
 
+    'environment' => 'development', //Errors are turned on in development environment
 
-   /**
-    *---------------------------------------------------------------------------
-    * Cygnite Application Logs
-    *---------------------------------------------------------------------------
-    * Though cygnite log generator library available we need to integrate
-    * with core files in order to make it. It will be available in next version
-    * of cygnite.
+    /*
+    *--------------------------------------------------------------------------
+    * Benchmark Your Application
+    *--------------------------------------------------------------------------
+    * Enable profiling as True if you wish to benchmark your application. You can
+    * make it FALSE to deactivate profiling. Cygnite will take care rest.
     */
-    'enable_logging'               => false,
+    'enable_profiling' => false,
+    /*
+    *--------------------------------------------------------------------------
+    * ************Your Application Cache Config*************
+    *--------------------------------------------------------------------------
+    * You can enable cache here (example: TRUE/FALSE). Cygnite have
+    * three type of cache driver FileCache, Memcache, APC to boost your
+    * application performace. Follow user guide for usages.
+    */
+    'enable_cache' => true,
+    /*
+    *---------------------------------------------------------------------------
+    * Cache Name
+    *---------------------------------------------------------------------------
+    * Set your cache name here to generate cache file name if you are
+    * using cygnite file caching technique.
+    */
+    'cache_name' => 'cf_cache',
+    /*
+    *---------------------------------------------------------------------------
+    * Cache Extension
+    *---------------------------------------------------------------------------
+    * Set your cache extension here. Cygnite will take care of rest. Cache will
+    * store with same extension which you will provide here.
+    *
+    */
+    'cache_extension' => '.cache',
+    /*
+    *---------------------------------------------------------------------------
+    * Cache Type
+    *---------------------------------------------------------------------------
+    * Set your cache type here. Cygnite will take care of rest.
+    *
+    */
+    'cache_type' => 'filecache',
+    /*
+    *---------------------------------------------------------------------------
+    * Cache Storage Location
+    *---------------------------------------------------------------------------
+    * Set your cache file storage location here. By default we are using
+    * temp/cache.
+    *
+    */
+    'cache_directory' => 'temp/cache', //Default value is none
 
+    /**
+     *---------------------------------------------------------------------------
+     * Cygnite Application Logs
+     *---------------------------------------------------------------------------
+     * Though cygnite log generator library available we need to integrate
+     * with core files in order to make it. It will be available in next version
+     * of cygnite.
+     */
+    'enable_logging' => false,
     /*
     *---------------------------------------------------------------------------
     * Logs File Name
@@ -203,10 +191,8 @@ return array (
     * temp/logs.
     *
     */
-    'log_path'                     => 'apps.temp.logs',
-
-    'enable_error_emailing'        => true,
-
+    'log_path' => 'apps.temp.logs',
+    'enable_error_emailing' => true,
     /*
      * Email Configurations
      *
@@ -215,40 +201,27 @@ return array (
 
     'email_configurations' => array(
 
-                'protocol' => 'smtp',
+        'protocol' => 'smtp',
+        'smtp' => array(
 
-                'smtp'     => array(
+            'host' => 'smtp.gmail.com',
+            'username' => 'your gmail id',
+            'password' => 'your password',
+            'port' => '465',
+            'encryption' => 'ssl',
 
-                    'host'                   => 'smtp.gmail.com',
+        ),
+        'sendmail' => array(
 
-                    'username'               => 'your gmail id',
+            'path' => '/usr/sbin/exim -bs'
 
-                    'password'               => 'your password',
-
-                    'port'                   => '465',
-
-                    'encryption'             => 'ssl',
-
-                ),
-                'sendmail' => array(
-
-                    'path'                  => '/usr/sbin/exim -bs'
-
-                ),
+        ),
 
     ),
-
     'params' => array(
-                // You can define your params here.
-                //It has access globally in your application.
-                'admin_email' => 'sanjoy@cygniteframework.com',
-                'log_email' =>   'dey.sanjoy0@gmail.com',
+        // You can define your params here.
+        //It has access globally in your application.
+        'admin_email' => 'sanjoy@cygniteframework.com',
+        'log_email' => 'dey.sanjoy0@gmail.com',
     ),
-
-    'generator' => array(
-                    'enable'   => true,
-                    'username' => 'your username',
-                    'password' => 'your password',
-    ),
-
 );
