@@ -8,7 +8,9 @@ if (!defined('CF_SYSTEM')) {
 // Register all service provider
 App::service(function ($app)
 {
-    /*$app->registerServiceProvider(
+    // Add multiple Service Provider into the array
+    /*
+     $app->registerServiceProvider(
         array(
             "Apps\\Services\\Payment\\ApiServiceProvider",
         )
