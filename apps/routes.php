@@ -36,14 +36,12 @@ $app->router->get(
  * Json Request Format {"USER_ID": "32"}
  * type : POST
 */
-$app->router->post(
-    '/categories/post/',
-    function () {
-        $data = file_get_contents("php://input");
-        $data = json_decode($data);
-        show($data->USER_ID);
-    }
-);
+$app->router->post('/categories/post/', function ()
+{
+    $data = file_get_contents("php://input");
+    $data = json_decode($data);
+    show($data->USER_ID);
+});
 
 /*
 GET       - resource/           user.index
