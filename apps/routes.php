@@ -1,46 +1,22 @@
 <?php
+use Cygnite\Foundation\Application;
+
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
 }
 
-use Cygnite\Foundation\Application as App;
-
-$app = App::instance();
+$app = Application::instance();
 
 // Before Router Middle Ware
-$app->router->before(
-    'GET',
-    '/{:all}',
-    function () {
-        //echo "This site is under maintenance.";
-    }
-);
+$app->router->before('GET', '/{:all}', function ()
+{
+   //echo "This site is under maintenance.";exit;
+});
 
 // Dynamic route: /hello/cygnite/3222
-$app->router->get(
-    '/hello/{:name}/{:digit}',
-    function ($router, $name, $id) {
-        //Router::call('Home.welcome', array($name, $id));
-    }
-);
-
-$app->router->get(
-    '/category/{:name}/product.json',
-    function ($router, $name) {	// inject first parameter as router instance
-        //show($router);
-        echo "webservice json url request routing $name";
-    }
-);
-
-/**
- * Json Request Format {"USER_ID": "32"}
- * type : POST
-*/
-$app->router->post('/categories/post/', function ()
+$app->router->get('/hello/{:name}/{:digit}', function ($router, $name, $id)
 {
-    $data = file_get_contents("php://input");
-    $data = json_decode($data);
-    show($data->USER_ID);
+   //Router::call('Home.welcome', array($name, $id));
 });
 
 /*
@@ -58,7 +34,10 @@ DELETE    - resource/{id}       user.delete
  * After routing callback
  * Will call after executing all user defined routing.
  */
-$app->router->run(function()
+$app->router->after(function()
 {
-
+   //echo "After Routing callback";
 });
+
+
+$app->router->run();
