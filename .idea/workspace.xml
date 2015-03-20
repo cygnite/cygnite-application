@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ddd87668-6526-4b07-bd5f-d98778537da2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/components/authentication/Auth.php" afterPath="$PROJECT_DIR$/apps/components/authentication/Auth.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/configs/application.php" afterPath="$PROJECT_DIR$/apps/configs/application.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/boot/initialize.php" afterPath="$PROJECT_DIR$/boot/initialize.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/routes.php" afterPath="$PROJECT_DIR$/apps/routes.php" />
-    </list>
+    <list default="true" id="ddd87668-6526-4b07-bd5f-d98778537da2" name="Default" comment="" />
     <ignored path="cygnite-application.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="ddd87668-6526-4b07-bd5f-d98778537da2" time="1426705059707" ignored="false" />
@@ -168,13 +163,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Auth.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Auth.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/components/authentication/Auth.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="5" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.3068182">
+            <state line="80" column="5" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-6.0">
               <folding>
                 <marker date="1426892210647" expanded="true" signature="7866:7872" placeholder="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="0.5387324">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -192,15 +196,6 @@
         <entry file="file://$PROJECT_DIR$/../../cygnite2/vendor/cygnite/framework/src/Cygnite/DependencyInjection/Container.php">
           <provider selected="true" editor-type-id="text-editor">
             <state line="262" column="32" selection-start="5843" selection-end="5843" vertical-scroll-proportion="-3.3461537">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/components/authentication/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="-9.333333">
               <folding />
             </state>
           </provider>
@@ -378,7 +373,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -477,20 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/components/authentication/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="3" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/components/authentication/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="-9.333333">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/boot/start.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -528,10 +509,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/components/authentication/Auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="5" selection-start="1850" selection-end="1850" vertical-scroll-proportion="0.3068182">
+        <state line="80" column="5" selection-start="1850" selection-end="1850" vertical-scroll-proportion="-6.0">
           <folding>
             <marker date="1426892210647" expanded="true" signature="7866:7872" placeholder="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="0.5387324">
+          <folding />
         </state>
       </provider>
     </entry>
