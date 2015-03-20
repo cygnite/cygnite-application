@@ -32,7 +32,7 @@ if (php_sapi_name() === 'cli-server' && is_file($filename)) {
 */
 $app = \Cygnite\Foundation\Application::instance();
 
-
+$app->importHelpers();
 /*
 |--------------------------------------------------------------------------
 | Attach Exception handler to Event Listener
@@ -43,7 +43,7 @@ $app = \Cygnite\Foundation\Application::instance();
 */
 $app['app.event'] = function () use($app) {
 
-    $event = $app->singleton('event', '\Cygnite\Base\Event');
+    $event = $app->singleton('event', '\Cygnite\Base\EventHandler\Event');
     $event->attach("exception", '\\Cygnite\\Exception\\Handler@handleException');
 
     return $event;

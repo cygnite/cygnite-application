@@ -61,6 +61,20 @@ return array(
     *
     */
     'default_method' => 'index',
+    
+    /*
+    *---------------------------------------------------------------------------
+    * Set Application Environment
+    *---------------------------------------------------------------------------
+    * You can set your application environment in order to handle errors and exceptions.
+    * Development mode all errors are turned on. So that you can able to fix all issues easily.
+    * Errors will be turned off in production server mode.
+    *
+    * Example :
+    * environment => 'development/production'
+    */
+    'environment' => 'development', //Errors are turned on in development environment
+
     /*
     *--------------------------------------------------------------------------
     * Your Application Character Encoding
@@ -97,22 +111,7 @@ return array(
     * library for encryption library. So please check whether you have else please activate
     * to work with secure encryption and session library.
     */
-    'cf_encryption_key' => 'cygnite-shaXatBHQ4',
-
-    /*
-    *---------------------------------------------------------------------------
-    * Set Application Environment
-    *---------------------------------------------------------------------------
-    * You can set your application environment in order to handle errors and exceptions.
-    * Development mode all errors are turned on. So that you can able to fix all issues easily.
-    * Errors will be turned off in production server mode.
-    *
-    * Example :
-    * environment => 'development/production'
-    */
-
-    'environment' => 'development', //Errors are turned on in development environment
-
+    'cf_encryption_key' => 'cygnite-shaXatBNHQ4',
     /*
     *--------------------------------------------------------------------------
     * Benchmark Your Application
@@ -137,7 +136,7 @@ return array(
     * Set your cache name here to generate cache file name if you are
     * using cygnite file caching technique.
     */
-    'cache_name' => 'cf_cache',
+    'cache_name' => 'file.cache',
     /*
     *---------------------------------------------------------------------------
     * Cache Extension
@@ -154,7 +153,7 @@ return array(
     * Set your cache type here. Cygnite will take care of rest.
     *
     */
-    'cache_type' => 'filecache',
+    'cache_type' => 'file',
     /*
     *---------------------------------------------------------------------------
     * Cache Storage Location
@@ -163,7 +162,7 @@ return array(
     * temp/cache.
     *
     */
-    'cache_directory' => 'temp/cache', //Default value is none
+    'cache_directory' => 'temp.cache', //Default value is none
 
     /**
      *---------------------------------------------------------------------------

@@ -20,12 +20,12 @@ $app->router->get('/hello/{:name}/{:digit}', function ($router, $name, $id)
 });
 
 /*
-GET       - resource/           user.index
-GET       - resource/new        user.new
-POST      - resource/           user.create
-GET       - resource/{id}       user.show
-GET       - resource/{id}/edit  user.edit
-PUT|PATCH - resource/{id}       user.update
+GET       - resource/           user.getIndex
+GET       - resource/new        user.getNew
+POST      - resource/           user.postCreate
+GET       - resource/{id}       user.getShow
+GET       - resource/{id}/edit  user.getEdit
+PUT|PATCH - resource/{id}       user.putUpdate
 DELETE    - resource/{id}       user.delete
 */
 //$app->router->resource('resource', 'user'); // respond to resource routing

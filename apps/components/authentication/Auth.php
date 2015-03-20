@@ -7,38 +7,83 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Apps\Components\Authentication;
+namespace Application\Components\Authentication;
 
+use Cygnite\Common\UrlManager\Url;
 use Cygnite\Foundation\Application;
-use Cygnite\Common\SessionManager\Session;
+use Cygnite\Auth\AuthManager;
+use Cygnite\Auth\AuthInterface;
+use Cygnite\Auth\Exception\InvalidCredentialException;
 
-class Auth
+class Auth extends AuthManager implements AuthInterface
 {
     public $username;
-    public $credentials = array();
-    public $userInfo = array();
-    public $data = array();
-    public $msg = 'has authenticated successfully !';
-    private $user;
 
-    // Invalid Password Status Code
-    const INVALID_PASSWORD = 100;
+    private $credential = array();
 
-    // Invalid User Status Code
-    const INVALID_USER = 101;
+    public static $user = array();
 
-    //const AUTH_SUCCESS = 1;
+    protected $item = array();
+
+    public static $msg = 'Welcome! ';
+    //protected $user;
+
+    public $valid = false;
+
+    public $attempt = 0;
+
+    private $table;
 
     /**
-     * @param User $instance
+     * Set User Credentials to authentication
+     *
+     * @param $credential
      */
-    public function __construct(User $instance)
+    public function setCredential($credential)
     {
-        if ($instance instanceof User) {
-            $this->user = $instance;
+        $this->credential = $credential;
+    }
+
+    /**
+     * Get user credentials
+     *
+     * @return array|null
+     */
+    public function getCredential()
+    {
+        return !empty($this->credential) ? $this->credential : null;
+    }
+
+    /**
+     * Set user credentials into array
+     *
+     * @param      $user
+     * @param null $password
+     * @param bool $status
+     * @return $this
+     */
+    protected function credential($user, $password = null, $status = false)
+    {
+        /**
+        | We will check is array passed as first argument
+        | then we will simply return Auth instance
+         */
+        if (is_array($user)) {
+            $this->setCredential($user);
+            return $this;
         }
 
-        $this->table = $this->user->getTableName();
+        $credential = array();
+
+        if ($status) {
+            $credential = array('username' => $user, 'password' => $password, 'status' => $status);
+        } else {
+            $credential = array('username' => $user, 'password' => $password);
+        }
+
+        $this->setCredential($credential);
+
+        return $this;
     }
 
     /**
@@ -46,111 +91,161 @@ class Auth
      *
      * $input = array('email' => 'dey.sanjoy0@gmail.com', 'password' => 'xyz@324', 'status' => 1);
      * $auth = new Auth(new UserInfo($input));
-     * $auth->validate();
+     * $auth->verify();
      *
-     * @return bool
+     * @param      $user
+     * @param null $password
+     * @param bool $status
      * @throws \Exception
+     * @return bool
      */
-    public function validate()
+    public function verify($user, $password = null, $status = false)
     {
-        $credentials = $this->setWhere();
+        $this->table = $this->table();
+        $credential = $this->credential($user, $password, $status)->getCredential();
 
         try {
-            $userInfo = $this->user->findAll();
+            $userInfo = $this->setWhere()->findAll();
         } catch (\Exception $ex) {
             throw new \Exception($ex->getMessage());
         }
 
         if ($userInfo->count() > 0) {
 
-            if ( trim($userInfo[0]->password) == trim($credentials['password']) ) {
+            if ( trim($userInfo[0]->password) == trim($credential['password']) ) {
 
-                $userInfo['isLoggedIn'] = true;
-                $userInfo['flashMsg'] = ucfirst($this->username) . ' ' . $this->msg;
-
-                $hasSession = $this->setSession($userInfo);
-                $this->setUserInfo($userInfo);
-
-                return ($hasSession) ? true : false;
-
+                $this->valid = true;
+                self::$user = $userInfo;
+                return true;
             } else {
-
-                return static::INVALID_PASSWORD;
-
+                $this->valid = false;
+                $this->attempt++;
+                $this->setError('password', 0);
+                return false;
             } // password validation end
 
         } else {
+            $this->valid = false;
+            $this->attempt++;
+            $this->setError('user', 0);
+            return false;
 
-            return static::INVALID_USER;
-
-        } // row count end
-
+        } // no user found
     }
 
     /**
-     * Manually we can login users
-     *
-     * @param $user
-     * @return bool
+     * @return array|null
      */
-    public function login($user)
-    {
-        return $this->validate($user);
-    }
-
     private function setWhere()
     {
-        $credentials = $this->user->credentials();
+        $credentials = $this->getCredential();
+
         $i = 0;
         foreach ($credentials as $key => $value) {
 
-            if ($i === 0) {
+            if ($i == 0) {
                 $this->username = $value;
-                $this->user->where($key, '=', $value);
+                echo $value;
+                $where = static::model()->where($key, '=', $value);
             }
 
             if ($i == 2 || $key == 'status') {
-                $this->user->where($key, '=', $value);
+                $where = static::model()->where($key, '=', $value);
             }
 
             $i++;
         }
 
-        return $credentials;
-    }
-
-    private function getApplication()
-    {
-        return Application::instance();
-    }
-
-    private function setSession($userInfo)
-    {
-        $sessionInfo = $this->user->getSessionConfig();
-        $data = array();
-
-        foreach ($sessionInfo['value'] as $key => $val) {
-            $data[$val] = $userInfo[0]->$val;
-            unset($userInfo[0]->$val);
-        }
-
-        $app = $this->getApplication();
-        $session = $app->make('Cygnite\Common\SessionManager\Session');
-        $app['session'] = $app->share (function($c) use($session) {
-            return $session;
-        });
-        return $session->store($sessionInfo['key'], $data);
+        return $where;
     }
 
     /**
-    * Check user logged in or not
+     * We will make Auth instance and return singleton
+     * instance to the user
+     *
+     * @return object
+     */
+    public static function make()
+    {
+        $app = self::getContainer();
+        $auth = __CLASS__;
+        return $app->singleton('auth', function($c) use($auth)
+        {
+            return new $auth;
+        });
+    }
+
+    /**
+     * Manually we can login users
+     *
+     * @throws \Cygnite\Auth\Exception\InvalidCredentialException
+     * @return boolean
+     */
+    public function login()
+    {
+        if ($this->valid) {
+            $this->valid = true;
+            return $this->createSession();
+        } else {
+
+            $credential = $this->getCredential();
+            if (empty($credential)) {
+                throw new InvalidCredentialException('Please set credential using Auth::setCredential($credential) to login.');
+            }
+
+            if ($valid = $this->verify($credential)) {
+                return ($valid) ? $this->createSession() : $valid;
+            }
+        }
+    }
+
+    /**
+     * @return bool
+     */
+    private function createSession()
+    {
+        $userInfo['isLoggedIn'] = true;
+        $userInfo['flashMsg'] = static::$msg.ucfirst($this->username);
+        $hasSession = $this->setSession($userInfo);
+        $this->setUserInfo(self::$user);
+
+        return ($hasSession) ? true : false;
+    }
+
+    /**
+     * @param $userInfo
+     * @return mixed
+     */
+    private function setSession($userInfo)
+    {
+        $data = array();
+        foreach (self::$user[0]->getAttributes() as $key => $val) {
+            $data[$key] = $val;
+        }
+
+        $app = self::getContainer();
+
+        /*
+        | @todo:
+        | Session need to be globally accessible from container
+        | we will remove sharing session instance here
+        */
+        $app['session'] = $app->share (function($c) {
+            return $c->make('Cygnite\Common\SessionManager\Session');
+        });
+
+        return $app['session']()->store('auth:'.trim($this->table), $data);
+    }
+
+    /**
+     * Check user logged in or not
      *
      * @param $key
-    * @return boolean
-    */
+     * @return boolean
+     */
     public function isLoggedIn($key)
     {
-        $app = $this->getApplication();
+        $app = self::getContainer();
 
         if ($app['session']()) {
             //If user has valid session, and such is logged in
@@ -170,8 +265,25 @@ class Auth
 
     }
 
+    /**
+     * Return number of un-successful attempt by user
+     *
+     * @return int
+     */
     public function attempts()
     {
+        return $this->attempt;
+    }
+
+    /**
+     * We will set authentication error as property
+     *
+     * @param $key
+     * @param $value
+     */
+    private function setError($key, $value)
+    {
+        $this->{$key} = $value;
     }
 
     /**
@@ -179,7 +291,7 @@ class Auth
      */
     public function __get($key)
     {
-        return $this->data[$key];
+        return $this->item[$key];
     }
 
     /**
@@ -187,17 +299,18 @@ class Auth
      */
     public function __set($key, $value)
     {
-        $this->data[$key] = $value;
+        $this->item[$key] = $value;
     }
 
     /**
-     * We will destroy user session and logout current user
+     * We will destroy current user session and return to
+     * application base url
      */
     public function logout()
     {
-        $app = $this->getApplication();
-
+        $app = self::getContainer();
         $app['session']()->delete();
+
         Url::redirectTo(Url::getBase());
     }
 
@@ -213,10 +326,5 @@ class Auth
         foreach ($userInfo as $key => $value) {
             $this->{$key} = $value;
         }
-    }
-
-    public function __destruct()
-    {
-        unset($this->user);
     }
 }
