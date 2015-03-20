@@ -10,7 +10,7 @@
 
 /*
  * This index file is entry point of the framework,
- * We will define the paths here to start bootstraping.
+ * We will define the paths here to start bootstraping
  *
  * @author Sanjoy Dey <dey.sanjoy0@gmail.com>
  */
