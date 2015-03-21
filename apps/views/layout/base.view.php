@@ -1,41 +1,75 @@
 <?php
+use Cygnite\Mvc\View\Widget;
 use Cygnite\AssetManager\Asset;
-use Cygnite\AssetManager\AssetCollection;
-use Cygnite\Foundation\Application;
 use Cygnite\Common\UrlManager\Url;
+use Cygnite\Foundation\Application;
+use Cygnite\AssetManager\AssetCollection;
 
-$asset =  AssetCollection::make(function($asset)
+$asset = AssetCollection::make(function ($asset)
 {
-    $asset->add('style', array('path' => 'assets/twitter/bootstrap/css/bootstrap-theme.min.css'))
-                ->add('style', array('path' => 'assets/twitter/bootstrap/css/bootstrap.min.css', 'media' => '', 'title' => ''))
-                ->add('style', array('path' => 'assets/css/cygnite/table.css'))
-                ->add('style', array('path' => 'assets/js/tablesorter/css/theme.default.css'))//Pick a theme, load the plugin & initialize plugin
-                ->add('style', array('path' => 'assets/css/cygnite/style.css'))
-                ->add('script', array('path' => 'assets/js/cygnite/jquery.js'))
-                ->add('script', array('path' => 'assets/js/custom.js'))
-                ->add('script', array('path' => 'assets/twitter/bootstrap/js/bootstrap.js'))
-                ->add('script', array('path' => 'assets/js/tablesorter/js/jquery.tablesorter.min.js'));
+    $asset->where('header')
+        ->add('style', array('path' => 'jquery.dataTables.css'))
+        ->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap.min.css'))
+        ->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap-theme.min.css'))
+        ->add('style', array('path' => 'assets/css/cygnite/bootstrap/datatables-bootstrap.css'));
+
+    $asset->where('footer')
+        ->add('style', array('path' => 'assets/css/cygnite/flash.css'))
+        ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/prettify.css'))
+        ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css'));
+
+    $asset->where('footer')
+        ->add('script', array('path' => 'assets/js/cygnite/jquery/1.10.1/jquery.min.js'))
+        ->add('script', array('path' => 'assets/js/twitter/bootstrap/js/bootstrap.min.js'))
+        ->add('script', array('path' => 'assets/js/dataTables/jquery.dataTables.min.js'))
+        ->add('script', array('path' => 'assets/js/dataTables/datatables-bootstrap.js'))
+        ->add('script', array('path' => 'assets/js/dataTables/datatables.fnReloadAjax.js'))
+        ->add('script', array('path' => 'assets/js/dataTables/prettify.js'));
 
     return $asset;
 });
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title><?php echo $this->title; ?></title>
-        <?php $asset->dump('style');// Style block ?>
+        <?php $asset->where('header')->dump('style');// Header Style block ?>
     </head>
     <body>
 
-        <div class='container'>
-            <?php echo $yield;//your content block ?>
-        </div>
-        <?php
-        //Script block. Scripts will render here
-        $asset->dump('script');
-        ?>
-        <style type="text/css">
-            tr:hover { background-color: #4DC7EB !important; }
-        </style>
-    </body>
+    <!-- Fluid Container -->
+    <div class='container'>
+
+        <!-- Navbar -->
+        <?php Widget::make('layout::widget::navbar'); ?>
+        <!-- ./ Navbar -->
+
+        <!-- Content -->
+        <?php echo $yield; ?>
+        <!-- ./ Content -->
+
+        <!-- Footer -->
+        <footer class="clearfix"></footer>
+        <!-- ./ Footer -->
+
+    </div>
+    <!-- ./ Container End -->
+<?php
+// Footer Style block
+$asset->where('footer')->dump('style');
+//Script block. Scripts will render here
+$asset->where('footer')->dump('script');
+?>
+
+<script type="text/javascript">
+$(function () {
+    $('#dataGrid').DataTable();
+});
+</script>
+
+<style type="text/css">
+.navbar-inverse {background: none repeat scroll 0 0 #07508f!important;}
+</style>
+
+</body>
 </html>
