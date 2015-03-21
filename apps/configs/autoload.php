@@ -31,8 +31,6 @@ return array(
             'apps.models',
             'apps.modules',
             'apps.configs.definitions',
-            'apps.components.authx',
-            'apps.components.thumbnail',
             'apps.components.form',
             'apps.extensions',
             'apps.services',
