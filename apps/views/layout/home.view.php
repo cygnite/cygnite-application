@@ -1,30 +1,28 @@
 <?php
 use Cygnite\Mvc\View\Widget;
-use Cygnite\AssetManager\Asset;
-use Cygnite\Common\UrlManager\Url;
-use Cygnite\Foundation\Application;
 use Cygnite\AssetManager\AssetCollection;
+use Cygnite\Common\UrlManager\Url;
 
 $asset = AssetCollection::make(function ($asset)
-{
-    // group of stylesheets
-    $asset->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap.min.css'))
-        ->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap-theme.min.css'))
-        ->add('style', array('path' => 'assets/css/cygnite/bootstrap/datatables-bootstrap.css'))
-        ->add('style', array('path' => 'assets/css/cygnite/flash.css'))
-        ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/prettify.css'))
-        ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css'));
+    {
+        // group of stylesheets
+        $asset->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap.min.css'))
+            ->add('style', array('path' => 'assets/css/bootstrap/css/bootstrap-theme.min.css'))
+            ->add('style', array('path' => 'assets/css/cygnite/bootstrap/datatables-bootstrap.css'))
+            ->add('style', array('path' => 'assets/css/cygnite/flash.css'))
+            ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/prettify.css'))
+            ->add('style', array('path' => 'assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css'));
 
-    // Group of scripts
-    $asset->add('script', array('path' => 'assets/js/cygnite/jquery/1.10.1/jquery.min.js'))
-        ->add('script', array('path' => 'assets/js/twitter/bootstrap/js/bootstrap.min.js'))
-        ->add('script', array('path' => 'assets/js/dataTables/jquery.dataTables.min.js'))
-        ->add('script', array('path' => 'assets/js/dataTables/datatables-bootstrap.js'))
-        ->add('script', array('path' => 'assets/js/dataTables/datatables.fnReloadAjax.js'))
-        ->add('script', array('path' => 'assets/js/dataTables/prettify.js'));
+        // Group of scripts
+        $asset->add('script', array('path' => 'assets/js/cygnite/jquery/1.10.1/jquery.min.js'))
+            ->add('script', array('path' => 'assets/js/twitter/bootstrap/js/bootstrap.min.js'))
+            ->add('script', array('path' => 'assets/js/dataTables/jquery.dataTables.min.js'))
+            ->add('script', array('path' => 'assets/js/dataTables/datatables-bootstrap.js'))
+            ->add('script', array('path' => 'assets/js/dataTables/datatables.fnReloadAjax.js'))
+            ->add('script', array('path' => 'assets/js/dataTables/prettify.js'));
 
-    return $asset;
-});
+        return $asset;
+    });
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,11 +42,6 @@ $asset = AssetCollection::make(function ($asset)
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     <?php $asset->dump('style');// Header Style block ?>
-    <style>
-        body {
-            padding: 60px 0;
-        }
-    </style>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -58,10 +51,6 @@ $asset = AssetCollection::make(function ($asset)
 
 <!-- Fluid Container -->
 <div class='container'>
-
-    <!-- Navbar -->
-    <?php Widget::make('layout::widget::navbar'); ?>
-    <!-- ./ Navbar -->
 
     <!-- Content -->
     <?php echo $yield; ?>

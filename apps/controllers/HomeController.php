@@ -36,8 +36,8 @@ class HomeController extends AbstractBaseController
     * That's it you are ready to start your awesome application with Cygnite Framework.
     *
     */
-	
-    //protected $layout = 'layout.base';
+
+    protected $layout = 'layout.home';
 
     protected $templateEngine = false;
 
@@ -62,7 +62,7 @@ class HomeController extends AbstractBaseController
      */
    public function indexAction()
    {
-        $this->render('welcome');
+       $this->render('welcome', array('title' => 'Welcome to Cygnite Framework'));
    }
    
    public function hmvcAction($id)
