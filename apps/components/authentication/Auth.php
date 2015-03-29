@@ -9,10 +9,11 @@
  */
 namespace Application\Components\Authentication;
 
-use Cygnite\Common\UrlManager\Url;
-use Cygnite\Foundation\Application;
 use Cygnite\Auth\AuthManager;
 use Cygnite\Auth\AuthInterface;
+use Cygnite\Common\UrlManager\Url;
+use Cygnite\Foundation\Application;
+use Cygnite\Common\SessionManager\Session;
 use Cygnite\Auth\Exception\InvalidCredentialException;
 
 class Auth extends AuthManager implements AuthInterface
@@ -25,8 +26,9 @@ class Auth extends AuthManager implements AuthInterface
 
     protected $item = array();
 
+    protected $errors = array();
+
     public static $msg = 'Welcome! ';
-    //protected $user;
 
     public $valid = false;
 
@@ -90,8 +92,7 @@ class Auth extends AuthManager implements AuthInterface
      * We will validate user and return boolean value
      *
      * $input = array('email' => 'dey.sanjoy0@gmail.com', 'password' => 'xyz@324', 'status' => 1);
-     * $auth = new Auth(new UserInfo($input));
-     * $auth->verify();
+     * $auth->verify($input);
      *
      * @param      $user
      * @param null $password
@@ -102,35 +103,52 @@ class Auth extends AuthManager implements AuthInterface
     public function verify($user, $password = null, $status = false)
     {
         $this->table = $this->table();
-        $credential = $this->credential($user, $password, $status)->getCredential();
+        $credential = array();
 
-        try {
-            $userInfo = $this->setWhere()->findAll();
-        } catch (\Exception $ex) {
-            throw new \Exception($ex->getMessage());
+        if (is_array($user)) {
+            $credential = $this->credential($user)->getCredential();
+        } else {
+        $credential = $this->credential($user, $password, $status)->getCredential();
         }
+
+        /**
+         | Get user information from model
+         | to verify against user input
+         */
+            $userInfo = $this->setWhere()->findAll();
 
         if ($userInfo->count() > 0) {
 
+            /*
+             | Validate user against password
+             | if user validated return true
+             */
             if ( trim($userInfo[0]->password) == trim($credential['password']) ) {
 
                 $this->valid = true;
                 self::$user = $userInfo;
+                $this->attempt = 0;
+
                 return true;
+
             } else {
-                $this->valid = false;
-                $this->attempt++;
-                $this->setError('password', 0);
-                return false;
+
+                return $this->setFailure('password');
             } // password validation end
 
         } else {
+
+            return $this->setFailure('user');
+        } // no user found
+    }
+
+    private function setFailure($key)
+    {
             $this->valid = false;
             $this->attempt++;
-            $this->setError('user', 0);
-            return false;
+        $this->setError($key, 0);
 
-        } // no user found
+            return false;
     }
 
     /**
@@ -145,12 +163,11 @@ class Auth extends AuthManager implements AuthInterface
 
             if ($i == 0) {
                 $this->username = $value;
-                echo $value;
-                $where = static::model()->where($key, '=', $value);
+                $where = static::user()->where($key, '=', $value);
             }
 
             if ($i == 2 || $key == 'status') {
-                $where = static::model()->where($key, '=', $value);
+                $where = static::user()->where($key, '=', $value);
             }
 
             $i++;
@@ -176,7 +193,7 @@ class Auth extends AuthManager implements AuthInterface
     }
 
     /**
-     * Manually we can login users
+     * Login user with user credentials
      *
      * @throws \Cygnite\Auth\Exception\InvalidCredentialException
      * @return boolean
@@ -184,7 +201,6 @@ class Auth extends AuthManager implements AuthInterface
     public function login()
     {
         if ($this->valid) {
-            $this->valid = true;
             return $this->createSession();
         } else {
 
@@ -204,61 +220,53 @@ class Auth extends AuthManager implements AuthInterface
      */
     private function createSession()
     {
-        $userInfo['isLoggedIn'] = true;
-        $userInfo['flashMsg'] = static::$msg.ucfirst($this->username);
-        $hasSession = $this->setSession($userInfo);
+        $hasSession = $this->setSession();
         $this->setUserInfo(self::$user);
 
         return ($hasSession) ? true : false;
     }
 
     /**
-     * @param $userInfo
+     * We will set session
      * @return mixed
      */
-    private function setSession($userInfo)
+    private function setSession()
     {
-        $data = array();
+        $primaryKey = null; $data = array();
+        $primaryKey = self::$user[0]->getPrimaryKey();
+
+        $data[$primaryKey] = self::$user[0]->{$primaryKey};
+
         foreach (self::$user[0]->getAttributes() as $key => $val) {
             $data[$key] = $val;
         }
 
-        $app = self::getContainer();
+        $data['isLoggedIn'] = true;
+        $data['flashMsg'] = static::$msg.ucfirst($this->username);
 
-        /*
-        | @todo:
-        | Session need to be globally accessible from container
-        | we will remove sharing session instance here
-        */
-        $app['session'] = $app->share (function($c) {
-            return $c->make('Cygnite\Common\SessionManager\Session');
-        });
+        Session::set('auth:'.trim($this->table), $data);
 
-        return $app['session']()->store('auth:'.trim($this->table), $data);
+        return true;
     }
 
     /**
      * Check user logged in or not
      *
-     * @param $key
      * @return boolean
      */
-    public function isLoggedIn($key)
+    public function isLoggedIn()
     {
-        $app = self::getContainer();
-
-        if ($app['session']()) {
             //If user has valid session, and such is logged in
-            $sessionArray = $app['session']()->get($key);
-            if (!empty($sessionArray['isLoggedIn'])) {
-                return true;
-            } else {
+        if (Session::has('auth:'.trim($this->table))) {
+
+            $session = Session::get('auth:'.trim($this->table));
+
+            return (isset($session['isLoggedIn']) && $session['isLoggedIn'] == true) ? true : false;
+        }
+
+
                 return false;
             }
-        } else {
-            return true;
-        }
-    }
 
     public function rememberMe()
     {
@@ -283,7 +291,7 @@ class Auth extends AuthManager implements AuthInterface
      */
     private function setError($key, $value)
     {
-        $this->{$key} = $value;
+        $this->errors[$key] = $value;
     }
 
     /**
@@ -306,12 +314,19 @@ class Auth extends AuthManager implements AuthInterface
      * We will destroy current user session and return to
      * application base url
      */
-    public function logout()
+    public function logout($redirect = true)
     {
-        $app = self::getContainer();
-        $app['session']()->delete();
+        Session::delete();
 
-        Url::redirectTo(Url::getBase());
+        ($redirect) ? Url::redirectTo(Url::getBase()) : '';
+    }
+
+    public function userInfo()
+    {
+        if (Session::has('auth:'.trim($this->table))) {
+            $user = Session::get('auth:'.trim($this->table));
+            return $user;
+        }
     }
 
     /**
