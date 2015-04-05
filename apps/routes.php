@@ -13,11 +13,13 @@ $app->router->before('GET', '/{:all}', function ()
    //echo "This site is under maintenance.";exit;
 });
 
+/*
 // Dynamic route: /hello/cygnite/3222
 $app->router->get('/hello/{:name}/{:digit}', function ($router, $name, $id)
 {
    //Router::call('Home.welcome', array($name, $id));
 });
+*/
 
 /*
 GET       - resource/           user.getIndex

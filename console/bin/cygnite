@@ -18,7 +18,7 @@ defined('DS') or define('DS', DIRECTORY_SEPARATOR);
 // Change your time zone accordingly
 define('SET_TIME_ZONE', 'Asia/Kolkata');
 
-define('VERSION', 'Cygnite CLI v1.0.9');
+define('VERSION', 'Cygnite CLI v1.3.2');
 
 use Cygnite\Console\CygniteApplication;
 

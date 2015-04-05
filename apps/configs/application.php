@@ -61,7 +61,7 @@ return array(
     *
     */
     'default_method' => 'index',
-    
+
     /*
     *---------------------------------------------------------------------------
     * Set Application Environment
@@ -73,7 +73,7 @@ return array(
     * Example :
     * environment => 'development/production'
     */
-    'environment' => 'development', //Errors are turned on in development environment
+    'environment' => 'production', //Errors are turned on in development environment
 
     /*
     *--------------------------------------------------------------------------
@@ -168,9 +168,8 @@ return array(
      *---------------------------------------------------------------------------
      * Cygnite Application Logs
      *---------------------------------------------------------------------------
-     * Though cygnite log generator library available we need to integrate
-     * with core files in order to make it. It will be available in next version
-     * of cygnite.
+     * If you enable debugger will generate error logs into apps/temp/logs/
+     *
      */
     'enable_logging' => false,
     /*
@@ -191,36 +190,46 @@ return array(
     *
     */
     'log_path' => 'apps.temp.logs',
-    'enable_error_emailing' => true,
+
+    /**
+     * Enable error emailing. When any error occur in production
+     * Mode email will trigger. Set true or false
+     */
+    'enable_error_emailing' => false,
+
     /*
      * Email Configurations
-     *
-     *
      */
-
     'email_configurations' => array(
 
         'protocol' => 'smtp',
-        'smtp' => array(
 
+        'smtp' => array(
             'host' => 'smtp.gmail.com',
             'username' => 'your gmail id',
             'password' => 'your password',
             'port' => '465',
             'encryption' => 'ssl',
-
         ),
         'sendmail' => array(
-
             'path' => '/usr/sbin/exim -bs'
-
         ),
 
     ),
     'params' => array(
-        // You can define your params here.
-        //It has access globally in your application.
+
+        /*
+        | You can define your params here.
+        | All your params defined here has access
+        | globally in your application.
+        */
         'admin_email' => 'sanjoy@cygniteframework.com',
+
+        /*
+        | We will make use of email address to send error log
+        | when application is in production mode.
+        |
+        */
         'log_email' => 'dey.sanjoy0@gmail.com',
     ),
 );

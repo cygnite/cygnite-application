@@ -45,6 +45,8 @@ return array(
      *----------------------------------------------------------
      * Set the database name if you are using database based session
      * in order to store session.
+     *
+     * Change database name below to use session database driver
      */
     'database_name' => 'cygnite',
 
@@ -83,6 +85,13 @@ return array(
      */
     'httponly' => true,
 
+    /**
+     * --------------------------------------------------------
+     *  Set Session Time out
+     * --------------------------------------------------------
+     * Currently not implemented, you can change the session
+     * timeout in php.ini configuration file
+     */
     'timeout' => 1440,
 
     /**
