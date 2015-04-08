@@ -60,7 +60,7 @@ $asset = AssetCollection::make(function ($asset)
 <div class='container'>
 
     <!-- Navbar -->
-    <?php Widget::make('layout::widget::navbar'); ?>
+    <?php echo Widget::make('layout:widget:navbar'); ?>
     <!-- ./ Navbar -->
 
     <!-- Content -->
