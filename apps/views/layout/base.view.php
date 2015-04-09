@@ -35,7 +35,7 @@ $asset = AssetCollection::make(function ($asset)
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="shortcut icon" href="<?php echo Url::getBase(); ?>assets/img/cygnite/fevicon.png" > </link>
 
-    <title><?php echo $this->title; ?></title>
+    <title><?php echo $title; ?></title>
     <meta name="keywords" content="CRUD Application" />
     <meta name="author" content="Cygnite Framework Bootstrap Starter Site." />
     <!-- Google will often use this as its description of your page/site. Make it good. -->
