@@ -60,10 +60,13 @@ class Auth extends AuthManager implements AuthInterface
      * Set User Credentials to authentication
      *
      * @param $credential
+     * @return $this
      */
     public function setCredential($credential)
     {
         $this->credential = $credential;
+
+        return $this;
     }
 
     /**
@@ -205,10 +208,14 @@ class Auth extends AuthManager implements AuthInterface
 
     public function userInfo()
     {
-        if (Session::has('auth:' . trim($this->table))) {
+        $user = array();
+
+        if ( Session::has('auth:' . trim($this->table)) ) {
             $user = Session::get('auth:' . trim($this->table));
             return $user;
         }
+
+        return $user;
     }
 
     /**
@@ -219,7 +226,7 @@ class Auth extends AuthManager implements AuthInterface
      * @param bool $status
      * @return $this
      */
-    protected function credential($user, $password = null, $status = false)
+    public function credential($user, $password = null, $status = false)
     {
         /**
         | We will check is array passed as first argument
