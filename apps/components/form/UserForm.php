@@ -11,7 +11,7 @@ use Cygnite\Common\UrlManager\Url;
 * You may alter the code to fit your needs
 */
 
-class ProductForm extends Form
+class UserForm extends Form
 {
     //set model object
     private $model;
