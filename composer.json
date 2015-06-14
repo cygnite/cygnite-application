@@ -11,15 +11,13 @@
         }
     ],
 	"require": {
-		"cygnite/framework": "1.*"
+		"cygnite/framework": "1.3.*"
 	},   
   "autoload": {
-     "classmap": [
-          "apps/controllers",
-          "apps/models",
-          "apps/components" ,
-		  "apps/extensions" 
-     ]
+
+      "psr-0": {
+          "Apps":        "src/"
+      }
    },
    "config": {
 		"preferred-install": "dist"
