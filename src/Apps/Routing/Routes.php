@@ -3,15 +3,16 @@ use Apps\Models\User;
 use Cygnite\Base\Router\Router;
 use Cygnite\Foundation\Application;
 
+
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
 }
 
 $app = Application::instance();
-$app->setLocale();
+$app->setLocale();// set Locale for the application
 
 (new Apps\Middlewares\Events\Event())->register();
-$app['event.api.run']();
+$app['event.api.run']();// execute the event registered into EventHandler
 
 //show(trans('validation.not_in'));
 //show(trans('Hello Translator :user', [':user' => 'Cygnite']));
@@ -22,36 +23,15 @@ $app->router->before('GET', '/{:all}', function ()
    //echo "This site is under maintenance.";exit;
 });
 
-
-//$app->router->get('/hello/index/{:digit}', "User.getIndex");
-$app->router->get('/hai/{:id}', function($router, $id) {
+//$app->router->get('/world/{:id}', "Home.world");
+$app->router->get('/hello/{:id}', function($router, $id) {
     //Router::call("User.getIndex", []);
     $router->callController(["User.getIndex", []]);
 });
 
-$app->router->get('/world/{:id}', "Home.world");
-$app->router->get('/test/{:id}', "Home.test");
-
-
-/*$app->router->get('/product/', "Product.index");
-$app->router->get('/product/show/{:id}', "Product.show");
-$app->router->get('/product/edit/{:id}', "Product.edit");
-$app->router->get('/product/add/', "Product.add");*/
-
-use Apps\Routing\RouteCollection;
-
 // Separate all static and group routing from this file
+// also allow you to extend the CRUD static routes
 RouteCollection::setRouter($app['router'])->run();
-
-//$routeCollection = $app->make('\Apps\Routing\RouteCollection');
-//$routeCollection->setRouter($app['router'])->run();
-
-
-
-$app->router->get('/home/index/', function ($route)
-{
-    echo "Home Index";
-});
 
 
 $app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id)
@@ -61,15 +41,6 @@ $app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id)
     $user->group_id = (int) $group_id;
     $user->save();
 });
-
-/*
-// Dynamic route: /hello/cygnite/3222
-$app->router->get('/hello/{:name}/{:digit}', function ($router, $name, $id)
-{
-   //Router::call('Home.welcome', array($name, $id));
-});
-*/
-
 /*
 GET       - resource/           user.getIndex
 GET       - resource/new        user.getNew
@@ -84,9 +55,6 @@ DELETE    - resource/{id}       user.delete
 $app->router->set404Page(function()
 {
     throw new \Cygnite\Exception\Http\HttpException(403, "Abort 404 Page Not Found!");
-    //throw new \Cygnite\Exception\Http\HttpNotFoundException("Abort 404 Page!", new \Cygnite\Exception\Http\HttpNotFoundException, 404);
-    //throw new \Cygnite\Exception\Http\HttpException(404, "Http Exception");
-    //throw new \Cygnite\Exception\Http\HttpException(500, "Http Exception", new \Cygnite\Exception\Http\HttpNotFoundException);
 });
 
 /**
