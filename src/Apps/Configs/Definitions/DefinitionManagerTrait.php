@@ -6,13 +6,14 @@ if (!defined('CF_SYSTEM')) {
 }
 
 /**
- * Class DefinitionManager
+ * trait DefinitionManagerTrait
+ *
  * Define all your property dependencies. Cygnite will
  * inject your dependency at run time.
  *
  * @package Apps\Configs\Definitions
  */
-class DefinitionManager
+trait DefinitionManagerTrait
 {
 
     /**
@@ -24,11 +25,10 @@ class DefinitionManager
      *     return
      *     [
      *          'HomeController' => [
-     *              'service' => 'apps.extensions.general',
-     *              'api' => 'apps.extensions.api'
+     *              'api' => 'apps.resources.extensions.api'
      *           ),
      *          'ProductsController' => [
-     *             'social' => 'apps.extensions.social-share',
+     *             'social' => 'apps.resources.extensions.social-share',
      *          ],
      *     ];
      *  </code>
@@ -36,7 +36,11 @@ class DefinitionManager
      */
     public function getPropertyDependencies()
     {
-        return array();
+        return [
+            'ProductController' => [
+                  'social' => 'apps.resources.extensions.social-share',
+            ],
+        ];
     }
 
     /**
@@ -52,6 +56,8 @@ class DefinitionManager
      */
     public function registerAlias()
     {
-        return [];
+        return [
+            'CustomInterface' => 'Apps\Resources\Extensions\\Custom'
+        ];
     }
 }

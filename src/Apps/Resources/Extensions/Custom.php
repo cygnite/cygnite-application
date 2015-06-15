@@ -1,7 +1,7 @@
 <?php
 namespace Apps\Resources\Extensions;
 
-class Custom
+class Custom implements CustomInterface
 {
     public function initialize()
     {
