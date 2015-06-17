@@ -11,9 +11,6 @@ if (!defined('CF_SYSTEM')) {
 $app = Application::instance();
 $app->setLocale();// set Locale for the application
 
-(new Apps\Middlewares\Events\Event())->register();
-$app['event.api.run']();// execute the event registered into EventHandler
-
 //show(trans('validation.not_in'));
 //show(trans('Hello Translator :user', [':user' => 'Cygnite']));
 
@@ -54,7 +51,7 @@ DELETE    - resource/{id}       user.delete
 
 $app->router->set404Page(function()
 {
-    throw new \Cygnite\Exception\Http\HttpException(403, "Abort 404 Page Not Found!");
+    throw new \Cygnite\Exception\Http\HttpException(404, "Abort 404 Page Not Found!");
 });
 
 /**

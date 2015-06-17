@@ -2,6 +2,8 @@
 return [
     'app.path' => CYGNITE_BASE.'/src/Apps/',
 
+    'app.namespace' => 'Apps',
+
     'app.config' => [
 
         'directory' => 'Configs/',
@@ -20,8 +22,9 @@ return [
 
     'routes.dir' => 'Routing/',
 
-    'assets.path' => CYGNITE_BASE.'/src/public/assets',
+    'assets.path' => CYGNITE_BASE.'/public/assets',
+
+    'storage.path' => CYGNITE_BASE.'/public/storage/',
 
     'core.path' => CYGNITE_BASE.'/vendor/cygnite/',
-
 ];

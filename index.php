@@ -43,6 +43,9 @@ defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
 | ---------------------------------------------------------------
 */
 defined('APPPATH') or define('APPPATH', 'src/Apps');
+
+defined('APP_NS') or define('APP_NS', 'Apps');
+
 chdir(__DIR__);
 
 /* --------------------------------------------------------------

@@ -37,7 +37,7 @@ class HomeController extends AbstractBaseController
     *
     */
 
-    protected $layout = 'layout.home';
+    protected $layout = 'layouts.home';
 
     protected $templateEngine = false;
 
@@ -49,10 +49,9 @@ class HomeController extends AbstractBaseController
      * @access public
      *
      */
-    public function __construct(\Apps\Resources\Extensions\General $g)
+    public function __construct()
     {
         parent::__construct();
-        show($g);
     }
 
     /**
@@ -64,18 +63,6 @@ class HomeController extends AbstractBaseController
    {
        $this->render('welcome', array('title' => 'Welcome to Cygnite Framework'));
    }
-
-
-    public function worldAction()
-    {
-        echo "Welcome to Static ROuting ";
-    }
-
-    public function testAction()
-    {
-        echo "Welcome to Static ROuting Test Test";
-    }
-
 
    public function hmvcAction($id)
    {
