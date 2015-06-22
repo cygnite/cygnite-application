@@ -6,7 +6,5 @@ if (!defined('CF_SYSTEM')) {
 }
 
 return [
-    'module.path' => realpath(__DIR__.'/../'.'Modules/'),
-
-    'module.config' => 'Configs',
+    'module.config' => ['name' => 'Welcome to Acme Module'],
 ];

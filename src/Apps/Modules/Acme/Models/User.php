@@ -1,5 +1,5 @@
 <?php
-namespace Apps\Modules\Admin\Models;
+namespace Apps\Modules\Acme\Models;
 
 use Cygnite\Application;
 use Cygnite\Database\Schema;

@@ -14,7 +14,8 @@ return [
          | Will load your configuration file.
          */
         'files' => [
-           'custom' => 'custom.config'
+           'custom' => 'custom.config',
+           'module' => 'module',
         ],
 
         'defination' => '',

@@ -1,10 +1,11 @@
 <?php
-namespace Apps\Modules\Admin\Controllers;
+namespace Apps\Modules\Acme\Controllers;
 
 use Cygnite\Mvc\View\Widget;
 use Cygnite\Foundation\Application;
-use Apps\Modules\Admin\Models\User;
+use Apps\Modules\Acme\Models\User;
 use Cygnite\Mvc\Controller\AbstractBaseController;
+use Cygnite\Helpers\Config;
 
 class UserController extends AbstractBaseController
 {
@@ -16,7 +17,7 @@ class UserController extends AbstractBaseController
     public function __construct()
     {
         parent::__construct();
-
+        show(Config::$config['acme.config']);
     }
 
     /**
@@ -24,8 +25,9 @@ class UserController extends AbstractBaseController
      * @access public
      *
      */
-   public function indexAction($id)
+   public function indexAction($id = null)
    {
+       echo "Module user Index $id";exit;
         $users = array();
         //$users = User::all();
        return Widget::make('admin:user', function ($widget)
