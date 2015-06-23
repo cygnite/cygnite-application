@@ -3,31 +3,47 @@ use Apps\Models\User;
 use Cygnite\Base\Router\Router;
 use Cygnite\Foundation\Application;
 
-
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
 }
 
 $app = Application::instance();
-$app->setLocale();// set Locale for the application
 
-//show(trans('validation.not_in'));
-//show(trans('Hello Translator :user', [':user' => 'Cygnite']));
+/*
+ | Set Locale For The Application
+ | $app->setLocale();
+ */
+
+/*
+ | Language Translation
+ |
+ |  show(trans('validation.not_in'));
+ |  show(trans('Hello Translator :user', [':user' => 'Cygnite']));
+ */
 
 // Before Router Middle Ware
 $app->router->before('GET', '/{:all}', function ()
 {
-   //echo "This site is under maintenance.";exit;
+   //echo "This site is under maintenance.";exit(1);
 });
 
-//$app->router->get('/world/{:id}', "Home.world");
-$app->router->get('/hello/{:id}', function($router, $id) {
-    //Router::call("User.getIndex", []);
-    $router->callController(["User.getIndex", []]);
+$app->router->get('/module/{:id}', function($router, $id) {
+    //Router::call("Acme::User@Index", []);
+    /*
+     | Call module directly from routing
+     */
+    return $router->callController(["Acme::User@index", [$id]]);
 });
 
-// Separate all static and group routing from this file
-// also allow you to extend the CRUD static routes
+
+/*
+ | Separate all static and group routing from this file
+ | also allow you to extend the CRUD static routes
+ |
+ | For every CRUD Controller you need to define routes
+ | for the controller into
+ | RouteCollection::executeStaticRoutes(); function
+ */
 RouteCollection::setRouter($app['router'])->run();
 
 

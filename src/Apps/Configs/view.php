@@ -6,7 +6,7 @@ if (!defined('CF_SYSTEM')) {
 }
 
 return [
-    'view.path' => __DIR__.'../'.'Views/',
+    'view.path' => realpath(__DIR__.'/../Views/'),
 
-    'view.widget.path' => __DIR__.'../'.'Views/Widgets/'
+    'view.widget.path' => realpath(__DIR__.'/../Views/layouts/widgets/')
 ];

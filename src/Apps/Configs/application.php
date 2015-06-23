@@ -11,8 +11,8 @@ if (!defined('CF_SYSTEM')) {
  *  License
  *
  *  This source file is subject to the MIT license that is bundled
- *  with this package in the file LICENSE.txt.
- *  http://www.cygniteframework.com/LICENSE
+ *  with this package in the file LICENSE.
+ *  http://www.cygniteframework.com/LICENSE.html
  *  If you did not receive a copy of the license and are unable to
  *  obtain it through the world-wide-web, please send an email
  *  to dey.sanjoy0@gmail.com so I can send you a copy immediately.
@@ -22,7 +22,7 @@ if (!defined('CF_SYSTEM')) {
  * @filename      :  application
  * @description   :  You can set all your global configurations here.
  * @author        :  Sanjoy Dey
- * @copyright     :  Copyright (c) 2013 - 2014,
+ * @copyright     :  Copyright (c) 2013 - 2015,
  * @link          :  http://www.cygniteframework.com
  * @since         :  version 1.0
  * @warning       :  If you don't protect this directory from direct web access,
@@ -71,7 +71,7 @@ return [
     | Example :
     | environment => 'development/production'
     */
-    'environment' => 'production', //Errors are turned on in development environment
+    'environment' => 'development', //Errors are turned on in development environment
 
 
     /**

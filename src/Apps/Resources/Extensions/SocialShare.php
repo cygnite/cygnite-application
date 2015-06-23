@@ -5,7 +5,7 @@ class SocialShare
 {
     public function __construct(\Apps\Resources\Extensions\Custom $custom)
     {
-        show($custom);
+        var_dump($custom);
     }
 
     public function hello()

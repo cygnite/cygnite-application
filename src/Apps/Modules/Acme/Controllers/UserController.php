@@ -17,7 +17,6 @@ class UserController extends AbstractBaseController
     public function __construct()
     {
         parent::__construct();
-        show(Config::$config['acme.config']);
     }
 
     /**
@@ -25,11 +24,10 @@ class UserController extends AbstractBaseController
      * @access public
      *
      */
-   public function indexAction($id = null)
+   public function indexAction()
    {
-       echo "Module user Index $id";exit;
-        $users = array();
-        //$users = User::all();
+       $users = array();
+       //$users = User::all();
        return Widget::make('admin:user', function ($widget)
        {
            return $widget->render(true); // If you pass true Widget will understand you are trying to access widget

@@ -22,8 +22,7 @@ if (version_compare(PHP_VERSION, '5.4', '<') === true) {
 |
 */
 if ( ! extension_loaded('mcrypt')) {
-    echo 'Cygnite requires Mcrypt PHP extension.'.PHP_EOL;
-    exit(1);
+    die('Cygnite requires Mcrypt PHP extension.'.PHP_EOL);
 }
 
 require 'initialize'.EXT;

@@ -4,24 +4,26 @@
     "keywords": ["Cygnite", "Framework"],
     "homepage": "http://www.cygniteframework.com",
     "license": "MIT",
+    "type": "project",
     "authors": [
         {
             "name": "Sanjoy Dey",
             "email": "dey.sanjoy0@gmail.com"
         }
     ],
-	"require": {
+    "require": {
         "php": ">=5.4",
-		"cygnite/framework": "2.0.*"
-	},   
-  "autoload": {
-
-      "psr-0": {
-          "Apps": "src/"
+        "cygnite/framework": "2.0.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
+    "autoload": {
+      "psr-4": {
+         "Apps\\": "src/Apps/"
       }
-   },
-   "config": {
-		"preferred-install": "dist"
-	},
-	"minimum-stability": "stable"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
 }
