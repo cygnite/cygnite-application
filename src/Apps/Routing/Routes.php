@@ -1,6 +1,7 @@
 <?php
 use Apps\Models\User;
 use Cygnite\Base\Router\Router;
+use Apps\Routing\RouteCollection;
 use Cygnite\Foundation\Application;
 
 if (!defined('CF_SYSTEM')) {
