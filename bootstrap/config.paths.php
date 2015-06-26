@@ -1,6 +1,6 @@
 <?php
 return [
-    'app.path' => CYGNITE_BASE.'/src/Apps/',
+    'app.path' => realpath(CYGNITE_BASE.'/src/Apps/'),
 
     'app.namespace' => 'Apps',
 
@@ -14,8 +14,8 @@ return [
          | Will load your configuration file.
          */
         'files' => [
-           'custom' => 'custom.config',
-           'module' => 'module',
+            'custom' => 'custom.config',
+            'module' => 'module',
         ],
 
         'defination' => '',
@@ -23,9 +23,9 @@ return [
 
     'routes.dir' => 'Routing/',
 
-    'assets.path' => CYGNITE_BASE.'/public/assets',
+    'assets.path' => realpath(CYGNITE_BASE.'/public/assets'),
 
-    'storage.path' => CYGNITE_BASE.'/public/storage/',
+    'storage.path' => realpath(CYGNITE_BASE.'/public/storage/'),
 
-    'core.path' => CYGNITE_BASE.'/vendor/cygnite/',
+    'core.path' => realpath(CYGNITE_BASE.'/vendor/cygnite/'),
 ];

@@ -11,19 +11,27 @@
             "email": "dey.sanjoy0@gmail.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url":  "https://github.com/sanjoydesk/framework"
+        }
+    ],
     "require": {
         "php": ">=5.4",
-        "cygnite/framework": "2.0.*"
+        "cygnite/framework": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.0"
     },
     "autoload": {
-      "psr-4": {
-         "Apps\\": "src/Apps/"
-      }
+        "psr-4": {
+            "Apps\\": "src/Apps/"
+        }
     },
-    "config": {
-        "preferred-install": "dist"
-    }
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.0-dev"
+        }
+    },
 }
