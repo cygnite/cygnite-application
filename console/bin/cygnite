@@ -11,21 +11,23 @@ defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
 
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'packages');
 
-defined('APPPATH') or define('APPPATH', 'apps');
+defined('DS') or define('DS', DIRECTORY_SEPARATOR);
+
+defined('APPPATH') or define('APPPATH', 'src'.DS.'Apps');
+
+defined('APP_NS') or define('APP_NS', 'Apps');
 
 defined('EXT') or define('EXT', '.php');
 
-defined('DS') or define('DS', DIRECTORY_SEPARATOR);
-
 // Change your time zone accordingly
-define('SET_TIME_ZONE', 'Asia/Kolkata');
+define('SET_TIME_ZONE', 'UTC');
 
 define('VERSION', 'Cygnite CLI v2.0');
 
-use Cygnite\Console\CygniteApplication;
+use Cygnite\Console\CygniteConsoleApplication;
 
 //Lets initialize Console application
-$app = new CygniteApplication(VERSION);
+$app = new CygniteConsoleApplication(VERSION);
 
 //Boot Strapping done! Lets Run Application.
 $app->run();
