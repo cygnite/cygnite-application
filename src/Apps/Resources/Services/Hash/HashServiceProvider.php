@@ -7,7 +7,7 @@ use Cygnite\DependencyInjection\ServiceProvider;
 
 class HashServiceProvider extends ServiceProvider
 {
-    protected $container;
+    protected $app;
 
     /**
      * Register the HASH Service Provider.

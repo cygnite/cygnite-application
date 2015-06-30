@@ -1,12 +1,12 @@
 <?php
-namespace Apps\Services\Payment;
+namespace Apps\Resources\Services\Payment;
 
 use Cygnite\DependencyInjection\ServiceProvider;
 use Cygnite\Foundation\Application;
 
 class ApiServiceProvider extends ServiceProvider
 {
-	protected $container;
+	protected $app;
 	
 	public function register(Application $app)
 	{
