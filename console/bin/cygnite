@@ -1,33 +1,32 @@
 #!/usr/bin/env php
 <?php
-// Change your time zone accordingly
-date_default_timezone_set('UTC');
-
 set_time_limit(0);
 
-(@include_once __DIR__ . '/../../vendor/autoload.php') || @include_once __DIR__ . '/../../autoload.php';
-
-defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
-
-defined('CF_SYSTEM') or define('CF_SYSTEM', 'packages');
-
-defined('DS') or define('DS', DIRECTORY_SEPARATOR);
-
-defined('APPPATH') or define('APPPATH', 'src'.DS.'Apps');
-
-defined('APP_NS') or define('APP_NS', 'Apps');
-
-defined('EXT') or define('EXT', '.php');
-
-// Change your time zone accordingly
-define('SET_TIME_ZONE', 'UTC');
-
-define('VERSION', 'Cygnite CLI v2.0');
-
+use Cygnite\Helpers\Config;
 use Cygnite\Console\CygniteConsoleApplication;
 
-//Lets initialize Console application
+define('VERSION', 'Cygnite Console v2.0');
+
+include '/../../index.php';
+
+/*
+ | We will set default timezone constant here to use
+ | for console component
+ */
+$config = Config::get('global.config');
+
+//timezone constant
+define('SET_TIME_ZONE', $config['timezone']);
+
+/*
+ | We have setup the environment.
+ | Create Cygnite Console instance to run application.
+ */
 $app = new CygniteConsoleApplication(VERSION);
 
-//Boot Strapping done! Lets Run Application.
+/*
+ | Environment Setup and Boot Strapping done!
+ | Lets Run Console Application.
+ |
+ */
 $app->run();

@@ -24,10 +24,10 @@ if (!defined('CF_SYSTEM')) {
  *
  * Please protect this file to have maximum security.
  */
-Configuration::initialize(
+Configure::database(
     function ($config) {
         $config->default = 'db';
-        $config->setConfig(
+        $config->set(
             [
                 'db' => [
                     'driver' => 'mysql',
