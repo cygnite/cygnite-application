@@ -61,19 +61,19 @@ class HomeController extends AbstractBaseController
      */
    public function indexAction()
    {
-       $this->render('welcome', array('title' => 'Welcome to Cygnite Framework'));
+       $this->render('welcome', ['title' => 'Welcome to Cygnite Framework']);
    }
 
    public function hmvcAction($id)
    {
         //We are calling HMVC widget and return response
-		$widgetResponse = $this->call('modules.admin.controllers.user@index', array('id' => $id));
+		$widgetResponse = $this->call('modules.admin.controllers.user@index', ['id' => $id]);
 		
 		//You should enable layout in order to access variable into view page
-       $this->render('application', array(
+       $this->render('application', [
                 'messege' => 'Welcome to Cygnite framework',
                 'userwidget' => $widgetResponse
-        ));  
+       ]);
    }
 
 }//End of your home controller

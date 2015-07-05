@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 namespace Apps\Controllers;
 
 use Cygnite\Common\Input\Input;
@@ -53,18 +52,18 @@ class ProductController extends AbstractBaseController
     */
     public function indexAction()
     {
-        $product = array();
-        $product = Product::all(array('orderBy' => 'id desc',
-                /*'paginate' => array(
+        $product = [];
+        $product = Product::all(['orderBy' => 'id desc',
+                /*'paginate' => [
                     'limit' => Url::segment(3)
-                )*/)
+                )*/]
         );
 
-        $this->render('index', array(
+        $this->render('index', [
             'records' => $product,
             'links' => '', //Product::createLinks(),
             'title' => 'Cygnite Framework - Crud Application'
-        ));
+        ]);
     }
 
     /**
@@ -77,15 +76,13 @@ class ProductController extends AbstractBaseController
         //Set Form validation rules
         return Validator::instance($input, function ($validate)
         {
-            $validate		->addRule('product_name', 'required|min:5')
-		->addRule('category', 'required|min:5')
-		->addRule('description', 'required|min:5')
-		->addRule('validity', 'required|min:5')
-		->addRule('price', 'required|min:5')
-		->addRule('created_at', 'required|min:5')
-		->addRule('updated_at', 'required|min:5')
-;
-
+            $validate->addRule('product_name', 'required|min:5')
+                    ->addRule('category', 'required|min:5')
+                    ->addRule('description', 'required|min:5')
+                    ->addRule('validity', 'required|min:5')
+                    ->addRule('price', 'required|min:5')
+                    ->addRule('created_at', 'required|min:5')
+                    ->addRule('updated_at', 'required|min:5');
 
             return $validate;
         });
@@ -140,11 +137,11 @@ class ProductController extends AbstractBaseController
         }
 
         // We can also use same view page for create and update
-        $this->render('create', array(
+        $this->render('create', [
                 'form' => $form->buildForm()->render(),
                 'validation_errors' => $form->errors,
                 'title' => 'Add a new Product'
-        ));
+        ]);
     }
 
     /**
@@ -154,7 +151,7 @@ class ProductController extends AbstractBaseController
      */
     public function editAction($id)
     {
-        $validator = null; $product = array();
+        $validator = null; $product = [];
         $product = Product::find($id);
         $form = new ProductForm($product, Url::segment(3));
         $form->action = 'edit';
@@ -197,11 +194,11 @@ class ProductController extends AbstractBaseController
             $form->validation = $validator;
         }
 
-        $this->render('update', array(
+        $this->render('update', [
                 'form' => $form->buildForm()->render(),
                 'validation_errors' => $form->errors,
                 'title' => 'Update the Product'
-        ));
+        ]);
 
     }
 
@@ -213,10 +210,10 @@ class ProductController extends AbstractBaseController
     {
         $product = Product::find($id);
 
-        $this->render('show', array(
+        $this->render('show', [
             'record' => $product,
             'title' => 'Show the Product'
-        ));
+        ]);
     }
 
     /**
@@ -235,16 +232,6 @@ class ProductController extends AbstractBaseController
             $this->setFlash('error', 'Error Occured while deleting Product!')
                  ->redirectTo('product/');
         }
-    }
-
-    public function orderInfoAction()
-    {
-        echo "3234242";
-    }
-
-    public function testRouting2Action()
-    {
-        echo "hello diff";
     }
 
 }//End of your Product controller
