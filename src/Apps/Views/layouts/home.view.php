@@ -1,7 +1,7 @@
 <?php
 use Cygnite\Mvc\View\Widget;
-use Cygnite\AssetManager\AssetCollection;
 use Cygnite\Common\UrlManager\Url;
+use Cygnite\AssetManager\AssetCollection;
 
 $asset = AssetCollection::make(function ($asset)
 {
@@ -31,7 +31,7 @@ $asset = AssetCollection::make(function ($asset)
 
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" href="<?php echo Url::getBase(); ?>assets/img/cygnite/fevicon.png" > </link>
+    <link rel="shortcut icon" href="<?php echo Url::getBase(); ?>/public/assets/img/cygnite/fevicon.png" > </link>
 
     <title><?php echo $title; ?></title>
     <meta name="keywords" content="CRUD Application" />

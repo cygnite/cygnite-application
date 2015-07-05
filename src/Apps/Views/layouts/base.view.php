@@ -1,5 +1,6 @@
 <?php
 use Cygnite\Mvc\View\Widget;
+use Cygnite\Common\UrlManager\Url;
 use Cygnite\AssetManager\AssetCollection;
 
 $asset = AssetCollection::make(function ($asset)
@@ -43,6 +44,7 @@ $asset = AssetCollection::make(function ($asset)
     <meta name="description" content="Cygnite CRUD Generator." />
     <!--  Mobile Viewport Fix -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="shortcut icon" href="<?php echo Url::getBase(); ?>/public/assets/img/cygnite/fevicon.png" > </link>
 
     <?php $asset->where('header')->dump('style');// Header Style block ?>
     <style type="text/css">
