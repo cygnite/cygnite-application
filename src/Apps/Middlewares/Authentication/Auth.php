@@ -102,20 +102,15 @@ class Auth extends AuthManager implements AuthInterface
              | if user validated return true
              */
             if (trim($userInfo[0]->password) == trim($credential['password'])) {
-
                 $this->valid = true;
                 self::$user = $userInfo;
                 $this->attempt = 0;
 
                 return true;
-
             } else {
-
                 return $this->setFailure('password');
             } // password validation end
-
         } else {
-
             return $this->setFailure('user');
         } // no user found
     }
@@ -131,7 +126,6 @@ class Auth extends AuthManager implements AuthInterface
         if ($this->valid) {
             return $this->createSession();
         } else {
-
             $credential = $this->getCredential();
             if (empty($credential)) {
                 throw new InvalidCredentialException('Please set credential using Auth::setCredential($credential) to login.');
@@ -152,7 +146,6 @@ class Auth extends AuthManager implements AuthInterface
     {
         //If user has valid session, and such is logged in
         if (Session::has('auth:' . trim($this->table))) {
-
             $session = Session::get('auth:' . trim($this->table));
 
             return (isset($session['isLoggedIn']) && $session['isLoggedIn'] == true) ? true : false;
@@ -163,7 +156,6 @@ class Auth extends AuthManager implements AuthInterface
 
     public function rememberMe()
     {
-
     }
 
     /**
@@ -261,7 +253,6 @@ class Auth extends AuthManager implements AuthInterface
 
         $i = 0;
         foreach ($credentials as $key => $value) {
-
             if ($i == 0) {
                 $this->username = $value;
                 $where = static::user()->where($key, '=', $value);

@@ -13,5 +13,4 @@ use Cygnite\Foundation\Application;
 
 class CsrfValidationFilter
 {
-
 }

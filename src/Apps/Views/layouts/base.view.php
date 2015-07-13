@@ -3,8 +3,7 @@ use Cygnite\Mvc\View\Widget;
 use Cygnite\Common\UrlManager\Url;
 use Cygnite\AssetManager\AssetCollection;
 
-$asset = AssetCollection::make(function ($asset)
-    {
+$asset = AssetCollection::make(function ($asset) {
         // Set of resources tagged to header
         $asset->where('header')
             ->add('style', array('path' => 'public/assets/css/bootstrap/css/bootstrap.min.css'))

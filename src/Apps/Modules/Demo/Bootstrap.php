@@ -8,7 +8,7 @@ if (!defined('CF_SYSTEM')) {
     exit('External script access not allowed');
 }
 
-class BootStrap
+class Bootstrap
 {
     /**
      * You can register events or data into container
@@ -19,6 +19,5 @@ class BootStrap
      */
     public function register($app, $path)
     {
-
     }
 }

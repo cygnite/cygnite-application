@@ -7,9 +7,8 @@ use Cygnite\Database\Table\Schema;
 * You may use up and down method to create migration
 */
 
-class Product extends Migration
+class product extends Migration
 {
-
     /**
      * Specify your database connection name here
      *
@@ -24,8 +23,7 @@ class Product extends Migration
     public function up()
     {
         //Your schema to migrate
-        Schema::make($this, function ($table)
-        {
+        Schema::make($this, function ($table) {
             $table->tableName = 'product';
 
             $table->create(
@@ -38,7 +36,7 @@ class Product extends Migration
                     ['column'=> 'validity', 'type' => 'date', 'length'  =>'0000-00-00'],
                     ['column'=> 'price', 'type' => 'decimal', 'length'  =>'10,2'],
                     ['column'=> 'created_at', 'type' => 'datetime'],
-                    ['column'=> 'updated_at','type' => 'datetime'],
+                    ['column'=> 'updated_at', 'type' => 'datetime'],
 
                 ], 'InnoDB', 'latin1'
             )->run();
@@ -50,12 +48,11 @@ class Product extends Migration
             'description' => 'Hugely powerful. Enormously efficient.',
             'validity' => '2018-08-30',
             'price' => '950.00',
-            'created_at' => date( 'Y-m-d H:i:s'),
-            'updated_at' => date( 'Y-m-d H:i:s')
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
         ];
 
         $this->insert('product', $data);
-
     }
 
     /**
@@ -67,10 +64,10 @@ class Product extends Migration
     {
         $this->delete('product', '1'); // delete last seeded data
         //Roll back your changes done by up method.
-        Schema::make($this, function ($table)
-        {
+        Schema::make($this, function ($table) {
             $table->tableName = 'product';
             $table->drop()->run();
         });
     }
 }// End of the Migration
+

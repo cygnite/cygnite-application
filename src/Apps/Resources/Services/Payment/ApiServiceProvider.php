@@ -6,12 +6,12 @@ use Cygnite\Foundation\Application;
 
 class ApiServiceProvider extends ServiceProvider
 {
-	protected $app;
-	
-	public function register(Application $app)
-	{
-		$app['payment.api'] = $app->share (function($c) {
-			//return new PayPal();
-		});
-	}
+    protected $app;
+    
+    public function register(Application $app)
+    {
+        $app['payment.api'] = $app->share(function ($c) {
+            //return new PayPal();
+        });
+    }
 }

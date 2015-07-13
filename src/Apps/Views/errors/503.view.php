@@ -19,7 +19,9 @@
     </style>
 </head>
 <body>
-<?php use Cygnite\Common\UrlManager\Url; ?>
+<?php use Cygnite\Common\UrlManager\Url;
+
+?>
 	<div class="wrapper">
 		<div class="clear-fix"></div>
 		<div role="main" class="content">

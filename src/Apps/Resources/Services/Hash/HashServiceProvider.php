@@ -15,10 +15,9 @@ class HashServiceProvider extends ServiceProvider
      * @param Application $app
      */
     public function register(Application $app)
-	{
-        $app['hash'] = $app->share (function($c)
-        {
+    {
+        $app['hash'] = $app->share(function ($c) {
             return new BCrypt();
         });
-	}
+    }
 }

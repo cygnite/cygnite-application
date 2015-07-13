@@ -63,5 +63,4 @@ class Event extends EventListener
             return $this->fire('event.api.run');// Allowing you to refer other service or values
         };
     }
-
 }

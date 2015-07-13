@@ -5,7 +5,7 @@ use Cygnite\Mvc\Controller\AbstractBaseController;
 
 class IndexController extends AbstractBaseController
 {
-     /*
+    /*
      * Your constructor.
      * @access public
      *
@@ -22,6 +22,7 @@ class IndexController extends AbstractBaseController
      */
    public function indexAction()
    {
-        echo "Demo Index";
+       echo "Demo Index";
    }
 }//End of your controller
+

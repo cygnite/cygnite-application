@@ -74,8 +74,7 @@ class ProductController extends AbstractBaseController
     private function setValidationRules($input)
     {
         //Set Form validation rules
-        return Validator::instance($input, function ($validate)
-        {
+        return Validator::instance($input, function ($validate) {
             $validate->addRule('product_name', 'required|min:5')
                     ->addRule('category', 'required|min:5')
                     ->addRule('description', 'required|min:5')
@@ -101,23 +100,21 @@ class ProductController extends AbstractBaseController
 
         //Check is form posted
         if ($input->hasPost('btnSubmit') == true) {
-
             $validator = $this->setValidationRules($input);
 
             //Run validation
             if ($validator->run()) {
-
                 $product = new Product();
                 // get post array value except the submit button
                 $postArray = $input->except('btnSubmit')->post();
 
-                	$product->product_name = $postArray["product_name"];
-                    $product->category = $postArray["category"];
-                    $product->description = $postArray["description"];
-                    $product->validity = $postArray["validity"];
-                    $product->price = $postArray["price"];
-                    $product->created_at = $postArray["created_at"];
-                    $product->updated_at = $postArray["updated_at"];
+                $product->product_name = $postArray["product_name"];
+                $product->category = $postArray["category"];
+                $product->description = $postArray["description"];
+                $product->validity = $postArray["validity"];
+                $product->price = $postArray["price"];
+                $product->created_at = $postArray["created_at"];
+                $product->updated_at = $postArray["updated_at"];
 
                 // Save form details
                 if ($product->save()) {
@@ -127,7 +124,6 @@ class ProductController extends AbstractBaseController
                     $this->setFlash('error', 'Error occured while adding Product!')
                         ->redirectTo('product/index/'.Url::segment(3));
                 }
-
             } else {
                 //validation error here
                 $form->errors = $validator->getErrors();
@@ -151,7 +147,8 @@ class ProductController extends AbstractBaseController
      */
     public function editAction($id)
     {
-        $validator = null; $product = [];
+        $validator = null;
+        $product = [];
         $product = Product::find($id);
         $form = new ProductForm($product, Url::segment(3));
         $form->action = 'edit';
@@ -160,7 +157,6 @@ class ProductController extends AbstractBaseController
 
         //Check is form posted
         if ($input->hasPost('btnSubmit') == true) {
-
             $validator = $this->setValidationRules($input);
 
             //Run validation
@@ -169,13 +165,13 @@ class ProductController extends AbstractBaseController
                 // get post array value except the submit button
                 $postArray = $input->except('btnSubmit')->post();
 
-                	$product->product_name = $postArray["product_name"];
-                    $product->category = $postArray["category"];
-                    $product->description = $postArray["description"];
-                    $product->validity = $postArray["validity"];
-                    $product->price = $postArray["price"];
-                    $product->created_at = $postArray["created_at"];
-                    $product->updated_at = $postArray["updated_at"];
+                $product->product_name = $postArray["product_name"];
+                $product->category = $postArray["category"];
+                $product->description = $postArray["description"];
+                $product->validity = $postArray["validity"];
+                $product->price = $postArray["price"];
+                $product->created_at = $postArray["created_at"];
+                $product->updated_at = $postArray["updated_at"];
 
                 // Save form information
                 if ($product->save()) {
@@ -185,7 +181,6 @@ class ProductController extends AbstractBaseController
                     $this->setFlash('error', 'Error occured while updating Product!')
                         ->redirectTo('product/index/'.Url::segment(3));
                 }
-
             } else {
                 //validation error here
                 $form->errors = $validator->getErrors();
@@ -199,7 +194,6 @@ class ProductController extends AbstractBaseController
                 'validation_errors' => $form->errors,
                 'title' => 'Update the Product'
         ]);
-
     }
 
     /**
@@ -233,5 +227,5 @@ class ProductController extends AbstractBaseController
                  ->redirectTo('product/');
         }
     }
-
 }//End of your Product controller
+

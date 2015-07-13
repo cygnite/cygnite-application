@@ -9,7 +9,7 @@ use Cygnite\Helpers\Config;
 
 class UserController extends AbstractBaseController
 {
-     /*
+    /*
      * Your constructor.
      * @access public
      *
@@ -28,10 +28,10 @@ class UserController extends AbstractBaseController
    {
        $users = array();
        //$users = User::all();
-       return Widget::make('admin:user', function ($widget)
-       {
+       return Widget::make('admin:user', function ($widget) {
            return $widget->render(true); // If you pass true Widget will understand you are trying to access widget
 
        }, array('greet' => 'Hello! Widget'));
    }
 }//End of your controller
+

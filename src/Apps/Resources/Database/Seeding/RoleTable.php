@@ -2,6 +2,7 @@
 namespace Apps\Resources\Database\Seeding;
 
 use Cygnite\Database\Migration;
+
 /**
  * Class UserTable
  *

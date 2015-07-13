@@ -1,19 +1,19 @@
 <?php
 
 return [
-	/*
-	|--------------------------------------------------------------------------
-	| Validation Language Lines
-	|--------------------------------------------------------------------------
-	|
-	| El following language lines contain the default error messages used by
-	| the validator class. Feel free to tweak each of these messages.
-	|
-	*/
+    /*
+    |--------------------------------------------------------------------------
+    | Validation Language Lines
+    |--------------------------------------------------------------------------
+    |
+    | El following language lines contain the default error messages used by
+    | the validator class. Feel free to tweak each of these messages.
+    |
+    */
 
-	"accepted"         => "El campo :attribute debe ser aceptado.",
-	"active_url"       => "El campo :attribute no es una URL válida.",
-	"url"              => "El formato del campo :attribute es inválido.",
+    "accepted"         => "El campo :attribute debe ser aceptado.",
+    "active_url"       => "El campo :attribute no es una URL válida.",
+    "url"              => "El formato del campo :attribute es inválido.",
 
     /*
     |--------------------------------------------------------------------------

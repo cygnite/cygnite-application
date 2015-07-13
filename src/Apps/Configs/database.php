@@ -51,5 +51,3 @@ Configure::database(
         );
     }
 );
-
-

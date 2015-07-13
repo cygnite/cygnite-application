@@ -75,20 +75,17 @@ class RouteCollection extends StaticResolver
         /*
          | Set multiple group routes
          */
-        $this->router->group('/movies', function($route) {
+        $this->router->group('/movies', function ($route) {
 
-            $route->get('/', function ()
-            {
+            $route->get('/', function () {
                 echo "Movies Overview";
             });
 
-            $route->get('english/{:id}', function ($route, $id)
-            {
+            $route->get('english/{:id}', function ($route, $id) {
                 echo "Movie $id";
             });
 
-            $route->where('{:id}', '(\d+)')->get('spanish/{:id}', function ($route, $id)
-            {
+            $route->where('{:id}', '(\d+)')->get('spanish/{:id}', function ($route, $id) {
                 echo "Movie with custom where clause $id";
             });
         });

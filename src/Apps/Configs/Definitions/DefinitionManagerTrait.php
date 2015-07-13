@@ -15,7 +15,6 @@ if (!defined('CF_SYSTEM')) {
  */
 trait DefinitionManagerTrait
 {
-
     /**
      * Set controller property dependencies here.
      * Cygnite will inject all your dependencies at runtime

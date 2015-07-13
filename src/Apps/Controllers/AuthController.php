@@ -42,7 +42,6 @@ class AuthController extends AbstractBaseController
      */
     public function indexAction()
     {
-
     }
 
     /**

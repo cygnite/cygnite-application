@@ -23,12 +23,11 @@ $app = Application::instance();
  */
 
 // Before Router Middle Ware
-$app->router->before('GET', '/{:all}', function ()
-{
+$app->router->before('GET', '/{:all}', function () {
    //echo "This site is under maintenance.";exit(1);
 });
 
-$app->router->get('/module/{:id}', function($router, $id) {
+$app->router->get('/module/{:id}', function ($router, $id) {
     //Router::call("Acme::User@Index", []);
     /*
      | Call module directly from routing
@@ -48,8 +47,7 @@ $app->router->get('/module/{:id}', function($router, $id) {
 RouteCollection::setRouter($app['router'])->run();
 
 
-$app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id)
-{
+$app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
     $user = new User();
     $user->name = (string) $name;
     $user->group_id = (int) $group_id;
@@ -66,8 +64,7 @@ DELETE    - resource/{id}       user.delete
 */
 //$app->router->resource('resource', 'user'); // respond to resource routing
 
-$app->router->set404Page(function()
-{
+$app->router->set404Page(function () {
     throw new \Cygnite\Exception\Http\HttpException(404, "Abort 404 Page Not Found!");
 });
 
@@ -75,8 +72,7 @@ $app->router->set404Page(function()
  * After routing callback
  * Will call after executing all user defined routing.
  */
-$app->router->after(function()
-{
+$app->router->after(function () {
    //echo "After Routing callback";
 });
 

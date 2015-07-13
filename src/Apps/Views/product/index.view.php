@@ -37,7 +37,7 @@ if ($this->hasFlash('success')) {
     <?php
     if (count($records) > 0) {
         //$i = 1;
-        if (Url::segment(2) == '' || Url::segment(3) == '' || Url::segment(3) == 1 ) {
+        if (Url::segment(2) == '' || Url::segment(3) == '' || Url::segment(3) == 1) {
             $i =1;
         } else {
             $i = (Url::segment(3) - 1) * $this->records[0]->perPage + 1;
@@ -45,26 +45,34 @@ if ($this->hasFlash('success')) {
 
         $rowType = null;
         foreach ($records as $key => $value) {
-
             $rowType = ($i % 2 == 0) ? 'even' : 'odd';
-    ?>
-        <tr class='<?php echo $rowType; ?>'>
-            <td> <?php echo $i; ?></td>
-            			<td><?php echo $value->product_name; ?></td>
-			<td><?php echo $value->category; ?></td>
-			<td><?php echo $value->description; ?></td>
-			<td><?php echo $value->validity; ?></td>
-			<td><?php echo $value->price; ?></td>
-			<td><?php echo $value->created_at; ?></td>
-			<td><?php echo $value->updated_at; ?></td>
+            ?>
+        <tr class='<?php echo $rowType;
+            ?>'>
+            <td> <?php echo $i;
+            ?></td>
+            			<td><?php echo $value->product_name;
+            ?></td>
+			<td><?php echo $value->category;
+            ?></td>
+			<td><?php echo $value->description;
+            ?></td>
+			<td><?php echo $value->validity;
+            ?></td>
+			<td><?php echo $value->price;
+            ?></td>
+			<td><?php echo $value->created_at;
+            ?></td>
+			<td><?php echo $value->updated_at;
+            ?></td>
 
 
             <td>
                 <?php
                 echo Asset::anchor('product/show/' . $value->id, 'View', array('class' => 'btn btn btn-info btn-xs'));
-                echo Asset::anchor('product/edit/' . $value->id, 'Edit', array('class' => 'btn btn-default btn-xs'));
-                echo Asset::anchor('product/delete/' . $value->id, 'Delete', array('class' => 'btn btn-danger btn-xs' ));
-                ?>
+            echo Asset::anchor('product/edit/' . $value->id, 'Edit', array('class' => 'btn btn-default btn-xs'));
+            echo Asset::anchor('product/delete/' . $value->id, 'Delete', array('class' => 'btn btn-danger btn-xs' ));
+            ?>
 
             </td>
         </tr>

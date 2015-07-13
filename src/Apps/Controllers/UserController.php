@@ -45,7 +45,6 @@ class UserController extends AbstractBaseController
     {
         //
         echo "Hi! " . __FUNCTION__;
-
     }
 
 
@@ -57,7 +56,6 @@ class UserController extends AbstractBaseController
     {
         //
         echo "Hi! " . __FUNCTION__;
-
     }
 
 
@@ -70,7 +68,6 @@ class UserController extends AbstractBaseController
     {
         //
         echo "Hi! $id " . __FUNCTION__;
-
     }
 
 
@@ -83,7 +80,6 @@ class UserController extends AbstractBaseController
     {
         //
         echo "Hi! $id   " . __FUNCTION__;
-
     }
 
 
@@ -96,7 +92,6 @@ class UserController extends AbstractBaseController
     {
         //
         echo "Hi! $id   " . __FUNCTION__;
-
     }
 
 

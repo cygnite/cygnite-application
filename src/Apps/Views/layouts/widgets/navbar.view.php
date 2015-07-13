@@ -1,4 +1,6 @@
-<?php use Cygnite\Common\UrlManager\Url; ?>
+<?php use Cygnite\Common\UrlManager\Url;
+
+?>
 <div class="navbar navbar-default navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

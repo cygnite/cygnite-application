@@ -51,23 +51,23 @@ class ProductForm extends Form
         $this->open("ProductController", array(
         "method" => "post", "id"     => "uniform", "role"   => "form", "action" => Url::sitePath("product/$this->action/$id/"),
         "style" => "width:500px;margin-top:35px;float:left;" )
-        )		->addElement("label", "Product Name", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "product_name", array("value" => (isset($this->model->product_name)) ? $this->model->product_name : "", "class" => "form-control"))
-		->addElement("label", "Category", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "category", array("value" => (isset($this->model->category)) ? $this->model->category : "", "class" => "form-control"))
-		->addElement("label", "Description", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "description", array("value" => (isset($this->model->description)) ? $this->model->description : "", "class" => "form-control"))
-		->addElement("label", "Validity", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "validity", array("value" => (isset($this->model->validity)) ? $this->model->validity : "", "class" => "form-control"))
-		->addElement("label", "Price", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "price", array("value" => (isset($this->model->price)) ? $this->model->price : "", "class" => "form-control"))
-		->addElement("label", "Created At", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "created_at", array("value" => (isset($this->model->created_at)) ? $this->model->created_at : "", "class" => "form-control"))
-		->addElement("label", "Updated At", array("class" => "col-sm-2 control-label","style" => "width:100%;"))
-		->addElement("text", "updated_at", array("value" => (isset($this->model->updated_at)) ? $this->model->updated_at : "", "class" => "form-control"))
-		->addElement("submit", "btnSubmit", array("value" => "Save", "class" => "btn btn-primary", "style" => "margin-top:15px;" ))
-		->close()
-		->createForm();
+        )        ->addElement("label", "Product Name", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "product_name", array("value" => (isset($this->model->product_name)) ? $this->model->product_name : "", "class" => "form-control"))
+        ->addElement("label", "Category", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "category", array("value" => (isset($this->model->category)) ? $this->model->category : "", "class" => "form-control"))
+        ->addElement("label", "Description", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "description", array("value" => (isset($this->model->description)) ? $this->model->description : "", "class" => "form-control"))
+        ->addElement("label", "Validity", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "validity", array("value" => (isset($this->model->validity)) ? $this->model->validity : "", "class" => "form-control"))
+        ->addElement("label", "Price", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "price", array("value" => (isset($this->model->price)) ? $this->model->price : "", "class" => "form-control"))
+        ->addElement("label", "Created At", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "created_at", array("value" => (isset($this->model->created_at)) ? $this->model->created_at : "", "class" => "form-control"))
+        ->addElement("label", "Updated At", array("class" => "col-sm-2 control-label", "style" => "width:100%;"))
+        ->addElement("text", "updated_at", array("value" => (isset($this->model->updated_at)) ? $this->model->updated_at : "", "class" => "form-control"))
+        ->addElement("submit", "btnSubmit", array("value" => "Save", "class" => "btn btn-primary", "style" => "margin-top:15px;" ))
+        ->close()
+        ->createForm();
 
 
 
