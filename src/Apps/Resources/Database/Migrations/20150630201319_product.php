@@ -7,7 +7,7 @@ use Cygnite\Database\Table\Schema;
 * You may use up and down method to create migration
 */
 
-class product extends Migration
+class Product extends Migration
 {
     /**
      * Specify your database connection name here

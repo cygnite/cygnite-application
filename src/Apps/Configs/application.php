@@ -74,7 +74,7 @@ return [
     'environment' => 'development', //Errors are turned on in development environment
 
 
-    /**
+    /*
      | --------------------------------------------------------------------------
      | Active Application Event Middlewares
      | --------------------------------------------------------------------------
@@ -135,40 +135,72 @@ return [
     | application performance. Follow user guide for usages.
     */
     'cache' => [
-        /*
-        |---------------------------------------------------------------------------
-        | Cache Name
-        |---------------------------------------------------------------------------
-        | Set your cache name here to generate cache file name if you are
-        | using cygnite file caching technique.
-        */
-        'name' => 'file.cache',
-        /*
-        |---------------------------------------------------------------------------
-        | Cache Extension
-        |---------------------------------------------------------------------------
-        | Set your cache extension here. Cygnite will take care of rest. Cache will
-        | store with same extension which you will provide here.
-        |
-        */
-        'extension' => '.cache',
 
-        /*
-        |---------------------------------------------------------------------------
-        | Cache Storage Location
-        |---------------------------------------------------------------------------
-        | Set your cache file storage location here. By default we are using
-        | temp/cache.
-        |
-        */
-        'directory' => 'public.storage.cache',
+        'memcached' => [
 
+            'autoconnnect' => false,
+
+            'servers' => [
+                'host' => '127.0.0.1', 'port' => 11211, 'weight' => 50
+            ],
+        ],
+
+        'file' => [
+            /*
+            |---------------------------------------------------------------------------
+            | Cache Name
+            |---------------------------------------------------------------------------
+            | Set your cache name here to generate cache file name if you are
+            | using cygnite file caching technique.
+            */
+            'name' => 'file.cache',
+            /*
+            |---------------------------------------------------------------------------
+            | Cache Extension
+            |---------------------------------------------------------------------------
+            | Set your cache extension here. Cygnite will take care of rest. Cache will
+            | store with same extension which you will provide here.
+            |
+            */
+            'extension' => '.cache',
+
+            /*
+            |---------------------------------------------------------------------------
+            | Cache Storage Location
+            |---------------------------------------------------------------------------
+            | Set your cache file storage location here. By default we are using
+            | temp/cache.
+            |
+            */
+            'directory' => 'public.storage.cache',
+        ],
+
+        'redis' => [
+            /*
+             | 'connection' => 'default'
+             |
+             | 'connection' => 'servers' [
+             |      [
+             |       'scheme' => 'tcp',
+             |       'host' => '10.0.0.1',
+             |       'port' => 6379
+             |      ],
+             |      [
+             |       'scheme' => 'tcp',
+             |       'host' => '127.0.0.1',
+             |       'port' => 6379
+             |      ],
+             |     'options' => ['prefix' => 'cygnite']
+             |  ]
+             |
+             */
+            'connection' => 'default',
+        ],
     ],
-
 
     'logs' => [
 
-        /**
+        /*
          |-------------------------------------------------------------
          | Log application errors
          |-------------------------------------------------------------
