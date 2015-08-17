@@ -22,7 +22,7 @@ require 'initialize'.EXT;
 | the application for any date time functions.
 |
 */
-$config = Config::get('global.config');
+$config = \Cygnite\Helpers\Config::get('global.config');
 
 date_default_timezone_set($config['timezone']);
 
