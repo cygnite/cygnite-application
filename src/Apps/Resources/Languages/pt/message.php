@@ -3,7 +3,7 @@
 return array(
 	/*
 	|--------------------------------------------------------------------------
-	| Validation Language Lines
+	| Language Lines
 	|--------------------------------------------------------------------------
 	|
 	| The following language lines contain the default error messages used by
@@ -18,7 +18,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Custom Validation Language Lines
+	| Custom Message Language Lines
 	|--------------------------------------------------------------------------
 	|
 	| Here you may specify custom validation messages for attributes using the
