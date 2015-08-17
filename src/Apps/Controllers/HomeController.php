@@ -1,7 +1,9 @@
 <?php
 namespace Apps\Controllers;
 
+use Cygnite\Mvc\View\View;
 use Cygnite\Foundation\Application;
+use Cygnite\Foundation\Http\Response;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 
 class HomeController extends AbstractBaseController
@@ -61,18 +63,8 @@ class HomeController extends AbstractBaseController
      */
    public function indexAction()
    {
-       $this->render('welcome', ['title' => 'Welcome to Cygnite Framework']);
-   }
+       $content = View::create('Apps.Views.home.welcome', ['title' => 'Welcome to Cygnite Framework']);
 
-    public function hmvcAction($id)
-    {
-        //We are calling HMVC widget and return response
-        $widgetResponse = $this->call('modules.admin.controllers.user@index', ['id' => $id]);
-        
-        //You should enable layout in order to access variable into view page
-       $this->render('application', [
-                'messege' => 'Welcome to Cygnite framework',
-                'userwidget' => $widgetResponse
-       ]);
-    }
+       return Response::make($content)->send();
+   }
 }//End of your home controller

@@ -5,7 +5,9 @@ use Cygnite\Common\Input\Input;
 use Cygnite\FormBuilder\Form;
 use Cygnite\Validation\Validator;
 use Cygnite\Common\UrlManager\Url;
+use Cygnite\Mvc\View\View;
 use Cygnite\Foundation\Application;
+use Cygnite\Foundation\Http\Response;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 use Apps\Form\ProductForm;
 use Apps\Models\Product;
@@ -59,11 +61,13 @@ class ProductController extends AbstractBaseController
                 )*/]
         );
 
-        $this->render('index', [
-            'records' => $product,
-            'links' => '', //Product::createLinks(),
-            'title' => 'Cygnite Framework - Crud Application'
+        $content = View::create('Apps.Views.product.index', [
+                'records' => $product,
+                'links' => '', //Product::createLinks(),
+                'title' => 'Cygnite Framework - Crud Application'
         ]);
+
+        return Response::make($content)->send();
     }
 
     /**
@@ -133,11 +137,13 @@ class ProductController extends AbstractBaseController
         }
 
         // We can also use same view page for create and update
-        $this->render('create', [
-                'form' => $form->buildForm()->render(),
+        $content = View::create('Apps.Views.product.create', [
+                'form' => $form->render(),
                 'validation_errors' => $form->errors,
                 'title' => 'Add a new Product'
-        ]);
+            ]);
+
+        return Response::make($content)->send();
     }
 
     /**
@@ -189,11 +195,13 @@ class ProductController extends AbstractBaseController
             $form->validation = $validator;
         }
 
-        $this->render('update', [
-                'form' => $form->buildForm()->render(),
+        $content = View::create('Apps.Views.product.update', [
+                'form' => $form->render(),
                 'validation_errors' => $form->errors,
-                'title' => 'Update the Product'
+                'title' => 'Update The Product'
         ]);
+
+        return Response::make($content)->send();
     }
 
     /**
@@ -204,10 +212,12 @@ class ProductController extends AbstractBaseController
     {
         $product = Product::find($id);
 
-        $this->render('show', [
-            'record' => $product,
-            'title' => 'Show the Product'
+        $content = View::create('Apps.Views.product.show', [
+                'record' => $product,
+                'title' => 'Show the Product'
         ]);
+
+        return Response::make($content)->send();
     }
 
     /**
