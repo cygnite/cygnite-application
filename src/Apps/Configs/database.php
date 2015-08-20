@@ -36,7 +36,8 @@ Configure::database(
                     'database' => 'cygnite',
                     'username' => 'root',
                     'password' => '',
-                    'charset' => 'utf8'
+                    'charset'   => 'utf8',
+                    'collation' => 'utf8_unicode_ci',
                 ]
                 /*'db1' => [
                     'driver' => 'mysql',
@@ -45,7 +46,8 @@ Configure::database(
                     'database' => '',
                     'username' => '',
                     'password' => '',
-                    'charset' => 'utf8'
+                    'charset'   => 'utf8',
+                    'collation' => 'utf8_unicode_ci',
                 ]*/
             ]
         );
