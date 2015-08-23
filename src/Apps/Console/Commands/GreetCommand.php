@@ -9,6 +9,11 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 
+/**
+ * Class GreetCommand
+ *
+ * @package Apps\Console\Commands
+ */
 class GreetCommand extends Command
 {
     /**
@@ -26,14 +31,22 @@ class GreetCommand extends Command
     protected $description = 'My First Awesome Console Command!';
 
     /**
-     * Configure command arguments
+     * Console command arguments
+     *
+     * @var array
+     */
+    protected $arguments = [
+        ['name', null, InputArgument::OPTIONAL, null],
+    ];
+
+    /**
+     * Set help message for the command, this is optional method
      *
      * {@inheritdoc}
      */
     protected function configure()
     {
-        $this->addArgument('name', null, InputArgument::OPTIONAL, null)
-            ->setHelp("<<<EOT
+        $this->setHelp("<<<EOT
                 The <info>greet</info> command is application console command
                 <info>cygnite app:greet</info>
                 EOT>>>"
@@ -43,15 +56,11 @@ class GreetCommand extends Command
     /**
      * Execute the command
      *
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     * @return int|null|void
+     * @return mixed|void
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    public function process()
     {
-        $this->setInput($input)->setOutput($output);
-
-        $name = $this->input->getArgument('name');
+        $name = $this->argument('name');
 
         $this->info("Hello $name!!".PHP_EOL);
     }
