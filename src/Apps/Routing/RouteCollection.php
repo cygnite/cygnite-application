@@ -31,6 +31,14 @@ class RouteCollection extends StaticResolver
     }
 
     /**
+     * @return StaticRoutesController
+     */
+    public function getStaticRouteInstance()
+    {
+        return new StaticRoutesController();
+    }
+
+    /**
      * By default controller will respond to
      * various routes as index, add, edit, show, delete.
      * You can also add additional actions to the routes.
@@ -58,9 +66,8 @@ class RouteCollection extends StaticResolver
          |   }
          | </code>
          */
-        (new StaticRoutesController)
-            ->setAction(['order-info'])
-            ->controller('Product');// Add multiple CRUD controllers to respond to static routes
+         $this->getStaticRouteInstance()->setAction(['order-info'])
+              ->controller('Product');// Add multiple CRUD controllers to respond to static routes
 
         return $this;
     }
