@@ -76,14 +76,14 @@ return [
 
     /*
      | --------------------------------------------------------------------------
-     | Active Application Event Middlewares
+     | Active Application Event Middleware
      | --------------------------------------------------------------------------
      | By Default event middle wares are deactivated, You can activate or de-activate
      | event middle-wares by setting true or false.
      | All events will register and set into Cygnite IoC container.
      |
      */
-    'activate.event.middlewares' => false,
+    'activate.event.middleware' => false,
 
     /*
     |--------------------------------------------------------------------------
