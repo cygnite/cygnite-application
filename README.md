@@ -8,41 +8,41 @@ Sample skeleton application using the Cygnite MVC layer - http://www.cygnitefram
 >  Note: This repository contains the skeleton application of the Cygnite Framework. If you would like to contribute
 on Cygnite Framework, please visit the core [repository](https://github.com/cygnite/framework).
 
-Installation
---------------
-The best way to install Cygnite Framework is to download composer.phar from http://getcomposer.org/ to your local directory or to use globally on your system move it to
-usr/local/bin. For windows users please download and install composer setup.
+###Installation
 
-You may install Cygnite Framework either simply downloading skeleton application from github repository or install via composer. Composer installation is more convenient.
+The best way to install Cygnite Framework is to download composer.phar from [http://getcomposer.org/](http://getcomposer.org/) to your local directory and move it to
+`usr/local/bin` to use globally on your system. For windows users please download and [install composer setup](https://getcomposer.org/doc/00-intro.md#installation-windows).
 
+You may install Cygnite Framework either simply downloading skeleton application from github repository and issuing `composer install` or using composer `create-project command`.
 
-Composer: Create Project
---------------------------------
-Create your project from terminal by simply entering below command.
+###Composer: Create Project
 
-    composer create-project cygnite/cygnite-application cygnite --prefer-dist
-                                        or
-    composer.phar create-project cygnite/cygnite-application cygnite --prefer-dist
+Create a project from your terminal by executing below command.
 
-That's all you are ready to build your awesome application.
+```php
+composer create-project cygnite/cygnite-application cygnite --prefer-dist
+                        or
+composer.phar create-project cygnite/cygnite-application cygnite --prefer-dist
+```
 
-
-##Contribute -
-------------------
--> Getting bored with the same kind of development all time?
-
--> Would you like to be well recognised by professionals ?
-
--> Do you want to learn something interesting and showcase your skills to grab better position ?
-
-You are at right place. We welcome you to participate on Cygnite Framework development or its documentation.
-
-Contribute on Cygnite Framework development and grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback,
-send your wishlist for new features, write and send us patches for Cygnite Framework.
+That's all, you are ready to build your awesome application.
 
 
-##Getting Started with Cygnite -
------------------------------------------
+###Contribute
+
+  i. Getting bored with the same kind of development all time?
+
+  ii. Want to build something awesome?
+  
+  iii. Want to help open source community?
+
+You are at right place. We welcome you to participate on Cygnite Framework's development or its documentation.
+
+Contribute on Cygnite Framework development, grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback, send your wishlist for new features or write and send us patches for Cygnite Framework.
+
+
+###Contributing into core -
+
 i.  Make sure you have GitHub Account.
 
 ii. Clearly describe the issue you find to fix shortly.
@@ -51,4 +51,4 @@ iii. Create a branch where you would like to place your changes and send the pat
 
 iv.  Fork cygnite/framework repository on GitHub.
 
-v. Please follow the PSR coding standard as followed  while contributing or please request for coding standard to follow.
+ v. PSR coding standards must be followed.
