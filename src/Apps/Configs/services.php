@@ -10,7 +10,7 @@ App::service(function ($app) {
     // Add multiple Service Provider into the array
     /*
      $app->registerServiceProvider([
-            "Apps\\Services\\Payment\\ApiServiceProvider",
+            "Apps\Services\Providers\Payment\ApiServiceProvider",
      ]);
     
     // Use Controller as Service manual configuration
@@ -20,5 +20,5 @@ App::service(function ($app) {
     }; 
     // OR 
     // Controller as Service automatic configuration
-    $app->setServiceController('hello.controller', '\Application\Controllers\HelloController');*/
+    $app->setServiceController('hello.controller', '\Apps\Controllers\HelloController');*/
 });

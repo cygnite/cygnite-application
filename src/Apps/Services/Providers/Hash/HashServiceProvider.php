@@ -1,9 +1,9 @@
 <?php
-namespace Apps\Resources\Services\Hash;
+namespace Apps\Services\Providers\Hash;
 
 use Cygnite\Hash\BCrypt;
 use Cygnite\Foundation\Application;
-use Cygnite\DependencyInjection\ServiceProvider;
+use Cygnite\Container\Service\ServiceProvider;
 
 class HashServiceProvider extends ServiceProvider
 {

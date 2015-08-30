@@ -1,7 +1,7 @@
 <?php
-namespace Apps\Resources\Services\Payment;
+namespace Apps\Services\Providers\Payment;
 
-use Cygnite\DependencyInjection\ServiceProvider;
+use Cygnite\Container\Service\ServiceProvider;
 use Cygnite\Foundation\Application;
 
 class ApiServiceProvider extends ServiceProvider
