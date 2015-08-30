@@ -23,7 +23,7 @@ return [
      */
     'property.definition' =>  [
         'HomeController' => [
-            'social' => 'apps.resources.extensions.social-share',
+            //'social' => 'apps.resources.extensions.social-share',
         ],
     ],
 
@@ -39,6 +39,6 @@ return [
      */
 
     'register.alias' => [
-        'CustomInterface' => 'Apps\Resources\Extensions\Custom'
+        //'CustomInterface' => 'Apps\Resources\Extensions\Custom'
     ]
 ];
