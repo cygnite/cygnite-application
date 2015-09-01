@@ -36,14 +36,17 @@ defined('EXT') or define('EXT', '.php');
 */
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'cygnite-package');
 
-defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'boot');
+defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
 
 /* --------------------------------------------------------------
 | Define application folder name
 | ---------------------------------------------------------------
 */
-defined('APPPATH') or define('APPPATH', 'apps');
-//chdir(dirname(__DIR__));
+defined('APPPATH') or define('APPPATH', 'src/Apps');
+
+defined('APP_NS') or define('APP_NS', 'Apps');
+
+chdir(__DIR__);
 
 /* --------------------------------------------------------------
 | Define `root` directory name
