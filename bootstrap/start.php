@@ -33,4 +33,4 @@ date_default_timezone_set($config['timezone']);
 |
 | Booting Completed! Lets start the application
 */
-return $app->run();
+return $app->bootApplication()->run();
