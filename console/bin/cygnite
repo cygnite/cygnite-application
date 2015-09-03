@@ -2,18 +2,57 @@
 <?php
 set_time_limit(0);
 
-use Cygnite\Helpers\Config;
-use Cygnite\Console\CygniteConsoleApplication;
-
 define('VERSION', 'Cygnite Console v2.0');
+/*
+ | ---------------------------------------------------------------
+ | Define Directory Separator
+ * ---------------------------------------------------------------
+ */
+define('DS', DIRECTORY_SEPARATOR);
 
-include '/../../index.php';
+/**
+|---------------------------------------------------------------
+| Define PHP file extension
+| ---------------------------------------------------------------
+*/
+defined('EXT') or define('EXT', '.php');
+
+/*---------------------------------------------------------------
+| Now that we know the path, set the main path constants
+| path to the packages folder.
+| ---------------------------------------------------------------
+*/
+defined('CF_SYSTEM') or define('CF_SYSTEM', 'cygnite-package');
+
+defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
+
+/* --------------------------------------------------------------
+| Define application folder name
+| ---------------------------------------------------------------
+*/
+defined('APPPATH') or define('APPPATH', 'src/Apps');
+
+defined('APP_NS') or define('APP_NS', 'Apps');
+
+chdir(__DIR__);
+
+/* --------------------------------------------------------------
+| Define `root` directory name
+| ---------------------------------------------------------------
+*/
+$dir = explode(DS, realpath('../../'));
+
+defined('ROOTDIR') or define('ROOTDIR', rtrim(end($dir)));
+
+defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
+
+include '/../../bootstrap/initialize.php';
 
 /*
  | We will set default timezone constant here to use
  | for console component
  */
-$config = Config::get('global.config');
+$config = \Cygnite\Helpers\Config::get('global.config');
 
 //timezone constant
 define('SET_TIME_ZONE', $config['timezone']);
@@ -22,7 +61,7 @@ define('SET_TIME_ZONE', $config['timezone']);
  | We have setup the environment.
  | Create Cygnite Console instance to run application.
  */
-$app = new CygniteConsoleApplication(VERSION);
+$app = new \Cygnite\Console\CygniteConsoleApplication(VERSION);
 
 /*
  | Environment Setup and Boot Strapping done!
