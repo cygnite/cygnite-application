@@ -1,7 +1,6 @@
 <?php
 use Apps\Models\User;
 use Cygnite\Base\Router\Router;
-use Apps\Routing\RouteCollection;
 use Cygnite\Foundation\Application;
 
 if (!defined('CF_SYSTEM')) {
@@ -41,11 +40,12 @@ $app->router->get('/module/{:id}', function ($router, $id) {
  | also allow you to extend the CRUD static routes
  |
  | For every CRUD Controller you need to define routes
- | for the controller into
+ | in RouteCollection, see
+ | 
  | RouteCollection::executeStaticRoutes(); function
  */
-RouteCollection::setRouter($app['router'])->run();
-
+$routeCollection = $app->make('\Apps\Routing\RouteCollection');
+$routeCollection->setRouter($app->router)->run();
 
 $app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
     $user = new User();
@@ -64,8 +64,8 @@ DELETE    - resource/{id}       user.delete
 */
 //$app->router->resource('resource', 'user'); // respond to resource routing
 
-$app->router->set404Page(function () {
-    throw new \Cygnite\Exception\Http\HttpException(404, "Abort 404 Page Not Found!");
+$app->router->set404Page(function () use($app) {
+    $app->abort(404, "Abort 404 Page Not Found!");
 });
 
 /**
@@ -73,7 +73,7 @@ $app->router->set404Page(function () {
  * Will call after executing all user defined routing.
  */
 $app->router->after(function () {
-   //echo "After Routing callback";
+   //"After Routing callback";
 });
 
 
