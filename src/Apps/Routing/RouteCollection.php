@@ -1,7 +1,6 @@
 <?php
 namespace Apps\Routing;
 
-use Cygnite\Proxy\StaticResolver;
 use Cygnite\Foundation\Application;
 use Cygnite\Base\Router\Controller\Controller;
 
@@ -15,27 +14,26 @@ use Cygnite\Base\Router\Controller\Controller;
  *
  * @package Apps\Routing
  */
-class RouteCollection extends StaticResolver
+class RouteCollection
 {
     public $router;
+
+    public $routesController;
+
+    public function __construct(StaticRoutesController $staticRoutes)
+    {
+        $this->routesController = $staticRoutes;
+    }
 
     /**
      * @param Router $router
      * @return $this
      */
-    protected function setRouter($router)
+    public function setRouter($router)
     {
         $this->router = $router;
 
         return $this;
-    }
-
-    /**
-     * @return StaticRoutesController
-     */
-    public function getStaticRouteInstance()
-    {
-        return new StaticRoutesController();
     }
 
     /**
@@ -48,26 +46,32 @@ class RouteCollection extends StaticResolver
     protected function executeStaticRoutes()
     {
         /*
-         | You can add additional actions to routes
-         | If you are adding extra patterns make sure you
-         | add the method (PascalCase) into RouteController. The method
-         | name should be same as patterns defined here, example
-         |
-         | <code>
-         |   pattern: order-info
-         |   method:
-         |   protected function setUserInfoRoute($controller, $action)
-         |   {
-         |       $controllerName = Inflector::classify($controller);
-         |       $actionName = Inflector::classify($action);
-         |
-         |       //$this->mapRoute("pattern", "controller.action");
-         |       return $this->mapRoute("/$controller/$action/", $controllerName.'.'.$actionName);
-         |   }
-         | </code>
+         * You can add additional actions to controller routes.
+         * By default CRUD controller repond to several actions:
+         * "indexAction", "addAction", "editAction", 
+         * "showAction", "deleteAction" etc.
+         *  
+         * If you want router to respond to additional routes, then
+         * you need to add additional method into RouteController.php
+         *
+         * Example:
+         * 
+         * <code>
+         *   pattern: user-info
+         *   method: setUserInfoRoute
+         * 
+         *   protected function setUserInfoRoute($controller, $action)
+         *   {
+         *       $controllerName = Inflector::classify($controller);
+         *       $actionName = Inflector::classify($action);
+         *
+         *       //$this->mapRoute("pattern", "controller.action");
+         *       return $this->mapRoute("/$controller/$action/", $controllerName.'.'.$actionName);
+         *   }
+         * </code>
          */
-         $this->getStaticRouteInstance()->setAction(['order-info'])
-              ->controller('Product');// Add multiple CRUD controllers to respond to static routes
+        // Add multiple CRUD controllers to respond to static routes
+        $this->routesController->setAction(['order-info'])->controller('Product');
 
         return $this;
     }
@@ -80,7 +84,7 @@ class RouteCollection extends StaticResolver
     protected function executeGroupRoutes()
     {
         /*
-         | Set multiple group routes
+         * Set multiple group routes
          */
         $this->router->group('/movies', function ($route) {
 

@@ -11,17 +11,6 @@
 require __DIR__ . "/../vendor/autoload.php";
 
 /*
-| -------------------------------------------------------------------
-| Check if script is running via cli and return false
-| -------------------------------------------------------------------
-*/
-$filename = preg_replace('#(\?.*)$#', '', $_SERVER['REQUEST_URI']);
-
-if (php_sapi_name() === 'cli-server' && is_file($filename)) {
-    return false;
-}
-
-/*
 |--------------------------------------------------------------------------
 | Create The Application
 |--------------------------------------------------------------------------
@@ -39,4 +28,4 @@ $app = \Cygnite\Foundation\Application::instance();
  *
  * Set configuration and services and boot-up application
  */
-return $app->configure()->bootApplication();
+return $app->configure();
