@@ -4,7 +4,7 @@ if (!defined('CF_SYSTEM')) {
 }
 /**
  *  Cygnite Framework
- *  Global Configuration Settings
+ *  Global Application Configurations
  *
  *  An open source application development framework for PHP 5.4x or newer
  *
@@ -31,7 +31,7 @@ if (!defined('CF_SYSTEM')) {
  */
 
 return [
-    /**
+    /*
      |--------------------------------------------------------------------------
      | Your Application Base URL
      |--------------------------------------------------------------------------
