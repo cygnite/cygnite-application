@@ -140,6 +140,8 @@ return [
 
             'autoconnnect' => false,
 
+            'uniqueId' => 'CYGNITE_',
+
             'servers' => [
                 'host' => '127.0.0.1', 'port' => 11211, 'weight' => 50
             ],
@@ -254,5 +256,5 @@ return [
 
     ],
 
-    'params' => include __DIR__.DS.'param'.EXT,
+    //'params' => include __DIR__.DS.'param'.EXT,
 ];
