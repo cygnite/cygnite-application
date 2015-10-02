@@ -1,6 +1,8 @@
 Skeleton Application Using Cygnite PHP Framework
 ------------------------------------------------------------------
 
+[![Build Status](https://travis-ci.org/cygnite/framework.svg)](https://travis-ci.org/cygnite/framework)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cygnite/framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Latest Stable Version](https://poser.pugx.org/cygnite/cygnite-application/v/stable.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![Total Downloads](https://poser.pugx.org/cygnite/cygnite-application/downloads.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![Latest Unstable Version](https://poser.pugx.org/cygnite/cygnite-application/v/unstable.svg)](https://packagist.org/packages/cygnite/cygnite-application) [![License](https://poser.pugx.org/cygnite/cygnite-application/license.svg)](https://packagist.org/packages/cygnite/cygnite-application)
 
 Sample skeleton application using the Cygnite MVC layer - http://www.cygniteframework.com
@@ -52,3 +54,8 @@ iii. Create a branch where you would like to place your changes and send the pat
 iv.  Fork cygnite/framework repository on GitHub.
 
  v. PSR coding standards must be followed.
+ 
+ ###License
+--------------
+
+The Cygnite framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
