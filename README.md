@@ -55,7 +55,7 @@ iv.  Fork cygnite/framework repository on GitHub.
 
  v. PSR coding standards must be followed.
  
- ###License
+###License
 --------------
 
 The Cygnite framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
