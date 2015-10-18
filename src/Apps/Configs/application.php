@@ -239,7 +239,7 @@ return [
     /*
      * Email Configurations
      */
-    'email_configurations' => [
+    'email.configurations' => [
 
         'protocol' => 'smtp',
 
