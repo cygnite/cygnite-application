@@ -2,6 +2,7 @@
 use Apps\Models\User;
 use Cygnite\Base\Router\Router;
 use Cygnite\Foundation\Application;
+use Cygnite\Foundation\Http\Response;
 
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
@@ -31,7 +32,8 @@ $app->router->get('/module/{:id}', function ($router, $id) {
     /*
      | Call module directly from routing
      */
-    return $router->callController(["Acme::User@index", [$id]]);
+    $content = $router->callController(["Acme::User@index", [$id]]);
+    return Response::make($content)->send();
 });
 
 
@@ -43,9 +45,11 @@ $app->router->get('/module/{:id}', function ($router, $id) {
  | in RouteCollection, see
  | 
  | RouteCollection::executeStaticRoutes(); function
+ |
+ | Uncomment below snippet to use RouteCollection
  */
-$routeCollection = $app->make('\Apps\Routing\RouteCollection');
-$routeCollection->setRouter($app->router)->run();
+//$routeCollection = $app->make('\Apps\Routing\RouteCollection');
+//$routeCollection->setRouter($app->router)->run();
 
 $app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
     $user = new User();

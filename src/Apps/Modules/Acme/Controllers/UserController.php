@@ -28,7 +28,7 @@ class UserController extends AbstractBaseController
    {
        $users = array();
        //$users = User::all();
-       return Widget::make('admin:user', ['greet' => 'Hello! Widget'], function ($w)
+       return Widget::make('Acme:user', ['greet' => 'Hello! Widget'], function ($w)
        {
            /*
             | If you pass true for render method Widget

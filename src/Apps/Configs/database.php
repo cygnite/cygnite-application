@@ -24,32 +24,31 @@ if (!defined('CF_SYSTEM')) {
  *
  * Please protect this file to have maximum security.
  */
-Configure::database(
-    function ($config) {
-        $config->default = 'db';
-        $config->set(
-            [
-                'db' => [
-                    'driver' => 'mysql',
-                    'host' => 'localhost',
-                    'port' => '',
-                    'database' => 'cygnite',
-                    'username' => 'root',
-                    'password' => '',
-                    'charset'   => 'utf8',
-                    'collation' => 'utf8_unicode_ci',
-                ]
-                /*'db1' => [
-                    'driver' => 'mysql',
-                    'host' => 'localhost',
-                    'port' => '',
-                    'database' => '',
-                    'username' => '',
-                    'password' => '',
-                    'charset'   => 'utf8',
-                    'collation' => 'utf8_unicode_ci',
-                ]*/
-            ]
-        );
-    }
-);
+Configure::database(function ($config)
+{
+    // set default connection
+    $config->default = 'db';
+
+    $config->set([
+        'db' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'port' => '',
+            'database' => 'cygnite',
+            'username' => 'root',
+            'password' => '',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+        ]
+        /*'db1' => [
+            'driver' => 'mysql',
+            'host' => 'localhost',
+            'port' => '',
+            'database' => '',
+            'username' => '',
+            'password' => '',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+        ]*/
+    ]);
+});
