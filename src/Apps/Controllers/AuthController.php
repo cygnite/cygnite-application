@@ -5,7 +5,7 @@ use Cygnite\Common\Encrypt;
 use Cygnite\Common\Input\Input;
 use Cygnite\Common\SessionManager\Session;
 use Cygnite\Foundation\Application as App;
-use Application\Components\Authentication\Auth;
+use Apps\Middleware\Authentication\Auth;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 
 /**
