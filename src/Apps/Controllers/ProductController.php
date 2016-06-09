@@ -67,7 +67,7 @@ class ProductController extends AbstractBaseController
                 'title' => 'Cygnite Framework - Crud Application'
         ]);
 
-        return Response::make($content)->send();
+        return Response::make($content);
     }
 
     /**
@@ -143,7 +143,7 @@ class ProductController extends AbstractBaseController
                 'title' => 'Add a new Product'
             ]);
 
-        return Response::make($content)->send();
+        return Response::make($content);
     }
 
     /**
@@ -201,7 +201,7 @@ class ProductController extends AbstractBaseController
                 'title' => 'Update The Product'
         ]);
 
-        return Response::make($content)->send();
+        return Response::make($content);
     }
 
     /**
@@ -217,7 +217,7 @@ class ProductController extends AbstractBaseController
                 'title' => 'Show the Product'
         ]);
 
-        return Response::make($content)->send();
+        return Response::make($content);
     }
 
     /**

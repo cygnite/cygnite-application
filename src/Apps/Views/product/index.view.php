@@ -86,4 +86,4 @@ if ($this->hasFlash('success')) {
 
 </table>
 
-<nav > <?php //echo $this->links; ?> </nav>
+<nav > <?php //echo $links; ?> </nav>
