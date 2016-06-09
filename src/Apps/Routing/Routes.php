@@ -33,7 +33,7 @@ $app->router->get('/module/{:id}', function ($router, $id) {
      | Call module directly from routing
      */
     $content = $router->callController(["Acme::User@index", [$id]]);
-    return Response::make($content)->send();
+    return Response::make($content);
 });
 
 
