@@ -65,6 +65,6 @@ class HomeController extends AbstractBaseController
    {
        $content = View::create('Apps.Views.home.welcome', ['title' => 'Welcome to Cygnite Framework']);
 
-       return Response::make($content)->send();
+       return Response::make($content);
    }
 }//End of your home controller
