@@ -50,28 +50,10 @@ class RouteCollection
          * By default CRUD controller repond to several actions:
          * "indexAction", "addAction", "editAction", 
          * "showAction", "deleteAction" etc.
-         *  
-         * If you want router to respond to additional routes, then
-         * you need to add additional method into RouteController.php
-         *
-         * Example:
          * 
-         * <code>
-         *   pattern: user-info
-         *   method: setUserInfoRoute
-         * 
-         *   protected function setUserInfoRoute($controller, $action)
-         *   {
-         *       $controllerName = Inflector::classify($controller);
-         *       $actionName = Inflector::classify($action);
-         *
-         *       //$this->mapRoute("pattern", "controller.action");
-         *       return $this->mapRoute("/$controller/$action/", $controllerName.'.'.$actionName);
-         *   }
-         * </code>
          */
         // Add multiple CRUD controllers to respond to static routes
-        $this->routesController->setAction(['order-info'])->controller('Product');
+        $this->routesController->controller('Product');
 
         return $this;
     }
@@ -86,9 +68,9 @@ class RouteCollection
         /*
          * Set multiple group routes
          */
-        $this->router->group('/movies', function ($route) {
-
-            $route->get('/', function () {
+        $this->router->group('/movies', function ($route)
+        {
+            $route->get('/', function (){
                 echo "Movies Overview";
             });
 

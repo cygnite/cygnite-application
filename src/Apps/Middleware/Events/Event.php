@@ -59,13 +59,9 @@ class Event extends EventListener
 
     public static $activateAppEvent = false;
 
-    public function register()
+    public function register($app)
     {
         parent::boot();
-
-        $app = Application::instance();
-        $app['event.api.run'] = function () {
-            return $this->fire('event.api.run');// Allowing you to refer other service or values
-        };
+        $app['event.api.run'] = $this->fire('event.api.run');
     }
 }
