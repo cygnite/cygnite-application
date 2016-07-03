@@ -10,9 +10,9 @@ return [
     | the validator class. Feel free to tweak each of these messages.
     */
 
-    "accepted"         => "The :attribute must be accepted.",
-    "active_url"       => "The :attribute is not a valid URL.",
-    "url"              => "The :attribute format is invalid.",
+    "accepted"         => "The {attribute} must be accepted.",
+    "active_url"       => "The {attribute} is not a valid URL.",
+    "url"              => "The {attribute} format is invalid.",
 
     /*
     |--------------------------------------------------------------------------
@@ -23,5 +23,7 @@ return [
     | convention "attribute.rule" to name the lines.
     */
 
-    'custom' => [],
+    'custom' => [
+        'welcome' => 'Hello! {user}'
+    ]
 ];

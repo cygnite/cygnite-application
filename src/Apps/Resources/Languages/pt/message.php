@@ -1,6 +1,6 @@
 <?php
 
-return array(
+return [
 	/*
 	|--------------------------------------------------------------------------
 	| Language Lines
@@ -12,9 +12,9 @@ return array(
 	|
 	*/
 
-	"accepted" 			=> "O :attribute deve ser aceite.",
-	"active_url" 		=> "O :attribute não é uma URL válida.",
-	"url" 				=> "O formato :attribute é inválido.",
+	"accepted" 			=> "O {attribute} deve ser aceite.",
+	"active_url" 		=> "O {attribute} não é uma URL válida.",
+	"url" 				=> "O formato {attribute} é inválido.",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,5 +26,7 @@ return array(
 	| specify a specific custom language line for a given attribute rule.
 	|
 	*/
-    'custom' => []
+    'custom' => [
+        'welcome' => 'Hello! {user}'
+    ]
 ];
