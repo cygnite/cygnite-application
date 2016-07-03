@@ -11,9 +11,9 @@ return [
     |
     */
 
-    "accepted"         => "El campo :attribute debe ser aceptado.",
-    "active_url"       => "El campo :attribute no es una URL válida.",
-    "url"              => "El formato del campo :attribute es inválido.",
+    "accepted"         => "El campo {attribute} debe ser aceptado.",
+    "active_url"       => "El campo {attribute} no es una URL válida.",
+    "url"              => "El formato del campo {attribute} es inválido.",
 
     /*
     |--------------------------------------------------------------------------
@@ -23,5 +23,7 @@ return [
     | Here you may specify custom validation messages for attributes using the
     | convention "attribute.rule" to name the lines.
     */
-    'custom' => [],
+    'custom' => [
+        'welcome' => 'Hello! {user}'
+    ]
 ];

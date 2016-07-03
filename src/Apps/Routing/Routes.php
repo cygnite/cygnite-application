@@ -18,8 +18,9 @@ $app = Application::instance();
 /*
  | Language Translation
  |
- |  show(trans('validation.not_in'));
- |  show(trans('Hello Translator :user', [':user' => 'Cygnite']));
+ |  show(trans('message:custom.welcome'));
+ |  show(trans('message:accepted', ['{attribute}' => 'accepted']));
+ |  show(trans('Hello Translator {user}', ['{user}' => 'Cygnite']));
  */
 
 // Before Router Middle Ware
