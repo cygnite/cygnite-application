@@ -123,8 +123,3 @@ use Cygnite\Common\UrlManager\Url;
     .feature-block{ float: left;border:0px; font-size: 17px;font-family: small-caption;}
     .title {padding-top: 10px;}
 </style>
-
-<style type="text/css">
-    .feature-block{ float: left;border:0px; font-size: 17px;font-family: small-caption;}
-    .title {padding-top: 10px;}
-</style>
