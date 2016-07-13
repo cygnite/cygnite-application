@@ -7,7 +7,7 @@ use Cygnite\Validation\Validator;
 use Cygnite\Common\UrlManager\Url;
 use Cygnite\Mvc\View\View;
 use Cygnite\Foundation\Application;
-use Cygnite\Foundation\Http\Response;
+use Cygnite\Http\Responses\Response;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 use Apps\Form\ProductForm;
 use Apps\Models\Product;

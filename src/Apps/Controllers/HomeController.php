@@ -3,7 +3,7 @@ namespace Apps\Controllers;
 
 use Cygnite\Mvc\View\View;
 use Cygnite\Foundation\Application;
-use Cygnite\Foundation\Http\Response;
+use Cygnite\Http\Responses\Response;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 
 class HomeController extends AbstractBaseController

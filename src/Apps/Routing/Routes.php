@@ -2,7 +2,7 @@
 use Apps\Models\User;
 use Cygnite\Base\Router\Router;
 use Cygnite\Foundation\Application;
-use Cygnite\Foundation\Http\Response;
+use Cygnite\Http\Responses\Response;
 
 if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
