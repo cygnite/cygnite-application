@@ -33,4 +33,15 @@ date_default_timezone_set($config['timezone']);
 |
 | Booting Completed! Lets start the application
 */
-return $app->bootApplication()->run();
+$app->singleton('debugger', function () {
+    return new \Apps\Exceptions\Handler();
+});
+
+$kernel = $app->createKernel('\Apps\Kernel');
+
+$response = $kernel->handle(
+    $request = \Cygnite\Http\Requests\Request::createFromGlobals()
+);
+
+$response->send();
+//$kernel->terminate($request, $response);

@@ -8,8 +8,6 @@ if (!defined('CF_SYSTEM')) {
     exit('No External script access allowed');
 }
 
-$app = Application::instance();
-
 /*
  | Set Locale For The Application
  | $app->setLocale();
@@ -22,11 +20,6 @@ $app = Application::instance();
  |  show(trans('message:accepted', ['{attribute}' => 'accepted']));
  |  show(trans('Hello Translator {user}', ['{user}' => 'Cygnite']));
  */
-
-// Before Router Middle Ware
-$app->router->before('GET', '/{:all}', function () {
-   //echo "This site is under maintenance.";exit(1);
-});
 
 $app->router->get('/module/{:id}', function ($router, $id) {
     //Router::call("Acme::User@Index", []);
@@ -72,14 +65,5 @@ DELETE    - resource/{id}       user.delete
 $app->router->set404Page(function () use($app) {
     $app->abort(404, "Abort 404 Page Not Found!");
 });
-
-/**
- * After routing callback
- * Will call after executing all user defined routing.
- */
-$app->router->after(function () {
-   //"After Routing callback";
-});
-
 
 $app->router->run();
