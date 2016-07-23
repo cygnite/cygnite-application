@@ -19,8 +19,7 @@ require __DIR__ . "/../vendor/autoload.php";
 | which serves glue for all the components, and binding components
 | with the IoC container
 */
-$app = \Cygnite\Foundation\Application::instance();
-
+$app = new \Cygnite\Foundation\Application();
 /**
  | ---------------------------------------------------
  | Application booting process
