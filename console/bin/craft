@@ -2,7 +2,7 @@
 <?php
 set_time_limit(0);
 
-define('VERSION', 'Cygnite Console v2.x');
+define('VERSION', 'Cygnite: Craft Console v2.x');
 /*
  | ---------------------------------------------------------------
  | Define Directory Separator
@@ -61,11 +61,11 @@ define('SET_TIME_ZONE', $config['timezone']);
  | We have setup the environment.
  | Create Cygnite Console instance to run application.
  */
-$app = new \Cygnite\Console\CraftApplication(VERSION);
+$console = new \Apps\Console\Bootstrap(VERSION);
 
 /*
  | Environment Setup and Boot Strapping done!
  | Lets Run Console Application.
  |
  */
-$app->run();
+$console->run();
