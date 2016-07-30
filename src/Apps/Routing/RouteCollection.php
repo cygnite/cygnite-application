@@ -32,6 +32,7 @@ class RouteCollection
     public function setRouter($router)
     {
         $this->router = $router;
+        $this->routesController->setRouter($router);
 
         return $this;
     }
