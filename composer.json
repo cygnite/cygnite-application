@@ -8,13 +8,8 @@
     "authors": [
         {
             "name": "Sanjoy Dey",
-            "email": "dey.sanjoy0@gmail.com"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "https://github.com/sanjoydesk/framework"
+            "email": "dey.sanjoy0@gmail.com",
+            "homepage": "http://www.appsntech.com"
         }
     ],
     "require": {
