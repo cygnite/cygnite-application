@@ -30,7 +30,7 @@ $asset = AssetCollection::make(function ($asset) {
 
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" href="<?php echo Url::getBase(); ?>/public/assets/img/cygnite/fevicon.png" > </link>
+    <link rel="shortcut icon" href="public/assets/img/cygnite/fevicon.png" > </link>
 
     <title><?php echo $title; ?></title>
     <meta name="keywords" content="CRUD Application" />
@@ -56,7 +56,45 @@ $asset = AssetCollection::make(function ($asset) {
     <!-- ./ Content -->
 
     <!-- Footer -->
-    <footer class="clearfix"></footer>
+    <footer class="clearfix">
+        <div style="background: none repeat scroll 0% 0% rgb(21, 112, 166); margin-bottom: 20px; height: 60px;">
+            <span style="color: rgb(255, 255, 255); font-weight: bold; margin-left:5%; float: left; padding-top: 22px;">Give some love back. Like, Share, Talk about it ..  </span>
+            <span style="float: left; padding-top: 22px; padding-left: 41px;color:#fff;">Facebook </span>
+            <span style="float: left;padding-left:8px;">
+            <a href="http://www.facebook.com/cygniteframework" target="_blank">
+                <img height="64" src="public/assets/img/cygnite/facebook.png" width="64"></a>
+            </span>
+            <span style="float: left; padding-top: 22px;padding-left:22px;color:#fff;">Twitter</span>
+            <span style="float: left;padding-left:8px;">
+            <a href="https://twitter.com/cygnitephp" target="_blank">
+                <img height="64" src="public/assets/img/cygnite/twitter.png" width="64"></a>
+            </span>
+            <span style="float: left; padding-top: 22px; padding-left:22px;color:#fff;"> Google+</span>
+            <span style="float: left;padding-left:8px;">
+            <a href="https://www.google.com/+Cygniteframework" target="_blank">
+                <img height="64" src="public/assets/img/cygnite/google.png" width="64">
+            </a>
+            </span>
+            <span style="float: left; padding-top: 22px;padding-left:22px;color:#fff;">Linkedin</span>
+            <span style="float: left;padding-left:8px;">
+            <a href="http://www.linkedin.com/groups/Cygnite-PHP-Framework-5142503" target="_blank">
+                <img height="64" src="public/assets/img/cygnite/linkedin.png" width="64"></a>
+            </span>
+        </div>
+
+
+        <div class="footer-outer" style="background: none repeat scroll 0 0 #4A4A4A;height:40px;">
+
+        </div>
+
+        <div align="center" style="height: 51px; background:none repeat scroll 0 0 #3D3D3D;color: #888888; ">
+            <div style="padding-top:27px;font-size: 11px;text-transform: uppercase;">
+                Released Under The <a href="http://www.opensource.org/licenses/mit-license.php">MIT Public License</a>. Copyrights @2012-2016. Powered by- Sanjoy Dey Productions.
+            </div>
+        </div>
+
+
+    </footer>
     <!-- ./ Footer -->
 
 </div>
