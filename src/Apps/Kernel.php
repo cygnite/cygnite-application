@@ -1,10 +1,8 @@
 <?php
 namespace Apps;
 
-use Cygnite\Foundation\Http\Kernel as HttpKernel;
-use Cygnite\Container\Container;
 use Cygnite\Foundation\Application;
-use Cygnite\Base\Router\Router;
+use Cygnite\Foundation\Http\Kernel as HttpKernel;
 
 /**
  * Class Kernel
@@ -14,11 +12,12 @@ class Kernel extends HttpKernel
 {
     /**
      * The application's global HTTP middleware stack.
+     * Add Middleware namespace in the array
      *
      * @var array
      */
     protected $middleware = [
-        \Apps\Middleware\PipelineTestResolver::class,
+        //'Apps\Middleware\AccessMiddleware',
     ];
 
     public function __construct(Application $app)
