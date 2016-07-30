@@ -1,9 +1,7 @@
-<?php use Cygnite\AssetManager\Asset;
-
-?>
+<?php use Cygnite\AssetManager\Asset; ?>
 
 <div class="pull-right">
-    <?php echo Asset::anchor('product', 'Back', array('class' => 'btn btn-default btn-small btn-inverse')); ?>
+    <?php echo Asset::anchor('product', 'Back', ['class' => 'btn btn-default btn-small btn-inverse']); ?>
 </div>
 
 <div class="form-horizontal">
