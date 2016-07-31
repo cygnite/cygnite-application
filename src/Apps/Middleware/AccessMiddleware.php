@@ -32,4 +32,9 @@ class AccessMiddleware
 
         return $next($request);
     }
+    
+    public function shutdown(Request $request, Response $response)
+    {
+    	
+    }
 }

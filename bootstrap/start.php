@@ -25,18 +25,38 @@ require 'initialize'.EXT;
 $config = \Cygnite\Helpers\Config::get('global.config');
 
 date_default_timezone_set($config['timezone']);
-
 /*
-|--------------------------------------------------------------------------
-| Run Application
-|--------------------------------------------------------------------------
-|
-| Booting Completed! Lets start the application
-*/
+ | Set Environment for Application
+ | Example:
+ | <code>
+ | define('ENV', 'development');
+ | define('ENV', 'production');
+ | </code>
+ */
+define('ENV', $config['environment']);
+
+if (ENV == 'development') {
+    ini_set('display_errors', -1);
+    error_reporting(E_ALL);
+} else {
+    ini_set('display_error', 0);
+    error_reporting(0);
+}
+
+// Register debugger into the application
 $app->singleton('debugger', function () {
     return new \Apps\Exceptions\Handler();
 });
 
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| We will handle the incoming request using Kernel and send response
+| back to the browser. Http middlewares will get executed during the request
+| handling process.
+*/
 $kernel = $app->createKernel('\Apps\Kernel');
 
 $response = $kernel->handle(
@@ -44,4 +64,10 @@ $response = $kernel->handle(
 );
 
 $response->send();
-//$kernel->terminate($request, $response);
+
+/*
+ | The response sent to the browser. Let us fire middleware's
+ | shutdown method before shutting down the application
+ |
+ */
+$kernel->shutdown($request, $response);
