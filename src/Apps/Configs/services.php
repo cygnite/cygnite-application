@@ -12,6 +12,8 @@ if (!defined('CF_SYSTEM')) {
  /*
  $app->registerServiceProvider([
         "Apps\Services\Providers\Payment\ApiServiceProvider",
+        "Cygnite\Services\Stripe\Providers\StripeServiceProvider",
+        "Cygnite\Services\Omnipay\Providers\OmnipayServiceProvider"
  ]);*/
 
 // Controller as Service automatic configuration
