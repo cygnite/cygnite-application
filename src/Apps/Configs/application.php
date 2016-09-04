@@ -257,4 +257,6 @@ return [
     ],
 
     //'params' => include __DIR__.DS.'param'.EXT,
+    //'stripe.config' => include __DIR__.DS.'stripe'.EXT,
+    //'omnipay.config' => include __DIR__.DS.'omnipay'.EXT,
 ];
