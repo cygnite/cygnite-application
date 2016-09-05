@@ -11,17 +11,17 @@ if (!defined('CF_SYSTEM')) {
  */
  /*
  $app->registerServiceProvider([
-        "Apps\Services\Providers\Payment\ApiServiceProvider",
-        "Cygnite\Services\Stripe\Providers\StripeServiceProvider",
-        "Cygnite\Services\Omnipay\Providers\OmnipayServiceProvider"
- ]);*/
+    "Apps\Services\Providers\Payment\ApiServiceProvider",
+    "Cygnite\Services\Stripe\Providers\StripeServiceProvider",
+    "Cygnite\Services\Omnipay\Providers\OmnipayServiceProvider",
+    "Cygnite\Services\SocialOAuth\Providers\SocialAuthServiceProvider"
+ ]);
 
 // Controller as Service automatic configuration
-/*
 $app->setServiceController('hello.controller', '\Apps\Controllers\HelloController');
 OR
 
-// Use Controller as Service manual configuration
+// Manually configure Controller as Service
 $app['user.controller'] = function () use($app)
 {
     return new \Apps\Controllers\HelloController(new \Cygnite\Mvc\Controller\ServiceController, $app);
