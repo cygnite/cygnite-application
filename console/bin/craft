@@ -10,7 +10,7 @@ define('VERSION', 'Cygnite: Craft Console v2.x');
  */
 define('DS', DIRECTORY_SEPARATOR);
 
-/**
+/*
 |---------------------------------------------------------------
 | Define PHP file extension
 | ---------------------------------------------------------------
