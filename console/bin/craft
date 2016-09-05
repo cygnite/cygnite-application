@@ -6,11 +6,11 @@ define('VERSION', 'Cygnite: Craft Console v2.x');
 /*
  | ---------------------------------------------------------------
  | Define Directory Separator
- * ---------------------------------------------------------------
+ | ---------------------------------------------------------------
  */
 define('DS', DIRECTORY_SEPARATOR);
 
-/**
+/*
 |---------------------------------------------------------------
 | Define PHP file extension
 | ---------------------------------------------------------------
@@ -46,7 +46,7 @@ defined('ROOTDIR') or define('ROOTDIR', rtrim(end($dir)));
 
 defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
 
-include '/../../bootstrap/initialize.php';
+include realpath('/../../bootstrap/initialize.php');
 
 /*
  | We will set default timezone constant here to use
