@@ -23,36 +23,32 @@ use Cygnite\Auth\Exception\InvalidCredentialException;
  */
 class Auth extends AuthManager implements AuthInterface
 {
-    public static $user = array();
+    public static $user = [];
     public static $msg = 'Welcome! ';
     public $username;
     public $valid = false;
     public $attempt = 0;
-    protected $item = array();
-    protected $errors = array();
-    private $credential = array();
-    private $table;
+    protected $item = [];
+    protected $errors = [];
+    protected $credential = [];
+    protected $table;
 
     /**
      * We will make Auth instance and return singleton
-     * instance to the user
+     * instance to the user.
      *
      * @return object
      */
     public static function make()
     {
-        $app = self::getContainer();
-        $auth = __CLASS__;
-        return $app->singleton(
-            'auth',
-            function ($c) use ($auth) {
-                return new $auth;
-            }
-        );
+        return self::getApplication()->singleton('auth', function ($c) {
+            $class = __CLASS__;
+            return new $class;
+        });
     }
 
     /**
-     * Get user credentials
+     * Get user credentials.
      *
      * @return array|null
      */
@@ -62,17 +58,38 @@ class Auth extends AuthManager implements AuthInterface
     }
 
     /**
-     * Set User Credentials to authentication
+     * Set user credentials into array.
      *
-     * @param $credential
+     * @param      $user
+     * @param null $password
+     * @param bool $status
+     * @return $this
      */
-    public function setCredential($credential)
+    public function credential($user, $password = null, $status = false)
     {
+        /**
+        | We will check is array passed as first argument
+        | then we will simply return Auth instance
+         */
+        if (is_array($user)) {
+            $this->credential = $user;
+            return $this;
+        }
+
+        $credential = [];
+        if ($status) {
+            $credential = ['username' => $user, 'password' => $password, 'status' => $status];
+        } else {
+            $credential = ['username' => $user, 'password' => $password];
+        }
+
         $this->credential = $credential;
+
+        return $this;
     }
 
     /**
-     * We will validate user and return boolean value
+     * We will validate user and return boolean value.
      *
      * $input = array('email' => 'dey.sanjoy0@gmail.com', 'password' => 'xyz@324', 'status' => 1);
      * $auth->verify($input);
@@ -86,8 +103,7 @@ class Auth extends AuthManager implements AuthInterface
     public function verify($user, $password = null, $status = false)
     {
         $this->table = $this->table();
-        $credential = array();
-
+        $credential = [];
         if (is_array($user)) {
             $credential = $this->credential($user)->getCredential();
         } else {
@@ -98,26 +114,25 @@ class Auth extends AuthManager implements AuthInterface
         | Get user information from model
         | to verify against user input
          */
-        $userInfo = $this->setWhere()->findAll();
+        $userInfo = $this->setWhere()->findOne();
 
-        if ($userInfo->count() > 0) {
-
+        if (count($userInfo) > 0) {
             /*
              | Validate user against password
              | if user validated return true
              */
-            if (trim($userInfo[0]->password) == trim($credential['password'])) {
+            if (trim($userInfo->password) == trim($credential['password'])) {
                 $this->valid = true;
                 self::$user = $userInfo;
                 $this->attempt = 0;
 
                 return true;
-            } else {
-                return $this->setFailure('password');
-            } // password validation end
-        } else {
-            return $this->setFailure('user');
-        } // no user found
+            }
+            // password validation end
+            return $this->setFailure('password');
+        }
+        // no user found
+        return $this->setFailure('user');
     }
 
     /**
@@ -130,15 +145,15 @@ class Auth extends AuthManager implements AuthInterface
     {
         if ($this->valid) {
             return $this->createSession();
-        } else {
-            $credential = $this->getCredential();
-            if (empty($credential)) {
-                throw new InvalidCredentialException('Please set credential using Auth::setCredential($credential) to login.');
-            }
+        }
 
-            if ($valid = $this->verify($credential)) {
-                return ($valid) ? $this->createSession() : $valid;
-            }
+        $credential = $this->getCredential();
+        if (empty($credential)) {
+            throw new InvalidCredentialException('Please set credential using Auth::credential($credential) to login.');
+        }
+
+        if ($valid = $this->verify($credential)) {
+            return ($valid) ? $this->createSession() : $valid;
         }
     }
 
@@ -200,47 +215,27 @@ class Auth extends AuthManager implements AuthInterface
         ($redirect) ? Url::redirectTo(Url::getBase()) : '';
     }
 
+    /**
+     * Get the user info from the session
+     *
+     * @return mixed
+     */
     public function userInfo()
     {
         if (Session::has('auth:' . trim($this->table))) {
-            $user = Session::get('auth:' . trim($this->table));
-            return $user;
+            return Session::get('auth:' . trim($this->table));
         }
+
+        return [];
     }
 
     /**
-     * Set user credentials into array
+     * Set authentication failure and increment the failed attempt count
      *
-     * @param      $user
-     * @param null $password
-     * @param bool $status
-     * @return $this
+     * @param $key
+     * @return bool
      */
-    protected function credential($user, $password = null, $status = false)
-    {
-        /**
-        | We will check is array passed as first argument
-        | then we will simply return Auth instance
-         */
-        if (is_array($user)) {
-            $this->setCredential($user);
-            return $this;
-        }
-
-        $credential = array();
-
-        if ($status) {
-            $credential = array('username' => $user, 'password' => $password, 'status' => $status);
-        } else {
-            $credential = array('username' => $user, 'password' => $password);
-        }
-
-        $this->setCredential($credential);
-
-        return $this;
-    }
-
-    private function setFailure($key)
+    protected function setFailure($key)
     {
         $this->valid = false;
         $this->attempt++;
@@ -252,7 +247,7 @@ class Auth extends AuthManager implements AuthInterface
     /**
      * @return array|null
      */
-    private function setWhere()
+    protected function setWhere()
     {
         $credentials = $this->getCredential();
 
@@ -276,7 +271,7 @@ class Auth extends AuthManager implements AuthInterface
     /**
      * @return bool
      */
-    private function createSession()
+    protected function createSession()
     {
         $hasSession = $this->setSession();
         $this->setUserInfo(self::$user);
@@ -289,22 +284,20 @@ class Auth extends AuthManager implements AuthInterface
      *
      * @return mixed
      */
-    private function setSession()
+    protected function setSession()
     {
-        $primaryKey = null;
-        $data = array();
-        $primaryKey = self::$user[0]->getPrimaryKey();
+        $data = [];
+        $primaryKey = self::$user->getPrimaryKey();
+        $data[$primaryKey] = self::$user->{$primaryKey};
 
-        $data[$primaryKey] = self::$user[0]->{$primaryKey};
-
-        foreach (self::$user[0]->getAttributes() as $key => $val) {
+        foreach (self::$user->getAttributes() as $key => $val) {
             $data[$key] = $val;
         }
 
         $data['isLoggedIn'] = true;
         $data['flashMsg'] = static::$msg . ucfirst($this->username);
 
-        Session::set('auth:' . trim($this->table), $data);
+        Session::set('auth:' . trim($this->table), array_filter($data));
 
         return true;
     }
@@ -315,7 +308,7 @@ class Auth extends AuthManager implements AuthInterface
      * @param $key
      * @param $value
      */
-    private function setError($key, $value)
+    protected function setError($key, $value)
     {
         $this->errors[$key] = $value;
     }
@@ -327,7 +320,7 @@ class Auth extends AuthManager implements AuthInterface
      *
      * @param $userInfo
      */
-    private function setUserInfo($userInfo)
+    protected function setUserInfo($userInfo)
     {
         foreach ($userInfo as $key => $value) {
             $this->{$key} = $value;

@@ -26,7 +26,7 @@ class Event extends EventListener
      * get executed
      *
      * <code>
-     * 'event.api.run' => '\Apps\Resources\Extensions\Api@run'
+     * 'event.name' => '\Apps\Resources\Extensions\Api@run'
      *
      *  will execute
      *
@@ -37,7 +37,7 @@ class Event extends EventListener
      *  public function afterRun() {}
      *
      *
-     * $this->fire('event.api.run');
+     * $this->fire('event.name');
      * </code>
      *
      * @var array
@@ -47,21 +47,36 @@ class Event extends EventListener
     ];
 
     /**
+     * Activate application event, return true/false
+     *
+     * @return bool
+     */
+    public function isAppEventEnabled()
+    {
+        return true;
+    }
+
+    /**
      * This events will get executed before and after
      * Application::bootApplication() method
      *
-     * @var array
+     * @return array
      */
-    public static $appEvents = [
+    public function registerAppEvents()
+    {
+        return [
         'beforeBootingApplication' => '\Apps\Resources\Extensions\Api@payment',
         'afterBootingApplication' => '\Apps\Resources\Extensions\Api@paymentSuccess'
     ];
+    }
 
-    public static $activateAppEvent = false;
-
-    public function register($app)
+    /**
+     * Fire Registered events or set into container object
+     * @param $container
+     */
+    public function register($container)
     {
-        parent::boot();
-        $app['event.api.run'] = $this->fire('event.api.run');
+        parent::boot($this);
+        $container['event.api.run'] = $this->fire('event.api.run');
     }
 }
