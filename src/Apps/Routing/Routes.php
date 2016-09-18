@@ -21,8 +21,7 @@ if (!defined('CF_SYSTEM')) {
  |  show(trans('Hello Translator {user}', ['{user}' => 'Cygnite']));
  */
 
-$app->router->get('/module/{:id}', function ($router, $id) {
-    //Router::call("Acme::User@Index", []);
+$router->get('/module/{:id}', function ($router, $id) {
     /*
      | Call module directly from routing
      */
@@ -42,10 +41,10 @@ $app->router->get('/module/{:id}', function ($router, $id) {
  |
  | Uncomment below snippet to use RouteCollection
  */
-//$routeCollection = $app->make('\Apps\Routing\RouteCollection');
-//$routeCollection->setRouter($app->router)->run();
+//$routeCollection = $app->getContainer()->make('\Apps\Routing\RouteCollection');
+//$routeCollection->setRouter($router)->run();
 
-$app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
+$router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
     $user = new User();
     $user->name = (string) $name;
     $user->group_id = (int) $group_id;
@@ -60,10 +59,10 @@ GET       - resource/{id}/edit  user.getEdit
 PUT|PATCH - resource/{id}       user.putUpdate
 DELETE    - resource/{id}       user.delete
 */
-//$app->router->resource('resource', 'user'); // respond to resource routing
+//$router->resource('resource', 'user'); // respond to resource routing
 
-$app->router->set404Page(function () use($app) {
+$router->set404Page(function () use($app) {
     $app->abort(404, "Abort 404 Page Not Found!");
 });
 
-$app->router->run();
+$router->run();

@@ -1,4 +1,12 @@
 <?php
+use Cygnite\Helpers\Config;
+use Cygnite\Foundation\Application;
+use Cygnite\Bootstrappers\Bootstrapper;
+
+
+$paths = require __DIR__.'/paths.php';
+Config::init($paths['app.config'], require $paths['app.config'].DS.'files'.EXT);
+
 /*
 | -------------------------------------------------------------
 | Check PHP Version
@@ -7,12 +15,11 @@
 | and trigger exception is not satisfied
 |
 */
-if (version_compare(PHP_VERSION, '5.4', '<') === true) {
-    die('Cygnite Framework Requires PHP v5.4 or Above! \n');
+if (version_compare(PHP_VERSION, '7.0', '<') === true) {
+    die('Cygnite Framework Requires PHP v7.0 or Above! \n');
 }
 
-require 'initialize'.EXT;
-
+$container = new \Cygnite\Container\Container();
 /*
 |--------------------------------------------------------------------------
 | Set Application Default Timezone
@@ -22,7 +29,7 @@ require 'initialize'.EXT;
 | the application for any date time functions.
 |
 */
-$config = \Cygnite\Helpers\Config::get('global.config');
+$config = Config::get('global.config');
 
 date_default_timezone_set($config['timezone']);
 /*
@@ -44,9 +51,34 @@ if (ENV == 'development') {
 }
 
 // Register debugger into the application
-$app->singleton('debugger', function () {
+$container->singleton('debugger', function () {
     return new \Apps\Exceptions\Handler();
 });
+
+$container['debugger']->setEnv(ENV)->handleException();
+
+$bootstrapper = new Bootstrapper(new \Cygnite\Bootstrappers\Paths($paths));
+$bootstrapper->registerBootstrappers(require $paths['app.config'].DS.'bootstrappers'.EXT);
+
+$bootstrapDispatcher = new \Cygnite\Bootstrappers\BootstrapperDispatcher($container, $bootstrapper);
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| To boot framework first thing we will create a new application instance
+| which serves glue for all the components, and binding components
+| with the IoC container
+*/
+$app = new Application($container, $bootstrapDispatcher);
+/**
+| ---------------------------------------------------
+| Application booting process
+| --------------------------------------------------
+ *
+ * Set configuration and services and boot-up application
+ */
+//$app->configure();
 
 /*
 |--------------------------------------------------------------------------
