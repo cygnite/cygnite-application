@@ -84,6 +84,8 @@ return [
      |
      */
     'activate.event.middleware' => false,
+    
+    'app.event.class' => 'Apps\Middleware\Events\Event',
 
     /*
     |--------------------------------------------------------------------------
