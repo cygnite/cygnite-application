@@ -61,7 +61,7 @@ class Event extends EventListener
      */
     public function isAppEventEnabled()
     {
-        return true;
+        return false;
     }
 
     /**
