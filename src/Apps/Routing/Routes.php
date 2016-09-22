@@ -22,7 +22,6 @@ if (!defined('CF_SYSTEM')) {
  */
 
 $app->router->get('/module/{:id}', function ($router, $id) {
-    //Router::call("Acme::User@Index", []);
     /*
      | Call module directly from routing
      */
@@ -42,15 +41,16 @@ $app->router->get('/module/{:id}', function ($router, $id) {
  |
  | Uncomment below snippet to use RouteCollection
  */
-//$routeCollection = $app->make('\Apps\Routing\RouteCollection');
-//$routeCollection->setRouter($app->router)->run();
+$routeCollection = $app->make('\Apps\Routing\RouteCollection');
+$routeCollection->setRouter($app->router)->run();
 
-$app->router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
+$app->router->get('/user/{:name}/{:id}', function ($router, $name, $groupId) {
     $user = new User();
     $user->name = (string) $name;
-    $user->group_id = (int) $group_id;
+    $user->group_id = (int) $groupId;
     $user->save();
 });
+
 /*
 GET       - resource/           user.getIndex
 GET       - resource/new        user.getNew
