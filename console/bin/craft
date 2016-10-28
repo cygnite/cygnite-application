@@ -46,7 +46,7 @@ defined('ROOTDIR') or define('ROOTDIR', rtrim(end($dir)));
 
 defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
 
-include realpath('/../../bootstrap/initialize.php');
+include CYGNITE_BASE.DS.'bootstrap'.DS.'initialize.php';
 
 /*
  | We will set default timezone constant here to use
