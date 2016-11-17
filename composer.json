@@ -14,7 +14,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "cygnite/framework": "2.*"
+        "cygnite/framework": "dev-master"
     },
     "autoload": {
         "psr-4": {
