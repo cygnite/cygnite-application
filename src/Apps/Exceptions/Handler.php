@@ -15,7 +15,7 @@ class Handler extends ExceptionHandler
      * @param \Exception $e
      * @throws \Exception
      */
-    public function report(\Exception $e)
+    public function report($e)
     {
         throw $e;
     }
@@ -27,7 +27,7 @@ class Handler extends ExceptionHandler
      * @param \Exception $e
      * @return mixed
      */
-    public function render(\Exception $e)
+    public function render($e)
     {
         /**
          * We will log exception if logger enabled
