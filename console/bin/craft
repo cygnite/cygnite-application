@@ -57,7 +57,7 @@ $config = \Cygnite\Helpers\Config::get('global.config');
 //timezone constant
 define('SET_TIME_ZONE', $config['timezone']);
 
-$console = new ConsoleApplication($app, VERSION);
+$console = new ConsoleApplication($container, VERSION);
 
 /*
  | We have setup the environment.

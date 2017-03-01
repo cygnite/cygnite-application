@@ -1,11 +1,13 @@
 <?php
+declare(strict_types=1);
 use Cygnite\Helpers\Config;
+use Cygnite\Http\Requests\Request;
 use Cygnite\Foundation\Application;
 use Cygnite\Bootstrappers\Bootstrapper;
-
+use Cygnite\Bootstrappers\BootstrapperDispatcher;
 
 $paths = require __DIR__.'/paths.php';
-Config::init($paths['app.config'], require $paths['app.config'].DS.'files'.EXT);
+Config::init($paths['app.config'], require $paths['app.config'].DS.'files.php');
 
 /*
 | -------------------------------------------------------------
@@ -15,11 +17,15 @@ Config::init($paths['app.config'], require $paths['app.config'].DS.'files'.EXT);
 | and trigger exception is not satisfied
 |
 */
-if (version_compare(PHP_VERSION, '7.0', '<') === true) {
-    die('Cygnite Framework Requires PHP v7.0 or Above! \n');
+if (version_compare(PHP_VERSION, '7.0.0') < 0) {
+    die('Cygnite Framework Requires PHP v7.0.0 or Above!');
 }
 
-$container = new \Cygnite\Container\Container();
+$container = new \Cygnite\Container\Container(
+    new \Cygnite\Container\Injector(),
+    include $paths['app.config'].DS.'definitions'.DS.'configuration.php',
+    $paths['app.namespace'].'\\Controllers\\'
+);
 /*
 |--------------------------------------------------------------------------
 | Set Application Default Timezone
@@ -43,24 +49,22 @@ date_default_timezone_set($config['timezone']);
 define('ENV', $config['environment']);
 
 if (ENV == 'development') {
-    ini_set('display_errors', -1);
+    ini_set('display_errors', '-1');
     error_reporting(E_ALL);
 } else {
-    ini_set('display_error', 0);
+    ini_set('display_error', '0');
     error_reporting(0);
 }
 
 // Register debugger into the application
-$container->singleton('debugger', function () {
-    return new \Apps\Exceptions\Handler();
+$container->singleton('debugger', function () use($paths) {
+    return new \Apps\Exceptions\Handler($paths);
 });
 
 $container['debugger']->setEnv(ENV)->handleException();
-
 $bootstrapper = new Bootstrapper(new \Cygnite\Bootstrappers\Paths($paths));
-$bootstrapper->registerBootstrappers(require $paths['app.config'].DS.'bootstrappers'.EXT);
+$bootstrapper->registerBootstrappers(require $paths['app.config'].DS.'bootstrappers.php');
 
-$bootstrapDispatcher = new \Cygnite\Bootstrappers\BootstrapperDispatcher($container, $bootstrapper);
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -70,15 +74,11 @@ $bootstrapDispatcher = new \Cygnite\Bootstrappers\BootstrapperDispatcher($contai
 | which serves glue for all the components, and binding components
 | with the IoC container
 */
-$app = new Application($container, $bootstrapDispatcher);
-/**
-| ---------------------------------------------------
-| Application booting process
-| --------------------------------------------------
- *
- * Set configuration and services and boot-up application
- */
-//$app->configure();
+$app = new Application($container, new BootstrapperDispatcher($container, $bootstrapper));
+
+if (isCli()) {
+    return true;
+}
 
 /*
 |--------------------------------------------------------------------------
