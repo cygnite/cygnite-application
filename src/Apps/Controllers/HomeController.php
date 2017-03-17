@@ -1,8 +1,6 @@
 <?php
 namespace Apps\Controllers;
 
-use Cygnite\Mvc\View\View;
-use Cygnite\Foundation\Application;
 use Cygnite\Http\Responses\Response;
 use Cygnite\Mvc\Controller\AbstractBaseController;
 
@@ -17,19 +15,19 @@ class HomeController extends AbstractBaseController
     *
     * Your GET request of "home/index" will respond like below -
     *
-    *      public function indexAction()
+    *     public function indexAction() : Response
     *     {
-    *            echo "Cygnite : Hellow ! World ";
+    *         return new Response("Cygnite: Hello World!!");
     *     }
     * Note: By default cygnite doesn't allow you to pass query string in url, which
     * consider as bad url format.
     *
     * You can also pass parameters into the function as below-
-    * Your request to  "home/form/2134" will pass to
+    * Your request to  "home/profile/2134" will pass to
     *
-    *      public function formAction($id = ")
+    *      public function profileAction($id)
     *      {
-    *             echo "Cygnite : Your user Id is $id";
+    *          return new Response("Cygnite: Your Profile Id Is $id");
     *      }
     * In case if you are not able to access parameters passed into method
     * directly as above, you can also get the uri segment
@@ -46,25 +44,17 @@ class HomeController extends AbstractBaseController
    // protected $templateExtension = '.html.twig';
 
    //protected $autoReload = true;
-     /*
-     * Your constructor.
-     * @access public
-     *
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
+     
     /**
      * Default method for your controller. Render welcome page to user.
      * @access public
      *
      */
-   public function indexAction()
+   public function indexAction() : Response
    {
-       $content = View::create('Apps.Views.home.welcome', ['title' => 'Welcome to Cygnite Framework']);
+       $content = $this->view->create('Apps.Views.home.welcome', ['title' => 'Welcome to Cygnite Framework']);
 
-       return Response::make($content);
+       return new Response($content);
    }
-}//End of your home controller
+   
+}

@@ -10,6 +10,7 @@ use Cygnite\Mvc\Controller\AbstractBaseController;
 class AuthController extends AbstractBaseController
 {
     protected $templateEngine = false;
+    
     private $auth;
 
     /**
@@ -19,9 +20,8 @@ class AuthController extends AbstractBaseController
      */
     public function __construct()
     {
-        parent::__construct();
         // Set the user model to authenticate user
-        $this->auth = Auth::model('\Apps\Models\User');
+        $this->auth = Auth::model(\Apps\Models\User::class);
     }
 
     /**
@@ -32,7 +32,7 @@ class AuthController extends AbstractBaseController
      */
     public function checkAction(Request $request)
     {
-        $crypt = new Encrypt;
+        $crypt = new Encrypt;// mcrypt library is deprecated in PHP 7.1. So use alternative.
         $credentials = [
             'username' => $request->post->get('username'),
             'password' => $crypt->encode($request->post->get('password'))

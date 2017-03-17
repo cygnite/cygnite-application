@@ -19,7 +19,10 @@ use Cygnite\Mvc\Controller\AbstractBaseController;
 
 class ProductController extends AbstractBaseController
 {
-   /**
+	// Plain layout
+    protected $layout = 'layouts.base';
+    
+   /*
     | --------------------------------------------------------------------------
     | The Product Controller
     |--------------------------------------------------------------------------
@@ -34,18 +37,6 @@ class ProductController extends AbstractBaseController
     |     }
     |
     */
-
-    // Plain layout
-    protected $layout = 'layouts.base';
-
-    /**
-    * Your constructor.
-    * @access public
-    */
-    public function __construct()
-    {
-        parent::__construct();
-    }
 
     /**
     * Default method for your controller. Render index page into browser.
