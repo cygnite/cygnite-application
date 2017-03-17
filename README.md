@@ -43,7 +43,7 @@ You are at right place. We welcome you to participate on Cygnite Framework's dev
 Contribute on Cygnite Framework development, grow with us. Join the team, learn, get help and help others, find, report bugs, send us your feedback, send your wishlist for new features or write and send us patches for Cygnite Framework.
 
 
-###Contributing into core -
+###Contributing To Core Framework-
 
 i.  Make sure you have GitHub Account.
 
@@ -56,6 +56,5 @@ iv.  Fork cygnite/framework repository on GitHub.
  v. PSR coding standards must be followed.
  
 ###License
---------------
 
 The Cygnite framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
