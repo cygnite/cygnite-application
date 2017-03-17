@@ -4,13 +4,13 @@ namespace Apps\Exceptions;
 use Cygnite\Exception\ExceptionHandler;
 
 /**
- * Class Handler
+ * Class Handler.
  * @package Apps\Exceptions
  */
 class Handler extends ExceptionHandler
 {
     /**
-     * Throws exceptions in development environment
+     * Throws exceptions in development environment.
      *
      * @param \Exception $e
      * @throws \Exception
@@ -30,7 +30,7 @@ class Handler extends ExceptionHandler
     public function render($e)
     {
         /**
-         * We will log exception if logger enabled
+         * We will log exception if logger enabled.
          */
         if ($this->isLoggerEnabled()) {
             $this->log($e);

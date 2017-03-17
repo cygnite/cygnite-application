@@ -7,23 +7,16 @@ if (!defined('CF_SYSTEM')) {
  * Register all service providers
  *
  * Add multiple Service Provider into the array
- * 
  */
  /*
  $app->registerServiceProvider([
-    "Apps\Services\Providers\Payment\ApiServiceProvider",
-    "Cygnite\Services\Stripe\Providers\StripeServiceProvider",
-    "Cygnite\Services\Omnipay\Providers\OmnipayServiceProvider",
-    "Cygnite\Services\SocialOAuth\Providers\SocialAuthServiceProvider"
+    \Apps\Services\Providers\Payment\ApiServiceProvider::class,
+    \Cygnite\Services\Stripe\Providers\StripeServiceProvider::class,
+    \Cygnite\Services\Omnipay\Providers\OmnipayServiceProvider::class,
+    \Cygnite\Services\SocialOAuth\Providers\SocialAuthServiceProvider::class
  ]);
 
 // Controller as Service automatic configuration
-$app->setServiceController('hello.controller', '\Apps\Controllers\HelloController');
-OR
+$app->setServiceController('hello.controller', \Apps\Controllers\HelloController::class);
 
-// Manually configure Controller as Service
-$app['user.controller'] = function () use($app)
-{
-    return new \Apps\Controllers\HelloController(new \Cygnite\Mvc\Controller\ServiceController, $app);
-};
 */

@@ -1,7 +1,5 @@
 <?php
 use Apps\Models\User;
-use Cygnite\Base\Router\Router;
-use Cygnite\Foundation\Application;
 use Cygnite\Http\Responses\Response;
 
 if (!defined('CF_SYSTEM')) {
@@ -21,7 +19,7 @@ if (!defined('CF_SYSTEM')) {
  |  show(trans('Hello Translator {user}', ['{user}' => 'Cygnite']));
  */
 
-$app->router->get('/module/{:id}', function ($router, $id) {
+$router->get('/module/{:id}', function ($router, $id) {
     /*
      | Call module directly from routing
      */
@@ -36,21 +34,20 @@ $app->router->get('/module/{:id}', function ($router, $id) {
  |
  | For every CRUD Controller you need to define routes
  | in RouteCollection, see
- | 
+ |
  | RouteCollection::executeStaticRoutes(); function
  |
  | Uncomment below snippet to use RouteCollection
  */
-$routeCollection = $app->make('\Apps\Routing\RouteCollection');
-$routeCollection->setRouter($app->router)->run();
+//$routeCollection = $app->getContainer()->make(\Apps\Routing\RouteCollection::class);
+//$routeCollection->setRouter($router)->run();
 
-$app->router->get('/user/{:name}/{:id}', function ($router, $name, $groupId) {
+$router->get('/user/{:name}/{:id}', function ($router, $name, $group_id) {
     $user = new User();
     $user->name = (string) $name;
-    $user->group_id = (int) $groupId;
+    $user->group_id = (int) $group_id;
     $user->save();
 });
-
 /*
 GET       - resource/           user.getIndex
 GET       - resource/new        user.getNew
@@ -60,10 +57,10 @@ GET       - resource/{id}/edit  user.getEdit
 PUT|PATCH - resource/{id}       user.putUpdate
 DELETE    - resource/{id}       user.delete
 */
-//$app->router->resource('resource', 'user'); // respond to resource routing
+//$router->resource('resource', 'user'); // respond to resource routing
 
-$app->router->set404Page(function () use($app) {
+$router->set404Page(function () use($app) {
     $app->abort(404, "Abort 404 Page Not Found!");
 });
 
-$app->router->run();
+$router->run();

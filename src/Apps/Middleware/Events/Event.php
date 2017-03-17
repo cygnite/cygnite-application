@@ -19,15 +19,7 @@ use Cygnite\Base\EventHandler\Event as EventListener;
  */
 class Event extends EventListener
 {
-	/**
-	* Initialize the Events
-	*/
-	public function __construct()
-	{
-		parent::boot($this);
-	}
-	
-	/**
+    /**
      * The event handler mappings for the application.
      * You can add number of event in below array, When ever
      * you try to call/fire specified method before and after event will
@@ -61,7 +53,7 @@ class Event extends EventListener
      */
     public function isAppEventEnabled()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -84,6 +76,7 @@ class Event extends EventListener
      */
     public function register($container)
     {
+        parent::boot($this);
         $container['event.api.run'] = $this->fire('event.api.run');
     }
 }

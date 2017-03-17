@@ -1,27 +1,5 @@
 <?php
-use Cygnite\Mvc\View\Widget;
-use Cygnite\Common\UrlManager\Url;
-use Cygnite\AssetManager\AssetCollection;
-
-$asset = AssetCollection::make(function ($asset) {
-    // group of stylesheets
-    $asset->add('style', array('path' => 'public/assets/css/bootstrap/css/bootstrap.min.css'))
-        ->add('style', array('path' => 'public/assets/css/bootstrap/css/bootstrap-theme.min.css'))
-        ->add('style', array('path' => 'public/assets/css/cygnite/bootstrap/datatables-bootstrap.css'))
-        ->add('style', array('path' => 'public/assets/css/cygnite/flash.css'))
-        ->add('style', array('path' => 'public/assets/css/cygnite/wysihtml5/prettify.css'))
-        ->add('style', array('path' => 'public/assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css'));
-
-    // Group of scripts
-    $asset->add('script', array('path' => 'public/assets/js/cygnite/jquery/1.10.1/jquery.min.js'))
-        ->add('script', array('path' => 'public/assets/js/twitter/bootstrap/js/bootstrap.min.js'))
-        ->add('script', array('path' => 'public/assets/js/dataTables/jquery.dataTables.min.js'))
-        ->add('script', array('path' => 'public/assets/js/dataTables/datatables-bootstrap.js'))
-        ->add('script', array('path' => 'public/assets/js/dataTables/datatables.fnReloadAjax.js'))
-        ->add('script', array('path' => 'public/assets/js/dataTables/prettify.js'));
-
-    return $asset;
-});
+$asset = $view->createAssetCollection('\Apps\Views\Assets\HomeAssetCollection');
 ?>
 <!DOCTYPE html>
 <html lang="en">

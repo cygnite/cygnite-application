@@ -1,8 +1,10 @@
 #!/usr/bin/env php
 <?php
+use Cygnite\Console\Foundation\Application as ConsoleApplication;
+
 set_time_limit(0);
 
-define('VERSION', 'Cygnite: Craft Console v2.x');
+define('VERSION', 'Cygnite: Craft Console v3.x');
 /*
  | ---------------------------------------------------------------
  | Define Directory Separator
@@ -10,11 +12,11 @@ define('VERSION', 'Cygnite: Craft Console v2.x');
  */
 define('DS', DIRECTORY_SEPARATOR);
 
-/*
+/**
 |---------------------------------------------------------------
 | Define PHP file extension
 | ---------------------------------------------------------------
-*/
+ */
 defined('EXT') or define('EXT', '.php');
 
 /*---------------------------------------------------------------
@@ -23,8 +25,6 @@ defined('EXT') or define('EXT', '.php');
 | ---------------------------------------------------------------
 */
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'cygnite-package');
-
-defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
 
 /* --------------------------------------------------------------
 | Define application folder name
@@ -46,7 +46,7 @@ defined('ROOTDIR') or define('ROOTDIR', rtrim(end($dir)));
 
 defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(dirname(__DIR__)));
 
-include CYGNITE_BASE.DS.'bootstrap'.DS.'initialize.php';
+include CYGNITE_BASE.'/bootstrap/start.php';
 
 /*
  | We will set default timezone constant here to use
@@ -57,11 +57,13 @@ $config = \Cygnite\Helpers\Config::get('global.config');
 //timezone constant
 define('SET_TIME_ZONE', $config['timezone']);
 
+$console = new ConsoleApplication($container, VERSION);
+
 /*
  | We have setup the environment.
  | Create Cygnite Console instance to run application.
  */
-$console = new \Apps\Console\Bootstrap(VERSION);
+$console = new \Apps\Console\Kernel($console, VERSION);
 
 /*
  | Environment Setup and Boot Strapping done!

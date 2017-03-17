@@ -84,8 +84,20 @@ return [
      |
      */
     'activate.event.middleware' => false,
-    
-    'app.event.class' => 'Apps\Middleware\Events\Event',
+
+    /*
+     * Application Event Middleware class. You can define event classes,
+     * All events will execute while application booting up
+     */
+    'app.event.class' => Apps\Middleware\Events\Event::class,
+
+    /*
+     * Activate or deactive Bootstrappers. All bootstrappers
+     * will run during booting up the framework. You need to specify
+     * your bootstrappers classes in src/Apps/Configs/bootstrappers.php file
+     *
+     */
+    'bootstrappers.activate' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -257,7 +269,6 @@ return [
         ],
 
     ],
-
     /*
      * Uses Cartalyst Stripe package
      *

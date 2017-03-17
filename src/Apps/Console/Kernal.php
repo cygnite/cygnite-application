@@ -8,7 +8,7 @@ use Cygnite\Console\CraftApplication;
  *
  * @package Apps\Console
  */
-class Bootstrap extends CraftApplication
+class Kernel extends CraftApplication
 {
     /**
      * Add craft console commands in the array stack
@@ -19,9 +19,9 @@ class Bootstrap extends CraftApplication
         'Apps\Console\Commands\GreetCommand',
     ];
 
-    public function __construct($version)
+    public function __construct($consoleApp, $version)
     {
-        parent::__construct($version);
+        parent::__construct($consoleApp, $version);
     }
 
     /**
@@ -29,9 +29,9 @@ class Bootstrap extends CraftApplication
      *
      * @return array
      */
-    public function setCommands()
+    protected function setCommands()
     {
-        parent::register($this->commands);
+        return $this->register($this->commands);
     }
 
     /**
@@ -41,10 +41,7 @@ class Bootstrap extends CraftApplication
      */
     public function run()
     {
-        $this->setCommands();
-
-        parent::run();
-
-        return $this;
+        $this->setCommands()
+            ->execute();
     }
 }
