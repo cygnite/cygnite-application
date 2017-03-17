@@ -30,7 +30,7 @@ class HomeAssetCollection
      *
      * @return BaseAssetCollection
      */
-    public function register() : BaseAssetCollection
+    public function register()
     {
         $this->registerStyles();
         $this->registerScripts();
