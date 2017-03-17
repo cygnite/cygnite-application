@@ -36,7 +36,7 @@ $router->get('/module/{:id}', function ($router, $id) {
  |
  | For every CRUD Controller you need to define routes
  | in RouteCollection, see
- | 
+ |
  | RouteCollection::executeStaticRoutes(); function
  |
  | Uncomment below snippet to use RouteCollection

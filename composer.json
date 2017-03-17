@@ -1,7 +1,7 @@
 {
     "name": "cygnite/cygnite-application",
     "description": "Cygnite PHP Framework- Skeleton Application",
-    "keywords": ["Cygnite", "Framework"],
+    "keywords": ["Cygnite", "PHP", "Framework"],
     "homepage": "http://www.cygniteframework.com",
     "license": "MIT",
     "type": "project",
@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "php": ">=5.4",
+        "php": ">=7.0",
         "cygnite/framework": "dev-master"
     },
     "autoload": {
@@ -23,7 +23,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-master": "3.0-dev"
         }
     }
 }
