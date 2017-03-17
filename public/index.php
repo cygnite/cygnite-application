@@ -27,7 +27,7 @@ define('DS', DIRECTORY_SEPARATOR);
 | Define PHP file extension
 | ---------------------------------------------------------------
 */
-defined('EXT') or define('EXT', '.php');
+//defined('EXT') or define('EXT', '.php');
 
 /*---------------------------------------------------------------
 | Now that we know the path, set the main path constants
@@ -36,7 +36,7 @@ defined('EXT') or define('EXT', '.php');
 */
 defined('CF_SYSTEM') or define('CF_SYSTEM', 'cygnite-package');
 
-defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
+//defined('CF_BOOTSTRAP') or define('CF_BOOTSTRAP', 'bootstrap');
 
 /* --------------------------------------------------------------
 | Define application folder name
@@ -52,12 +52,15 @@ chdir(__DIR__);
 | Define `root` directory name
 | ---------------------------------------------------------------
 */
-$dir = explode(DS, dirname(__FILE__));
+$dir = explode(DS, realpath('../'));
+
 defined('ROOTDIR') or define('ROOTDIR', rtrim(end($dir)));
-defined('CYGNITE_BASE') or define('CYGNITE_BASE', dirname(__FILE__));
+
+defined('CYGNITE_BASE') or define('CYGNITE_BASE', realpath('../'));
 
 /* ---------------------------------------------------------------
 | We have defined path, lets start booting by including start.php
 | ----------------------------------------------------------------
 */
-require_once CF_BOOTSTRAP.DS.'start'.EXT;
+
+require_once realpath('../bootstrap'.DS.'start.php');
