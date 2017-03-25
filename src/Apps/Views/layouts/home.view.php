@@ -8,7 +8,7 @@ $asset = $view->createAssetCollection('\Apps\Views\Assets\HomeAssetCollection');
 
     <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="shortcut icon" href="public/assets/img/cygnite/fevicon.png" > </link>
+    <link rel="shortcut icon" href="assets/img/cygnite/fevicon.png" > </link>
 
     <title><?php echo $title; ?></title>
     <meta name="keywords" content="CRUD Application" />
@@ -40,23 +40,23 @@ $asset = $view->createAssetCollection('\Apps\Views\Assets\HomeAssetCollection');
             <span style="float: left; padding-top: 22px; padding-left: 41px;color:#fff;">Facebook </span>
             <span style="float: left;padding-left:8px;">
             <a href="http://www.facebook.com/cygniteframework" target="_blank">
-                <img height="64" src="public/assets/img/cygnite/facebook.png" width="64"></a>
+                <img height="64" src="assets/img/cygnite/facebook.png" width="64"></a>
             </span>
             <span style="float: left; padding-top: 22px;padding-left:22px;color:#fff;">Twitter</span>
             <span style="float: left;padding-left:8px;">
             <a href="https://twitter.com/cygnitephp" target="_blank">
-                <img height="64" src="public/assets/img/cygnite/twitter.png" width="64"></a>
+                <img height="64" src="assets/img/cygnite/twitter.png" width="64"></a>
             </span>
             <span style="float: left; padding-top: 22px; padding-left:22px;color:#fff;"> Google+</span>
             <span style="float: left;padding-left:8px;">
             <a href="https://www.google.com/+Cygniteframework" target="_blank">
-                <img height="64" src="public/assets/img/cygnite/google.png" width="64">
+                <img height="64" src="assets/img/cygnite/google.png" width="64">
             </a>
             </span>
             <span style="float: left; padding-top: 22px;padding-left:22px;color:#fff;">Linkedin</span>
             <span style="float: left;padding-left:8px;">
             <a href="http://www.linkedin.com/groups/Cygnite-PHP-Framework-5142503" target="_blank">
-                <img height="64" src="public/assets/img/cygnite/linkedin.png" width="64"></a>
+                <img height="64" src="assets/img/cygnite/linkedin.png" width="64"></a>
             </span>
         </div>
 
