@@ -120,7 +120,7 @@ use Cygnite\Common\UrlManager\Url;
     <div class="clear"> </div>
 </div>
 
-<?php echo Asset::css('public/assets/css/cygnite/style.css'); ?>
+<?php echo $view->asset()->style('assets/css/cygnite/style.css', true); ?>
 
 <style type="text/css">
     .feature-block{ float: left;border:0px; font-size: 17px;font-family: small-caption;}
