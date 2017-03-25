@@ -46,12 +46,12 @@ class HomeAssetCollection
     private function registerStyles()
     {
         // Set of resources tagged to header
-        $this->asset->add('style', ['path' => 'public/assets/css/bootstrap/css/bootstrap.min.css'])
-            ->add('style', ['path' => 'public/assets/css/bootstrap/css/bootstrap-theme.min.css'])
-            ->add('style', ['path' => 'public/assets/css/cygnite/bootstrap/datatables-bootstrap.css'])
-            ->add('style', ['path' => 'public/assets/css/cygnite/flash.css'])
-            ->add('style', ['path' => 'public/assets/css/cygnite/wysihtml5/prettify.css'])
-            ->add('style', ['path' => 'public/assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css']);
+        $this->asset->add('style', ['path' => 'assets/css/bootstrap/css/bootstrap.min.css'])
+            ->add('style', ['path' => 'assets/css/bootstrap/css/bootstrap-theme.min.css'])
+            ->add('style', ['path' => 'assets/css/cygnite/bootstrap/datatables-bootstrap.css'])
+            ->add('style', ['path' => 'assets/css/cygnite/flash.css'])
+            ->add('style', ['path' => 'assets/css/cygnite/wysihtml5/prettify.css'])
+            ->add('style', ['path' => 'assets/css/cygnite/wysihtml5/bootstrap-wysihtml5.css']);
     }
 
     /**
@@ -62,11 +62,11 @@ class HomeAssetCollection
     private function registerScripts()
     {
         // Set of resources tagged to footer
-        $this->asset->add('script', ['path' => 'public/assets/js/cygnite/jquery/1.10.1/jquery.min.js'])
-            ->add('script', ['path' => 'public/assets/js/twitter/bootstrap/js/bootstrap.min.js'])
-            ->add('script', ['path' => 'public/assets/js/dataTables/jquery.dataTables.min.js'])
-            ->add('script', ['path' => 'public/assets/js/dataTables/datatables-bootstrap.js'])
-            ->add('script', ['path' => 'public/assets/js/dataTables/datatables.fnReloadAjax.js'])
-            ->add('script', ['path' => 'public/assets/js/dataTables/prettify.js']);
+        $this->asset->add('script', ['path' => 'assets/js/cygnite/jquery/1.10.1/jquery.min.js'])
+            ->add('script', ['path' => 'assets/js/twitter/bootstrap/js/bootstrap.min.js'])
+            ->add('script', ['path' => 'assets/js/dataTables/jquery.dataTables.min.js'])
+            ->add('script', ['path' => 'assets/js/dataTables/datatables-bootstrap.js'])
+            ->add('script', ['path' => 'assets/js/dataTables/datatables.fnReloadAjax.js'])
+            ->add('script', ['path' => 'assets/js/dataTables/prettify.js']);
     }
 }
